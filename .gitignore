@@ -1,0 +1,24 @@
+# @(#) db/.gitignore
+# Last-edited: Sat 2020.08.15.1606 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
+#    First draft: Ignore in git updates
+# ----------------------------------------------------------------
+*~
+*.swp
+.netrwhist
+1Unused.zip
+EndNote/
+machines/Linux/bin/
+machines/Linux/fonts/
+machines/Linux/lib/
+machines/Ssh/
+machines/Zsh/oh-my-zsh
+texmf/doc/
+texmf/scripts/
+texmf/source/
+Vim/bundle
+Vim/sessions
+# eof db/.gitignore
+

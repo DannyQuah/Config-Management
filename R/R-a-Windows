@@ -1,0 +1,26 @@
+#! R
+# @(#) 1/db/R/R-a-Windows
+# Last edited: Sat Jan 18 18:27:23 2014 - Danny Quah (DQUAH@GRAVITY)
+# $
+# Call using source() as the Console and Graphics Device need to be
+# already running.
+
+# par(family="Calibri")
+# par(family="Cambria")
+# par(family="Consolas")
+par(family="Constantia")
+# par(family="Garamond")
+# par(family="Gentium Plus")
+# par(family="Gill Sans MT") ## doesn't show in fonts() but OK
+# par(family="Palatino Linotype")
+# par(family="Rockwell")
+# par(family="Tahoma")
+# par(family="Trebuchet MS")
+# par(family="Verdana")
+
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/R-a-Windows

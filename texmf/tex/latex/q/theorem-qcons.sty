@@ -1,0 +1,41 @@
+% @(#) theorem-qcons.sty: Theorems numbered consecutively
+% Last edited: Fri Sep 08 13:46:37 2006 - Danny Quah (dq@TWINPEAKS)
+% $
+% Revision History:
+%  % Thu Aug 31 09:20:15 2006 - dquah (dquah@DELL5971S.pc.lse.ac.uk)
+%    First draft.  Moved here from deflmath.sty
+% $
+% $Log$
+%
+\ifx\undefined\qTheoremQcons\else\endinput\fi
+\def\qTheoremQcons{\relax}
+% % Fri Apr  9 15:06:07 2004 - Danny Quah (dq@sijak.lse.ac.uk)
+% Put these here rather than in individual papers.  Might
+% still need rejigging/individual redefinition?
+%
+\theoremstyle{plain}\theorembodyfont{\normalfont\slshape}
+ \newtheorem{Theorem}{Theorem}
+{
+\theorembodyfont{\normalfont\slshape}
+%%-diff from Theorem% \newtheorem{Defn}{Definition}[section]
+%%-diff from Theorem% \newtheorem{Prop}[Defn]{Proposition}
+%%-diff from Theorem% \newtheorem{Cor}[Defn]{Corollary}
+%%-diff from Theorem% \newtheorem{Exmpl}[Defn]{Example}
+%%-diff from Theorem% \newtheorem{Lemma}[Defn]{Lemma}
+%
+\newtheorem{Defn}[Theorem]{Definition}
+\newtheorem{Prop}[Theorem]{Proposition}
+\newtheorem{Cor}[Theorem]{Corollary}
+\newtheorem{Exmpl}[Theorem]{Example}
+\newtheorem{Lemma}[Theorem]{Lemma}
+}
+%  PROOF
+%{
+% \theorembodyfont{\normalfont\slshape}
+% \newtheorem{Proof}{Proof}
+%}
+% 
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof theorem-qcons.sty

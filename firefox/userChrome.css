@@ -1,0 +1,19 @@
+/*URL/Address Bar*/
+/* font-size: urlbar find search */
+#urlbar .textbox-input-box, .textbox-input-box > html|*.textbox-input::placeholder,
+#search-container .textbox-input-box {
+ font-size: 16px!important;
+ font-family: Calibri;
+ color: #ccc !important;
+ padding: 0 !important;
+}
+/*==== Tab Label ====*/
+.tab-label {
+-moz-box-flex: 1 !important;
+font-size: 16px !important;
+}
+/*==== Tab Label ====*/
+.tab-label {
+-moz-box-flex: 1 !important;
+font-size: 16px !important;
+}

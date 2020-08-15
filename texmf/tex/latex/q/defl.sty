@@ -1,0 +1,114 @@
+% @(#) defl.sty: Defines for LaTeX and AmSLaTeX
+% Last edited: Fri Feb 10 20:49:01 2017 - Danny Quah (dquah@XBOOK)
+% $
+% Copy in old defines from defl-hold.sty as needed
+% Revision History:
+%  % Tue Nov 22 07:22:14 2016 - Danny Quah (dquah@xbook)
+%    \ifdefstring{\theAspectRatio}{43} - from etoolbox
+%    for picture widths
+%  % Tue May 13 14:31:47 2014 - Danny Quah (dquah@spartan)
+%    Re-done.  Copy from defl-hold.sty as needed
+%    First draft
+% $
+% $Log$
+%
+\ifx\undefined\tablerule\else\endinput\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \renewcommand{\theenumi}{\alph{enumi}}
+% \renewcommand{\labelenumi}{(\theenumi)}
+%
+%----------------------------------------------------------------------%
+%                               DEFINES                                %
+%----------------------------------------------------------------------%
+\newcommand\qClearBreak{%
+ \vskip +0.3em\hrule\vskip +0.3em%
+}%
+%----------------------------------------------------------------------%
+% http://tex.stackexchange.com/questions/112932/today-month-as-text
+%----------------------------------------------------------------------%
+\newcommand{\dqToday}{\ifnum\number\day<10 0\fi \number\day \space%
+\ifcase \month \or January\or February\or March\or April\or May%
+\or June\or July\or August\or September\or October\or November%
+\or December\fi%
+\space\number\year}
+\newcommand{\dqMonthYear}{%
+\ifcase \month \or January\or February\or March\or April\or May%
+\or June\or July\or August\or September\or October\or November%
+\or December\fi%
+\space\number\year}
+%
+%----------------------------------------------------------------------%
+%                                LAYOUT                                %
+%----------------------------------------------------------------------%
+%
+%% LSE logo
+%  Exams, left-hand side.  Usually g/lse-sml.ps
+\newcommand\grafLH[1]{
+ \setbox1=\hbox{\includegraphics{#1}}
+%%-old % \setbox1=\psfig{figure=#1}}
+ \vtop{%
+ \hsize=\wd1 \vbox to 0pt{}
+ {\box1\hfil}
+ }%\vtop
+ \hspace{+0.0in}
+} %\newcommand\grafLH[1]
+%Usually \grafLH{\DirCourses/g/lse-sml.ps}
+%
+%---------------------------------------------------------------------%
+%                               PICTURES                              %
+%---------------------------------------------------------------------%
+% This below will vary notably depending on \theAspectRatio but
+% works generally
+% Default and 169 \qWidescreenAspectRatio
+\newcommand\theLargerPicWidth{0.80\paperwidth}
+\newcommand\theBasicPicWidth{0.65\paperwidth}
+\newcommand\theSmallerPicWidth{0.50\paperwidth}
+\newcommand\theMiniPicWidth{0.40\paperwidth}
+\newcommand\theMicroPicWidth{0.30\paperwidth}
+\ifdefined\theAspectRatio
+ \ifdefstring{\theAspectRatio}{43}{%
+  \renewcommand\theLargerPicWidth{0.99\paperwidth}
+  \renewcommand\theBasicPicWidth{0.80\paperwidth}
+  \renewcommand\theSmallerPicWidth{0.70\paperwidth}
+  \renewcommand\theMiniPicWidth{0.40\paperwidth}
+  \renewcommand\theMicroPicWidth{0.30\paperwidth}
+  }{\relax}
+\fi
+%----------------------------------------------------------------------%
+%                                TABLES                                %
+%----------------------------------------------------------------------%
+% Wed Dec 09 12:09:54 2015 - Danny Quah (dquah@LSE039102)
+\newcommand\PBS[1]{\let\temp=\\#1\let\\=\temp}
+ % had for the longest time resisted putting \PBS here but had kept it
+ % only local
+%
+\newcommand\tablerule{\noalign{\hrule}}
+% Fixed-width table columns with text raggedright/centered/raggedleft
+% http://tex.stackexchange.com/questions/12703/how-to-create-fixed-width-table-columns-with-text-raggedright-centered-raggedlef
+% Requires package array
+% I modified L to be p{#1} rather than m{#1}
+% Tue May 13 14:38:23 2014 - Danny Quah (dquah@spartan)
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+%
+%----------------------------------------------------------------------%
+%                               REFERENCES                             %
+% Using \providecommand 2019.09.22.1900h - DQ
+%----------------------------------------------------------------------%
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+%            Is \@ifundefined{}{doThis}{elseDoThat} legal?             %
+% Fri Jan 25 08:29:10 2002 - Danny Quah (dquah@scorch.lse.ac.uk)%
+%%\@ifundefined{bysame}{%
+% \relax%
+%% }{%
+% \renewcommand{\bysame}{\hbox to +1.0 true in{\hrulefill\,\,}}% DQ-own
+% \providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+% \renewcommand{\bysame}{\leavevmode\rule[.5ex]{3em}{.5pt}}% econometrica.bst
+%%}%
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof defl.sty

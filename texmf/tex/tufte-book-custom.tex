@@ -1,0 +1,41 @@
+% @(#) tufte-book-custom.tex
+% DQ private / tufte-book customizations
+% Last edited: Sun May 24 20:31:42 2015 - Danny Quah (dq@CARTER-TQ-PC)
+% $
+% Revision History:
+%  % Tue Feb  4 16:58:57 2014 - Danny Quah (dquah@spartan)
+%    First draft
+% $
+% $Log$
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Fonts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Blank
+% The default minimum amount of space between \marginnotes
+\setlength\marginparpush{10pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Change chapter format
+% Without this below the bookstyle produces unnumbered chapters
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{secnumdepth}{0} % turn on numbered chapters (0), numbered
+                            % sections (1)
+% Make number the same level as text in the Chapter headings
+% Bottom of
+% http://tex.stackexchange.com/questions/22728/adjusting-the-postion-of-chapter-numbers-in-the-tufte-latex-class
+\titleformat{\chapter}
+ [block]% shape
+ {\relax\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\begin{fullwidth}}{}}
+ % forma applied to label+text
+ {\itshape\huge\thechapter}% label
+ {1em}% horizontal separation between label and title body
+ {\huge\rmfamily\itshape}% before the title body
+ [\ifthenelse{\NOT\boolean{@tufte@symmetric}}{\end{fullwidth}}{}]
+% after the title body
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof tufte-book-custom.tex

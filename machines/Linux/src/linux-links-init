@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# @(#) linux-links-init
+# Last-edited: Fri 2020.08.14.1926 -- Danny Quah (me@DannyQuah.com)
+# ****************************************************************
+# Revision History:
+#  % Mon 2020.05.25.0620h -- Danny Quah (me@DannyQuah.com)
+#    First draft: Initialise with symbolic links to $HOME/
+#    This assumes the filesystem is already in place
+# ****************************************************************
+#
+################################
+#
+rm -rf ~/.zshrc ~/.local/share/oh-my-zsh 
+ln -s ~/0/Scene/1/db/machines/Zsh/Zshrc     ~/.zshrc
+ln -s ~/0/Scene/1/db/machines/Zsh/oh-my-zsh ~/.local/share/oh-my-zsh
+#
+rm -rf ~/.bash_aliases
+ln -s ~/0/Scene/1/db/machines/Bash/Bash-Linux ~/.bash_aliases
+rm -rf ~/.Xmodmap-swapctrlcaps
+ln -s ~/0/Scene/1/db/machines/Linux/src/Xmodmap-swapctrlcaps ~/.Xmodmap-swapctrlcaps
+################################
+# For R I will take libraries specific to each machine, so
+# need to link just these dotfiles
+rrm -rf ~/.Renviron ~/.Rprofile
+ln -s ~/0/Scene/1/db/R/Renviron-Linux ~/.Renviron
+################################
+#
+rm -rf ~/.vim ~/.vimrc ~/.gvimrc
+ln -s ~/0/Scene/1/db//Vim        ~/.vim
+ln -s ~/0/Scene/1/db//Vim/Vimrc  ~/.vimrc
+ln -s ~/0/Scene/1/db//Vim/Gvimrc ~/.gvimrc
+################################
+# Atom should just use ~/.atom specific to each machine
+# So we don't need this any more
+# rm -rf ~/.atom
+# ln -s ~/0/Scene/1/db/machines/Editors/Atom ~/.atom
+cd .atom
+ln -s ~/0/Scene/1/db/Atom/keymap.cson .
+################################
+# Pandoc
+cd ~
+ln -s ~/0/Scene/1/db/Pandoc .pandoc
+################################
+# Typora
+mkdir -p ~/.config/Typora/themes
+cd ~/.config/Typora/themes
+rm -rf ./base.user.css
+ln -s ~/0/Scene/1/db//Typora/base.user.css ./base.user.css
+################################
+# texmf
+rm -rf ~/texmf
+ln -s ~/0/Scene/1/db/texmf ~/texmf
+################################
+# Ssh
+rm -rf ~/.ssh/config
+ln -s ~/0/Scene/1/db/machines/Ssh/config ~/.ssh/config
+# v ~/.config/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks-hold
+ln -s ~/0/Scene/1/db/machines/Linux/Config/gtk-3.0/bookmarks ~/.config/gtk-3.0/bookmarks
+################################
+# Fonts
+rm -rf ~/.fonts
+ln -s ~/0/Scene/1/db/machines/Linux/fonts ~/.fonts
+fc-cache -f -v 
+#
+# cd ~
+# rm -rf ~/bin ~/tmp
+# mkdir ~/bin
+# mkdir ~/tmp
+# ln -s ~/0/Scene/1/db/machines/Bash/packup ~/bin/packup
+# ln -s ~/Dropbox ~/0/Scene # I don't use Dropbox any more on linux
+#
+# eof linux-links-init

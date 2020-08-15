@@ -1,0 +1,62 @@
+% @(#) defg.tex:  Macros for graphics (texdraw)
+% Last edited: Sat Feb 15 14:12:56 2014 - Danny Quah (DQUAH@GRAVITY)
+% $
+% Revision History:
+%  % Wed Apr 25 10:31:18 2007 - Danny Quah (dquah@DELL5971S)
+%    \qMkAxes[2] - if different elsewhere just use
+%    \providecommand there
+%  % Thu May 19 18:26:13 1994 -- Danny Quah (dquah@exx)
+%    First draft, assumes texdraw has been earlier loaded
+%
+%%%
+% Has this been already loaded?
+\ifx\undefined\cavec\else\endinput\fi
+%
+\input txdps
+\input txdtools
+%
+% put into specific diretory; \normalsize in paper
+%\renewcommand\qGrfInsTSize{\footnotesize} %
+\newcommand\qGrfInsTSize{\normalsize} % % \normalsize in paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\qUnitCircle}[2]{%
+ \drawdim cm
+% \linewd 0.015
+% \arrowheadsize l:0.3 w:0.1 %
+ % The origin in the middle
+ \move (0.0 2.0) 
+% \arrowheadtype t:F \avec (5.0 2.0) \htext (5.5 1.5){#1}
+ \move (2.0 0.0)
+% \arrowheadtype t:F \avec (2.0 5.0) \htext (1.5 5.5){#2}
+% \linewd 0.01 % restore
+}%end\newcommand\qUnitCircle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\qMkAxes[2]{%  Make axes, args horizontal and vertical labels
+ \drawdim cm
+ \linewd 0.015 %
+ \arrowheadsize l:0.3 w:0.1 %
+ % Origin
+ \move (0 0) %
+ \arrowheadtype t:F \avec (0 6.0) %
+ \htext (-0.5 6.1){#2} %
+ \move (0 0) %
+ \arrowheadtype t:F \avec (9.0 0) %
+ \htext (8.8 -0.5){#1} %
+ \linewd 0.01 % always restore!
+\relax
+}%end\newcommand\qMkAxes
+%
+%% Bezier curve with arrowhead
+\def\cavec (#1 #2)(#3 #4)(#5 #6){%
+ \clvec (#1 #2)(#3 #4)(#5 #6)%
+ \cossin (#3 #4)(#5 #6)\cosa\sina
+ \rmove (0 0)
+ \bsegment
+  \drawdim in \setsegscale 0.05
+  \move ({-\cosa} -\sina) \avec (0 0)
+ \esegment
+}% end \def\cavec
+
+% eof defg.tex

@@ -1,0 +1,5 @@
+machine imap.gmail.com login dquah.work@gmail.com password 1DQ.dqw1gm
+machine smtp.nus.edu.sg login nusstf/sppdqlsh port 587 password 1DQ.w0r1d
+machine smtp.nus.edu.sg login nusstf/sppdqlsh port 25 password 1DQ.w0r1d
+machine imap.gmail.com login dquah.work@gmail.com password 1DQ.dqw1gm port 993
+

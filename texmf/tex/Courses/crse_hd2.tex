@@ -1,0 +1,59 @@
+% @(#) crse_hd2.tex: Header include file for course material (exams,
+%                handouts). LaTeX.  New, using chapterbib
+% Last edited: Sun Feb 14 10:11:16 2010 - Danny Quah (dq@HECHYO)
+%  $
+% Revision History:
+%  % Tue Oct 07 16:17:08 2008 - Danny Quah (dquah@DELL9156S)
+%    Can't find crse_defs.tex; commented out.
+%  % Sun Mar  2 16:28:01 2003 - Danny Quah (dq@sijak.lse.ac.uk)
+%    Defines pulled out into crse_defs.tex
+%  % Wed Nov 20 12:28:43 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    newboolean \qOnlyAssigned
+%  % Tue Jul 23 14:14:12 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    Put here \qAnswersQualify rather than defs.tex
+%  % Fri Sep 24 08:39:01 1999 -- Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    First draft
+%    Cloned from crse_hdl.tex version
+% $
+% $Log$
+%
+% Define the following variables somewhere before calling crse_hd2.tex:
+% Usually done in an instance of ``mkskel -t cm0l''
+%       \fPageLa       --- first name (and office)
+%       \fPageLb       --- second name and office, or just office.
+%       \qDeptWhere    --- e.g., LSE Economics Dept.
+%       \qCourseName   --- e.g., Quantitative Macroeconomics
+%       \qCourseNmbr   --- e.g., Ec473
+%       \qTermDate     --- e.g., Michaelmas 1998
+%       \qWebPage      --- e.g.,
+%                          \texttt{http://econ.lse.ac.uk/\~{ }dquah/c/ec301/}
+% The remainder will be derived from above:
+%       \leftheadline  --- material to go on the left, up top with page
+%                          numbers, e.g., {\tensl Ec139\hfil}
+%       \rightheadline --- material to go on the right up top with page
+%                          numbers, e.g., {\tensl\hfil Asymptotics}
+%       \qcNameDate    --- course name and date
+%                          (e.g. {14.384 Spring 1991})
+%       \qCenterDesc   --- centered description,e.g.,
+%                          {\bf Time Series: Asymptotics}
+%
+ \newcount\qMagnif
+ \qMagnif=1095 % private working paper circulation, drafts
+%% \qMagnif=1200 % double spaced, large; preprint/working paper series
+%
+%%
+% \input{crse_defs}
+%
+%  \baselineskip=\the\footnskip
+  \begin{center}
+    \qDeptWhere\hfill\fPageLa\\
+    \qcNameDate\hfill\fPageLb
+  \end{center}
+  \begin{center}
+   {\qCenterDesc}\\
+%%   {\qWebPage}
+  \end{center}
+  \qClearBreak
+
+%  \baselineskip=\the\textskip
+% eof crse_hd2.tex

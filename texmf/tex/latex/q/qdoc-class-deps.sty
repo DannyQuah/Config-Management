@@ -1,0 +1,62 @@
+% @(#) qdoc-class-deps.sty: document (Journal/Book) class dependencies
+% Last edited: Sun 2019.09.08.0730h - Danny Quah (dq@pbook)
+% $
+% Revision History:
+%  % Sun 2019.09.08.0730h - Danny Quah (dq@pbook)
+%    First draft
+%% Loaded already?
+\ifx\undefined\qDocClassDeps\else\endinput\fi
+\newcommand\qDocClassDeps\relax
+%
+\makeatletter
+\@ifclassloaded{AEA}{%
+%% AEA - AEA journals class dependencies
+  \newcommand\qAEAclass\relax
+  \@ifclasswith{AEA}{draftmode}{\newcommand\qDraftMode\relax}{\relax} \@ifclasswith{AEA}{finalmode}{\newcommand\qFinalMode\relax}{\relax}
+  \@ifclasswith{AEA}{reviewmode}{\newcommand\qReviewMode\relax}{\relax}
+}{%
+  \usepackage{eulervm} %\usepackage{arev}
+  \usepackage[T1]{fontenc} % Not sure yet why this dies for AEA class
+  %\usefonttheme{serif,professionalfonts}
+  %\usepackage{relsize}\relsize{3}
+  \usepackage{fancyhdr}
+  % RECOMMENDED FROM SOMEWHERE - \setlength{\headheight}{15.2pt}
+  \setlength{\headheight}{16pt}
+  \pagestyle{fancy}
+  \lhead[\relax]{\relax}
+}%% end AEA journals class dependencies
+%%%%%
+\@ifclassloaded{elsarticle}{%
+%% elsarticle - Elsevier article
+  \newcommand\qELSclass\relax
+% get rid of the "Submitted" field
+  \def\ps@pprintTitle{%
+    \let\@oddhead\@empty
+    \let\@evenhead\@empty
+    \def\@oddfoot{}%
+    \let\@evenfoot\@oddfoot%
+  }
+}{%
+  \relax
+}
+%% end Elsevier journals class dependencies
+%%%%%
+\@ifclassloaded{tufte-book}{%
+%% tufte-book - Tufte book
+  \newcommand\qTufteclass\relax
+  \usepackage{makeidx} \makeindex
+  \usepackage{titletoc}
+  \usepackage{qbook-toc}
+  \input{tufte-book-custom.tex}
+}{%
+%% Not tufte-book
+  \usepackage{ccfonts} %\usepackage[boldsans]{ccfonts}
+  \newenvironment{qMarginFigure}{figure} % no margin figures if not tufte-book
+}%% end tufte-book class
+\makeatother
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof qdoc-class-deps.sty

@@ -1,0 +1,50 @@
+% @(#) magnpage.sty: LaTeX Companion p. 87
+% Last edited: Mon May 27 18:13:40 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+% $
+% Revision History:
+%  % Mon May 27 07:12:54 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    Fixed bug in ptsize=1, boolean @twoside:  Extraneous {} 
+%    making addtolength's local!
+%  % Wed Apr 22 18:33:41 1998 -- Danny T. Quah (dquah@exy.lse.ac.uk)
+%    12-point typeface, textheight 27\baselineskip->32\baselineskip
+%     textwidth 350pt->390pt
+%  % Thu Mar  5 01:45:05 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    11-point textheight to 35\baselineskip from 30
+%  % Mon Oct  6 06:46:03 1997 -- Danny Quah (dquah@exz)
+%    First draft
+\normalsize
+%
+%\addtolength{\topmargin}{0.5 true in}%
+%
+\ifthenelse{\@ptsize = 0}% 10-point typeface
+ {\setlength{\textheight}{33\baselineskip}%
+  \setlength{\textwidth}{315pt}%
+ }{}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\@ptsize = 1}% 11-point typeface
+ {\setlength{\textheight}{35\baselineskip}%{30\baselineskip}%
+  \setlength{\textwidth}{328pt}%{324pt}%
+  \ifthenelse{\boolean{@twoside}}%
+   {
+    \addtolength{\oddsidemargin}{18pt}%         2-sided
+    \addtolength{\evensidemargin}{-18pt}% 12pt original
+   }
+   {\addtolength{\oddsidemargin}{16pt}%         1-sided
+    \addtolength{\evensidemargin}{16pt}%
+   }%\boolean{@twoside}%
+ }{}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\@ptsize = 2}% 12-point typeface
+%% {\setlength{\textheight}{27\baselineskip}%
+%%  \setlength{\textwidth}{350pt}%
+ {\setlength{\textheight}{32\baselineskip}%
+  \setlength{\textwidth}{390pt}%
+ }{}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtolength{\textheight}{\topskip}%
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof magnpage.sty

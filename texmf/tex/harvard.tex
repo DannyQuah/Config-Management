@@ -1,0 +1,166 @@
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\documentstyle[harvard]{article}
+\title{The {\em Harvard} Family of Bibliography Styles}
+\author{Peter Williams \\ (peterw@archsci.arch.su.oz.au)}
+\begin{document}
+\bibliographystyle{agsm}
+%\citationstyle{agsm}
+\maketitle
+\section{Introduction}
+This document describes the {\em harvard} family of bibliographic styles which
+are provided in addition to those described in \citeasnoun{latex} and \citeasnoun{btxdoc}.
+This style is primarily intended for use with the \BibTeX\ bibliographic
+database management system.
+However, provision is also made for hand coding of bibliographies.
+\section{Citations}
+There are two primary forms of citation in the {\em harvard} style dependent
+upon whether the reference is used as a noun or parenthetically.
+Additionally, where there are more than two authors, all authors are listed in
+the first citation and in subsequent citations just the first author's name
+followed by `et al.' is used.
+The following example from \citeasnoun{agsm}\ illustrates these points.
+\begin{quote}
+The major improvement concerns the structure of the interview
+(Ulrich~\& Trumbo~1965, p.~112) \ldots .
+Later reports (Carlson, Thayer, Mayfield~\& Peterson 1971) record greatly 
+increased interviewer reliability for structured interviews.
+Wright (1969, p.~408) comments that `undoubtedly interviewer skill is
+directly related to the validity, quantity and quality of the interview output',
+and this would suggest some sort of interviewer training is called for.
+Rowe (1960), for example, found that trained interviewers are better able to
+evaluate applicants with some measure of reliability.
+In addition Wexley, Sanders~\& Yukl (1973) showed that by extensive interviewer
+training all significant contrast effects could be eliminated.
+The results of the 1971 study (Carlson et al. 1971) are still relevant, but
+efforts to~\ldots.
+\end{quote}
+
+To facilitate using a citation as a noun a new command
+{\bf $\backslash$citeasnoun} has been created which has the same syntax as the
+{\bf $\backslash$cite} command except that multiple citations are {\em not}
+permitted.
+The effect of this command is that
+\begin{verbatim}
+As \citeasnoun{btxdoc} and \citeasnoun[Annex~B]{latex} describe \ldots
+\end{verbatim}
+produces
+\begin{quote}
+As \citeasnoun{btxdoc} and \citeasnoun[Annex~B]{latex} describe \ldots
+\end{quote}
+whereas
+\begin{verbatim}
+The \BibTeX\ \cite{btxdoc} and \LaTeX\ \cite[Annex~B]{latex} manuals \ldots
+\end{verbatim}
+produces
+\begin{quote}
+The \BibTeX\ \cite{btxdoc} and \LaTeX\ \cite[Annex~B]{latex} manuals \ldots
+\end{quote}
+
+Where appropriate, citations are abbreviated automatically after the first
+reference when bibliographies are produced by \BibTeX.
+Provision is also made for this feature to be accessed during manual coding.
+
+In addition to these primary forms of citation, the citation commands
+{\bf $\backslash$citeyear} and {\bf $\backslash$citename} are provided.
+{\bf $\backslash$citeyear} behaves like the
+{\bf $\backslash$cite} command except that only the year portion of the
+citation label is used.
+For example,
+\begin{verbatim}
+\citeyear{btxdoc,latex}
+\end{verbatim}
+produces \citeyear{btxdoc,latex}.
+{\bf $\backslash$citename} behaves like the
+{\bf $\backslash$citeasnoun} command except that only the author name(s)
+(unabbreviated) portion of the citation label is used.
+For example,
+\begin{verbatim}
+\citename{btxdoc}
+\end{verbatim}
+produces
+\begin{quote}
+\citename{btxdoc}.
+\end{quote}
+The use of this command does not trigger the use of abbreviated citations for
+subsequent {\bf $\backslash$citeasnoun} and {\bf $\backslash$cite}
+references.
+
+\section{Styles}
+\subsection{Bibliography Styles}
+There are four bibliography styles currently available within the
+{\em harvard} family, {\bf agsm} (used in this document) which is based on 
+\citeasnoun[pp.~95--98]{agsm}, {\bf dcu}
+which is based upon the conventions in use in the Design Computing Unit,
+Department of Architectural and Design Science, University of Sydney,
+{\bf kluwer} which aspires to conform to the requirements of Kluwer Academic
+Publishers and {\bf nederlands} which conforms to Dutch conventions.
+They are invoked by the {\bf $\backslash$bibliographystyle} as described in
+\citeasnoun[p.~74]{latex} and effect the layout of the entries in the bibliography.
+
+\subsection{Citation Styles}
+There are two citation styles currently available within the {\em harvard} 
+family, {\bf agsm} (used in this document) and {\bf dcu} which for the previous
+example would produce:
+\begin{quote}\citationstyle{dcu}
+The \BibTeX\ \cite{btxdoc} and \LaTeX\ \cite[Annex~B]{latex} manuals \ldots
+\end{quote}
+and for multiple citations such as
+\begin{verbatim}
+  The original documentation \cite{btxdoc,latex} say \ldots
+\end{verbatim}
+the {\bf agsm} citation style produces
+\begin{quote}\citationstyle{agsm}
+The original documentation \cite{btxdoc,latex} say \ldots
+\end{quote}
+and the {\bf dcu} citation style produces
+\begin{quote}\citationstyle{dcu}
+The original documentation \cite{btxdoc,latex} say \ldots
+\end{quote}
+The default citation style is {\bf agsm} and both styles have no effect on the
+appearance of the {\bf $\backslash$citeasnoun} citation format.
+
+These styles are invoked by the {\bf $\backslash$citationstyle} command,
+for example:
+\begin{verbatim}
+  \citationstyle{agsm}.
+\end{verbatim}
+Because these styles affect the format of parenthetical citations, this command 
+should appear before any {\bf $\backslash$cite} commands.
+
+\section{Doing It By Hand}
+Hand coding is accomplished much the same as described in \citeasnoun[p.~73]{latex}
+except that the new command {\bf $\backslash$harvarditem} is used in place
+of {\bf $\backslash$bibitem}.
+The syntax of this command is
+\begin{quote}
+{\bf $\backslash$harvarditem} [{\em abbr-citation}]\{{\em full-citation}\}\{{\em citation-year}\}\{{\em cite-key}\}
+\end{quote}
+where
+\begin{description}
+\item[{\em abbr-citation}] is the (optional) abbreviated citation
+(minus the year) to be used in the text
+subsequent to the first mention of a particular reference,
+\item[{\em full-citation}] is the full citation (minus the year)
+to be used in the text
+on the first mention of a particular reference,
+\item[{\em citation-year}] the year portion of the citation including any
+suffices required to disambiguate citations, and
+\item[{\em cite-key}] is the key used in the {\bf $\backslash$cite} and
+{\bf $\backslash$citeasnoun} commands.
+\end{description}
+
+\section{Acknowledgement}
+The motivation for this style came from Fay Sudweeks of the Design Computing
+Unit who also originated the formats for the {\bf dcu} style and proofread
+their implementation.
+
+The {\bf nederlands} bibliographic style was implemented by Werenfried Spit
+(spit@vm.ci.uv.es).
+
+The idea for {\bf $\backslash$citeyear} came from Renate Schmidt
+(Renate.Schmidt@mpi-sb.mpg.de).
+
+\bibliography{harvard}
+\end{document}

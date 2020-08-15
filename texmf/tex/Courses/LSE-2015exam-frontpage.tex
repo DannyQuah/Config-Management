@@ -1,0 +1,62 @@
+% @(#) LSE-2015exam-frontpage.tex
+% Last edited: Fri Mar 13 01:17:50 2015 - Danny Quah (dq@CARTER-TQ-PC)
+% $
+% Revision History:
+%  % Fri Mar 13 01:17:50 2015 - Danny Quah (dq@CARTER-TQ-PC)
+%    First draft.
+% $
+% $Log$
+%
+%%\pagestyle{qPlain}\pagestyle{fancyplain}
+\ifthenelse{\boolean{qPrintAnswers}}{%
+ \rfoot{Page \rm\thepage}}{% else
+ \rfoot{Page \rm\thepage{} of \qTotalNmbPages}%
+}
+\cfoot{}
+% \lfoot{\copyright{} LSE \number\year{}/\qCourseNmbr}
+\lfoot{\copyright{} LSE 2015/\qCourseNmbr}%frozen
+%
+\newcommand\LHdFil{\DirImages/Logos/lse-sml}
+
+% \vspace*{-2.3 true in}%
+\grafLH{\LHdFil}
+%% \vspace*{-9.8 true in}%
+%%
+
+\bigskip\bigskip
+
+\noindent{%
+%% \textbf{Summer \number\year{} Mock examination}%
+ \textbf{Summer \theExamYear{} examination}% when frozen
+}
+
+\bigskip\bigskip\bigskip\bigskip\bigskip
+
+\noindent\textbf{\Huge\qCourseNmbr}
+
+\bigskip
+
+\noindent\textbf{\Large\qCourseName}
+
+\bigskip\bigskip\bigskip\bigskip\bigskip
+
+\noindent\textbf{\Large\theSyllabus}
+%% \noindent\textbf{\Large All resit candidates}
+
+\bigskip\bigskip\bigskip\bigskip\bigskip
+
+\noindent\textbf{Instructions to candidates}
+\bigskip
+
+\noindent Time allowed: \theTimeAllwd{}
+
+\bigskip
+\noindent\theInstructions
+
+\bigskip\noindent
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof LSE-2015exam-frontpage.tex

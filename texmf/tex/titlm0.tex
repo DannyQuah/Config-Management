@@ -1,0 +1,220 @@
+% @(#) titlm0.tex: title page LaTeX file.
+% Last edited: Wed Feb 22 14:13:45 2017 - Danny Quah (dquah@XBOOK)
+% $
+% Revision History:
+%  % Sat Jan 27 17:19:51 2001 - Danny Quah (dquah@scorch.lse.ac.uk)
+%    Before \begin{minipage} from 0.5in to 1.0; alt. to
+%    ``This paper was produced as part of ...'' to 2.50in from 
+%    2.00
+%  % Tue Jul 13 10:48:17 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    First footnote given proper symbol and separated from
+%    the other footnotes.
+%  % Wed Apr  7 10:23:01 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Peel away to use only LaTeX commands; substantially rewritten
+%  % Fri Apr  2 11:32:30 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Frozen at titlm0-old.tex [for stray files still on old system]
+%  % Fri Apr  2 11:32:18 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Pagestyle controls in at the end
+%  % Mon Jan 25 18:54:17 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Changed National Economic Performance to Technology and
+%    Growth
+%  % Fri Dec 11 18:05:24 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    \qJPE taken out.  If needed, put \newcount\qJPE before
+%    \newcount\qAUTOxSETTINGS in mkskel -lmd driver file
+%  % Thu Dec 11 15:07:43 1997 -- Danny Quah (dquah@exz)
+%    Cloned from title0.tex
+%  % Mon Dec  1 09:15:26 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    % \qShowDate (for overheads, say)
+%  % Wed Sep 30 10:36:51 1992 -- Danny Quah (dquah@pc386nb)
+%    Blurb for NBER volumes, etc.
+% $
+%
+%
+%----------------------------------------------------------------------%
+%                             paper begins                             %
+%----------------------------------------------------------------------%
+\pagestyle{empty}
+
+\qPrem{}%
+% \vspace*{+1.0 true in}
+\vspace*{+0.5 true in}
+\begin{minipage}{\textwidth}
+%
+%----------------------------------------------------------------------%
+%                    Title page is on this minipage                    %
+%----------------------------------------------------------------------%
+\renewcommand{\thempfootnote}{\fnsymbol{mpfootnote}}% Minipage footnote
+%
+\begin{center}
+ \qTitle\\ \medskip by\\ \medskip %
+ \ifthenelse{\boolean{bqAckfn}}{%
+  \qAuthor\qfAstNote{\qAckfn}\\}{%
+%  \qAuthor\footnote{\qAckfn}\\}{%   
+  \qAuthor\\}%
+  \qAffil\\
+% \ifthenelse{\boolean{qShowDate}}{\qDate}{}%
+  \qDate
+%
+ \ifthenelse{\value{qCEPWP} > 0}{%
+  \bigskip\begin{center}
+  CENTRE FOR ECONOMIC PERFORMANCE\\
+  DISCUSSION PAPER NO. \theqCEPWP
+%%  OCCASIONAL PAPER NO. \theqCEPWP
+  \end{center}%
+ }{}% \theqCEPWP>0
+%
+\end{center}
+%
+\ifthenelse{\value{qCEPWP} > 0}{%
+ \vspace*{+0.5 true in}
+ \noindent This paper was produced as part of the Centre's
+ Programme on Technology and Growth.%
+}{%
+% \vspace*{+2.50 true in}%
+ \vspace*{+2.20 true in}%
+}% \theqCEPWP>0
+%
+% \vspace*{+0.5 true in}
+%
+\end{minipage}
+
+%----------------------------------------------------------------------%
+% end Title page %
+%----------------------------------------------------------------------%
+\clearpage
+%----------------------------------------------------------------------%
+% begin Abstract, Info pages %
+%----------------------------------------------------------------------%
+%                                        /* author information blurb */
+\ifthenelse{\boolean{qBlurb}}{%
+ \noindent (Author information) \smallskip\noindent\qBlurbText
+ \bigskip
+ \ifthenelse{\boolean{bqAckfn}}{%
+  \noindent (Acknowledgements) \smallskip\noindent\qAckfn
+ }{}%
+ \clearpage
+}{}%\boolean{qBlurb}
+%                                        /* non technical *
+%                                         * abstract/summary */
+\ifthenelse{\boolean{qNonTAbstract}}{%
+ \begin{center}\textsl{Nontechnical Summary}\end{center}
+ \smallskip\noindent
+ \qSummary \smallskip
+ \clearpage
+}{}%\boolean{qNonTAbstract}
+%                                        /* either real first page or
+%                                           Abstract page */
+% Put in names on abstract page
+  \begin{center}
+   \qTitle\\
+   {by}\\
+   {\qAuthor}\\
+   {\qAffil}\\
+   \ifthenelse{\boolean{qShowDate}}{\qDate}{}%
+  \end{center}
+  \smallskip
+%%
+% Abstract?
+%%
+\ifthenelse{\boolean{bqAbstract}}{%
+ \bigskip\begin{center}{ABSTRACT}\end{center}
+ {\narrower\smallskip\noindent \textsl{\qAbstract} \smallskip}
+}{%
+ \bigskip
+}%\end\boolean{bqAbstract}
+% \bigskip
+\vfill
+% \bigskip%
+%%
+% After abstract, put in keywords and classification
+%%
+% \bigskip\bigskip
+
+% Don't typically activate this
+\begin{comment}
+\ifthenelse{\boolean{qPgHead}}{%
+ \noindent\textbf{Suggested pagehead:}  \qPageHead\bigskip%
+}{}%
+\end{comment}
+%
+\ifthenelse{\boolean{bqJELK}}{%
+ \noindent\textbf{Keywords:}  \qJELKeyW \bigskip%
+}{}%\end\boolean{bqJELK}
+%
+
+\ifthenelse{\boolean{bqJELC}}{%
+ \noindent\textbf{JEL Classification:}  \qJELClass
+}{}%\end\boolean{qJELC}%
+
+\bigskip
+\noindent\textbf{Communications to:}  
+D.~Quah,
+% Danny Quah,
+Economics Department,
+LSE, Houghton Street, London WC2A 2AE%%, UK.
+
+\smallskip
+\ifthenelse{\value{qMagnif} = 1440}{
+ \noindent\quad Tel: \qTelph
+
+ \noindent\quad Email: \qEmail
+}{%
+ \noindent Tel: \qTelph, Email: \qEmail%
+}
+
+\noindent (URL) \qWebPage
+
+%----------------------------------------------------------------------%
+% end Abstract, Info pages %
+%----------------------------------------------------------------------%
+\ifthenelse{\boolean{qTwoSide}}{\cleardoublepage}{\clearpage}%
+%
+%----------------------------------------------------------------------%
+%                          Paper page format                           %
+%----------------------------------------------------------------------%
+$ $
+\pagenumbering{arabic}
+\pagestyle{qPlain}%
+\thispagestyle{empty}%
+\ifthenelse{\value{qPageStyle} = \value{cnsQpsPlain}}{%
+ \pagestyle{qPlain}%
+ \thispagestyle{empty}%	No page number on the first page
+}{}%cnsQpsPlain
+%
+\ifthenelse{\value{qPageStyle} = \value{cnsQpsFancy}}{%
+% \relax
+ \input{pgstyfnc}% pulled into file, Mon Nov 15 07:09:26 1999
+}{}%cnsQpsFancy
+%
+%----------------------------------------------------------------------%
+%% So that the beginning section doesn't look funny but also
+%% for other reasons, put in name and affiliation again.
+%----------------------------------------------------------------------%
+%
+\ifthenelse{\boolean{qAuthBPg}}{%
+ \vspace*{-2\bigskipamount}
+ \renewcommand{\thefootnote}{\fnsymbol{footnote}}
+ \begin{center}
+  %% \large %% Why?!
+  \qTitle\\
+  {by}\\
+  \ifthenelse{\boolean{bqAckfn}} {%
+   {\qAuthor\footnote[1]{\qAckfn}}\\
+  } {%
+   {\qAuthor}\\
+  }
+  {\qAffil}\\
+  \ifthenelse{\boolean{qShowDate}}{\qDate}{}%
+  \normalsize
+ \end{center}
+ \renewcommand{\thefootnote}{\arabic{footnote}}
+}{%
+ \vspace*{-3\bigskipamount}
+}%\boolean{qAuthBPg}
+%%\end{comment}
+%%
+% 
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof titlm0.tex

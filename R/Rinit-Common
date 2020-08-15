@@ -1,0 +1,38 @@
+#! R
+# @(#) 1/db/R/Rinit-Common
+# Last edited: Wed 2020.06.24.1314 -- Danny Quah
+# Created:     Wed Jan 06 14:45:55 2016 - Danny Quah (dquah@LSE039102)
+# $
+# Called by ~/.Rprofile; changes go here as .Rprofile should be just a
+# stub to call this - this way we don't have to keep copying over
+# .Rprofile if on a Windows-like system
+# Revision History:
+#  % Wed Jan 06 14:45:55 2016 - Danny Quah (dquah@LSE039102)
+#    myRoutinesDir, myDataDir here for routines and data to be accessed
+#    using file.path()
+# $
+# $Log$
+##
+# options(defaultPackages="") # default
+options(show.signif.stars=FALSE)
+
+.First <- function() {
+  require("extrafont")
+#    require("graphics")
+#    require("grDevices")
+#
+## If I execute a 'par(family="...")' here, that pops up an alternative
+## graphics device that is not so useful in, e.g., RStudio.  So save
+## that for later.
+}
+#
+# These below previously in fixed disk (as oppposed to removable) but
+# that's now done through symbolic links so they're common once again
+myRoutinesDir <- file.path ("~", "0", "Scene", "1", "j", "Code", "Routines")
+# myDataDir     <- file.path ("~", "0", "Scene", "1", "j", "Data")
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/Rinit-Common

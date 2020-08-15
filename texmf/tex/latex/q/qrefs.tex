@@ -1,0 +1,35 @@
+% @(#) qrefs.tex: document references
+% Last edited: Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+% $
+% \bibliographystyle{aer} -- no URL, DOI, but needed for finalmode
+% \bibliographystyle{elsarticle-harv} -- URL, DOI
+% Revision History:
+%  % Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+%    First draft
+%
+%% Do the below using \@ifundefined as after preamble you can't use
+%% \@ifclassloaded or \@ifclasswith
+\makeatletter
+\ifthenelse{\isundefined\qAEAclass}{%
+   \relax
+}{%
+  \ifthenelse{\isundefined\qDraftMode}{%
+    \bibliographystyle{aer}% no URL, DOI; save for finalmode
+  }{%
+    \bibliographystyle{elsarticle-harv}% for URL, DOI
+  }
+}
+%
+\ifthenelse{\isundefined\qELSclass}{%
+  \relax
+}{%
+  \bibliographystyle{elsarticle-harv} % Also possible plainnat, elsarticle-harv
+  \bigskip
+  \noindent\textbf{References}
+}
+\makeatother
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof qrefs.tex

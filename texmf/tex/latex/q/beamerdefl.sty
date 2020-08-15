@@ -1,0 +1,121 @@
+% @(#) beamerdefl.sty: (My) Beamer defaults and defines
+% Last edited: Tue Apr  4 10:25:10 2017 - Danny Quah (dquah@XBOOK)
+% $
+% Revision History:
+%  % Wed Mar  1 17:29:31 2017 - Danny Quah (dquah@xbook)
+%    \qLogoBottomRight, \qLogoBottomLeft
+%  % Mon Feb 24 21:34:05 2014 - Danny Quah (dquah@infinity)
+%    First draft
+% $
+% $Log$
+%
+%---------------------------------------------------------------------%
+%                          SLIDES FORMATTING                          %
+%---------------------------------------------------------------------%
+%% Get to the bottom of a slide
+% http://tex.stackexchange.com/questions/54180/how-do-i-write-something-at-the-end-of-the-slide-in-beamer
+\newcommand{\btVFill}{\vskip0pt plus 1filll}
+\newcommand{\qWidescreenAspectRatio}{169}
+\newcommand{\qRegularAspectRatio}{43}
+%---------------------------------------------------------------------%
+%                      TITLE PAGE CUSTOMIZATION                       %
+%---------------------------------------------------------------------%
+% http://tex.stackexchange.com/questions/21356/adding-custom-image-in-title-slide
+% Wed Mar  1 17:29:19 2017 - Danny Quah (dquah@xbook)
+\newcommand{\qLogoBottomRight}[1]{
+  \tikz [remember picture, overlay]
+  \node at ([xshift=5.0cm,yshift=0.8cm]current page.south)
+   %or (current page.center)
+  {\includegraphics[width=0.3\textwidth,keepaspectratio]{#1}} ;
+}
+\newcommand{\qLogoBottomLeft}[1]{
+  \tikz [remember picture, overlay]
+  \node at ([xshift=-5.7cm,yshift=0.5cm]current page.south)
+   %or (current page.center)
+  {\includegraphics[width=0.3\textwidth,keepaspectratio]{#1}} ;
+}
+\newcommand{\qLogoBottomNUSLKYSPP}{
+  \begin{tikzpicture}[remember picture, overlay]
+  \node at ([xshift=5.0cm, yshift=0.8cm]current page.south)
+  {\includegraphics[width=0.3\textwidth, keepaspectratio]{\DirImages/Logos/NUS/LKYSPP-small}} ;
+  \node at ([xshift=-5.8cm,yshift=0.7cm]current page.south)
+  {\includegraphics[width=0.2\textwidth,keepaspectratio]{\DirImages/Logos/NUS/NUS-logo-compact}} ;
+  \end{tikzpicture}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%---------------------------------------------------------------------%
+%                  HANDOUTS - 3 per page, like in PPT                 %
+%---------------------------------------------------------------------%
+% Use invoking command to expand the macro \theOutput
+% Without running this as command \handoutPrint{\theOutput},
+% the test fails everytime.
+% Take care that \expandafter should have no extraneous surrounding
+% braces.
+\newcommand{\handoutPrint}[1]{%
+  \expandafter\ifstrequal\expandafter{#1}{3ppHandout}{%
+   \usepackage{handoutWithNotes}
+   \pgfpagesuselayout{3 on 1 with notes}[a4paper, border shrink=8mm]%
+ }%
+ {\relax}%
+}
+\newcommand{\outputFormat}[2][presentation]{%
+  % The default presentation format is a no-op for choosing 3pp or 4pp
+  \expandafter\ifstrequal\expandafter{#1}{handout}{%
+    \handoutPrint{#2}%
+  }%
+  {\relax}%
+}
+%% Old school, own notes 
+% \usepackage{pgfpages} 
+% \setbeameroption{show notes}
+%---------------------------------------------------------------------%
+%                        THEOREMS AND SECTIONS                        %
+%---------------------------------------------------------------------%
+%\setbeamertemplate{enumerate item}{\alph{enumi}.}
+\setbeamertemplate{theorems}[normal font]
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Modified from
+% http://tex.stackexchange.com/questions/33171/theorem-content-right-after-theorem-name-in-beamer
+%
+\makeatletter
+\setbeamertemplate{theorem begin}
+{%
+  \inserttheoremheadfont \bfseries\upshape
+  \inserttheoremname~%\inserttheoremnumber
+  \ifx\inserttheoremaddition\@empty\else\ (\inserttheoremaddition)\fi%
+  % \inserttheorempunctuation
+  \normalfont
+}
+\setbeamertemplate{theorem end}{%
+  % empty
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \renewcommand{\theenumi}{\alph{enumi}}
+% \renewcommand{\labelenumi}{(\theenumi)}
+\setbeamertemplate{section in head/foot}%
+ {\hfill\insertsectionheadnumber.~\insertsectionhead}
+\setbeamertemplate{section in head/foot shaded}%
+  {\relax}
+% {\color{structure!50}\hfill\insertsectionheadnumber.~\insertsectionhead}
+\setbeamertemplate{section in toc}%
+ {\inserttocsectionnumber.~\inserttocsection}
+\setbeamertemplate{subsection in toc}[subsections numbered]
+%
+\AtBeginSection{
+ %\frame{\sectionpage}
+ \begin{frame}<beamer>{Outline}
+  \tableofcontents[currentsection]
+ \end{frame}
+}
+\AtBeginSubsection{
+ %\frame{\subsectionpage}
+ \begin{frame}<beamer>{Outline}
+  \tableofcontents[currentsection,currentsubsection]
+ \end{frame}
+}
+% 
+% Local Variables:
+% mode: TeX
+% end:
+% eof beamerdefl.sty:

@@ -1,0 +1,35 @@
+% @(#) qbook-toc.sty: Book table of contents
+% Last edited: Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+% $
+% Revision History:
+%  % Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+%    First draft
+%% Loaded already?
+\ifx\undefined\qBookTOC\else\endinput\fi
+\newcommand\qBookTOC\relax
+%
+% http://tex.stackexchange.com/questions/163986/format-table-of-contents-with-latex
+\titlecontents{chapter}
+[0.0cm]             % left margin
+{\vspace{0.5cm}}                  % above code
+{%                  % numbered format
+{{\scshape Chapter} \thecontentslabel---}%
+}%
+{}         % unnumbered format
+{\hfill\thecontentspage}         % filler-page-format, e.g dots
+% indented subsection (in toc)
+\titlecontents*{subsection}
+[1.0cm]             % left margin
+{}                  % above code
+{%                  % numbered format
+{\thecontentslabel. }%
+}%
+{}         % unnumbered format
+{ (\thecontentspage)}         % filler-page-format
+[.~]
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof qbook-toc.sty

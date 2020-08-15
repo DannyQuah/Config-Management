@@ -1,0 +1,273 @@
+% @(#) defl-hold.sty: Defines for LaTeX and AmSLaTeX
+% Last edited: Mon May 19 13:19:13 2014 - Danny Quah (dquah@LSE016404)
+% $
+% These are quite old and I'm not sure I use them any more.
+% Revision History:
+%  % Wed Nov 10 11:42:57 2004 - Danny Quah (dq@sijak.lse.ac.uk)
+%    \heading
+%  % Mon Feb  2 14:00:33 2004 - Danny Quah (dq@sijak.lse.ac.uk)
+%    Ripped out math into deflmath.sty
+%  % Fri Feb  6 12:54:10 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    Rip out SLIDES/SEMINAR section -> deflsem.sty
+%  % Wed Jun  4 16:26:10 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    First draft
+% $
+% $Log$
+%
+\ifx\undefined\qMthYear\else\endinput\fi
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \renewcommand{\theenumi}{\alph{enumi}}
+% \renewcommand{\labelenumi}{(\theenumi)}
+%
+%----------------------------------------------------------------------%
+%                           CONDITIONAL CODE                           %
+%----------------------------------------------------------------------%
+% Wed Sep 06 18:03:33 2006 - Danny Quah (dquah@DELL5971S)
+\def\ifundefined#1{\expandafter\ifx\csname#1\endcsname\relax}
+%  % From TeXbook Appendix A 7.7 (p. 308) and Ex 7.7 (p. 40)
+%  Use like this:
+% \ifundefined{Cons}{\newcommand\Cons{\ensuremath{C}}}%
+%   \else{\renewcommand\Cons{\ensuremath{C}}}\fi
+% Alternatively (equivalently?),
+% \providecommand\Cons{\ensuremath{C}}% GMS p. 442
+%
+%----------------------------------------------------------------------%
+%                                LOCALE                                %
+%----------------------------------------------------------------------%
+%% \newcommand{\theGBP}{\textit{\char'044}} %
+%% Thu Aug 22 09:38:14 2002 - Why not just
+\newcommand{\theGBP}{\pounds}% from Lamport p. 40?
+%
+%----------------------------------------------------------------------%
+%                                 DATE                                 %
+%----------------------------------------------------------------------%
+\newcommand\qMthYear{\ifcase\month\or January \or February
+        \or March \or April \or May \or June \or July \or
+        August \or September \or October \or November \or
+        December
+  \fi \number\year}
+%%
+%% Copied and translated from def0.tex and LaTeX companion p. 469
+\newcounter{hours} \newcounter{minutes}
+\newcommand{\SetTime}{%
+ \setcounter{hours}{\time}%
+ \divide\value{hours} by 60%
+ \setcounter{minutes}{\thehours}%
+ \multiply\value{minutes} by 60%
+ \advance\value{minutes} by -\time%
+ \multiply\value{minutes} by -1%
+}
+%% Thu Apr  1 17:29:00 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+\newcommand\now{%
+ \ifthenelse{\value{hours} < 12}%
+  {% hours < 12
+   \ifthenelse{\value{hours} = 0}{\advance\value{hours} by 12}%
+    {}%
+   \thehours:%
+   \ifthenelse{\value{minutes} < 10}{0}{}\theminutes{} A.M.%
+  }%
+  {% hours > 12
+   \advance\value{hours} by -12 \thehours:%
+   \ifthenelse{\value{minutes} < 10}{0}{}\theminutes{} P.M.%
+  }%
+}%
+%%\newcommand\now{\thehours:\theminutes}
+%%
+\newcommand\Now{\today\ \now}
+%%
+%
+%----------------------------------------------------------------------%
+%                                LAYOUT                                %
+%----------------------------------------------------------------------%
+%
+%% LSE logo
+\newcommand\grafLSElogo[1]{
+ \setbox1=\hbox{\includegraphics[scale=0.30,viewport=30 30
+ 120 120]{#1}}
+ \centerline{%
+  \hspace*{+3.8in}
+  \vtop{
+  \hsize\wd1\vbox to 0pt{}
+  \vspace*{+2.0in}
+  \centerline{\hfil\box1}
+  \vspace*{-2.0in}
+  }
+ \hspace{+0.0in}
+ }
+} %\newcommand\grafLSElogo
+% Usually just \grafLSElogo{\DirCourses/g/lse-sml.eps}
+%
+%% Tsinghua logo
+\newcommand\grafTlogo[1]{
+ \setbox1=\hbox{\includegraphics[scale=0.30,viewport=30 30
+ 120 120]{#1}}
+ \centerline{%
+  \hspace*{+3.8in}
+  \vtop{
+  \hsize\wd1\vbox to 0pt{}
+  \vspace*{+2.8in}
+  \centerline{\hfil\box1}
+  \vspace*{-2.8in}
+  }
+ \hspace{+0.0in}
+ }
+} %\newcommand\grafTlogo
+%
+%% NUS logo
+\newcommand\grafNUSlogo[1]{
+ \setbox1=\hbox{\includegraphics[scale=0.30,viewport=30 30
+ 120 120]{#1}}
+ \centerline{%
+  \vtop{
+   \hsize\wd1\vbox to 0pt{}
+  \vspace*{+2.0in}
+  \centerline{\hfil\box1}
+  \vspace*{-2.0in}
+  }
+ \hspace{+0.0in}
+ }
+} %\newcommand\grafNUSlogo
+% Usually just \grafNUSlogo{\DirCourses/g/NUS-logo.eps}
+%
+%
+%  Letters, on right-hand side 
+% g/lseLH2.eps already offset
+% Sun Mar 19 11:41:46 2006 - Danny Quah (dq@TWINPEAKS)
+\newcommand\grafCT[1]{
+ \setbox1=\hbox{\includegraphics{#1}}
+%%-old % \setbox1=\psfig{figure=#1}}
+ \centerline{%
+ \hspace{+0.3in}
+ \vtop{%
+ \hsize=\wd1 \vbox to 0pt{}
+ \centerline{\hfil\box1\hfil}
+ }%\vtop
+ \hspace{+0.0in}
+ }%\centerline
+} %\newcommand\grafCT[1]
+%Usually \grafCT{\DirCorr/g/lseLH.eps}
+
+% Environment: pp. 442, 444 (GMS), Lists: 3.2, p. 56ff. (GMS)
+% Instead of itemize
+% Unused? (Thu Apr  1 12:18:28 1999)
+\newenvironment{itemPpList}%
+ {\begin{itemize}\setlength{\itemsep}{-3pt}}%
+ {\end{itemize}}%
+% Wed Jun  2 11:02:51 1999, instead of enumerate
+\newenvironment{qEnumerate}%
+ {\begin{enumerate}\setlength{\itemsep}{-3pt}}{\end{enumerate}}%
+% Fri Jul 30 09:32:34 1999, instead of itemize (same as
+% itemPpList for now)
+\newenvironment{qItemize}%
+ {\begin{itemize}\setlength{\itemsep}{-3pt}}%
+ {\end{itemize}}%
+%% Change itemization look
+%%{% p. 57 GMS
+%%\makeatletter
+%%\renewcommand{\theenumi}{\roman{enumi}} % (for example)
+%%\renewcommand{\labelenumi}{(\theenumi)}
+%%\makeatother
+%% \begin{qEnumerate}
+%% ...
+%% \end{qEnumerate}
+%%}
+%
+%----------------------------------------------------------------------%
+%                               FOOTNOTES                              %
+%                     LaTeX Companion 3.4 pp. 70ff                     %
+%----------------------------------------------------------------------%
+\newcommand{\qnote}[1]{\footnote{{} #1}}
+\renewcommand{\footnotesize}{\normalsize}
+\newcommand{\qfAstNote}[1]{\footnote{#1}}
+%
+%----------------------------------------------------------------------%
+%                               DEFINES                                %
+%----------------------------------------------------------------------%
+\newcommand\TSRF{%
+ {\textrm t{\scshape s}\kern-0.05em\lower 0.1ex\hbox{r{\scshape f}}}%
+}%
+%----------------------------------------------------------------------%
+%                               SECTIONS                               %
+%% GMS LaTeX Companion 2.3 pp. 18ff %%
+%----------------------------------------------------------------------%
+%
+% Thu Dec 11 14:54:53 1997 -- Danny Quah (dquah@exz)
+\newcommand{\qBegSection}{\@startsection
+ {section}%
+ {1}%                           % the level
+ {0mm}%                         % the indent
+ {-2\baselineskip}%		% the beforeskip
+ {0.5\baselineskip}%            % the afterskip
+%%% {\normalfont\normalsize\bfseries}%        % the style
+ {\normalfont\large\bfseries}%        % the style
+}%\qBegSection definition
+%
+% Fri Feb 27 11:18:42 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+\newcommand{\qSubSection}{\@startsection
+ {subsection}%
+ {2}%				% the level
+ {0mm}%				% the indent
+ {-1.5\baselineskip}%              % the beforeskip
+ {0.5\baselineskip}%            % the afterskip
+ {\normalfont\normalsize\bfseries}%	% the style
+}%\qSubSection definition
+% Tue Aug 18 09:04:15 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+\newcommand{\qSubSubSection}{\@startsection
+ {subsubsection}%
+ {3}%				% the level
+ {0mm}%				% the indent
+ {-1.5\baselineskip}%		% the beforeskip
+ {0.5\baselineskip}%		% the afterskip
+ {\normalfont\normalsize\bfseries}%	% the style
+}%\qSubSubSection definition
+%
+% Tue Nov 25 18:33:35 1997 -- Danny Quah (dquah@exz)
+\newcommand{\qCsection}{\@startsection
+ {section}%			% the name
+ {1}%				% the level
+ {0mm}%				% the indent
+ {-2\baselineskip}%		% the beforeskip
+ {1\baselineskip}%		% the afterskip
+% {\center\normalfont\normalsize\bfseries}%        % the style
+ {\centering\normalfont\large\bfseries}%        % the style
+}%\qCsection definition
+% Wed Nov 10 11:42:40 2004 - Danny Quah (dq@sijak.lse.ac.uk)
+\ifx\undefined\heading
+ \newcommand{\heading}[1]{\begin{center}\large\textbf{#1}\end{center}}
+\fi
+%
+%----------------------------------------------------------------------%
+%                               FIGURES                                %
+%----------------------------------------------------------------------%
+% Wed Jun  4 16:29:13 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+% Counters
+\newcounter{qGrCurrent} \setcounter{qGrCurrent}{0}
+\newcommand\qPpFigLbl[1]{Fig.~{#1}}
+\newcommand\qPpFigLbls[2]{Figs.~{#1}--{#2}}
+% Tue Jun 10 15:41:54 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%% Math fonts
+%% \usepackage{amsfonts}\newcommand\fras[1]{\ensuremath{\mathcal #1}}
+% Tue Jun 10 18:40:13 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%% Tables
+%
+%----------------------------------------------------------------------%
+%                               REFERENCES                             %
+%            Is \@ifundefined{}{doThis}{elseDoThat} legal?             %
+% Fri Jan 25 08:29:10 2002 - Danny Quah (dquah@scorch.lse.ac.uk)%
+%----------------------------------------------------------------------%
+\@ifundefined{bysame}{%
+ \relax%
+}{%
+ \renewcommand{\bysame}{\hbox to +1.0 true in{\hrulefill\,\,}}% DQ-own
+% \renewcommand{\bysame}{\leavevmode\rule[.5ex]{3em}{.5pt}}% econometrica.bst
+}%
+%
+% Contents here moved to def-pagestyle.sty as otherwise it messes up
+% beamer use.
+%
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof defl-hold.sty

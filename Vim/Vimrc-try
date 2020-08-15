@@ -1,0 +1,4 @@
+let mapleader=' '
+nnoremap <Leader>id :put=strftime('%Y.%m.%d.%H%M')<CR>
+nnoremap <Leader>ie :put=strftime('%Y.%2m.%2d.%H%M')<CR>
+"nnoremap <Leader>ie "=strftime('%Y.%2m.%2d.%H%M')<CR>P

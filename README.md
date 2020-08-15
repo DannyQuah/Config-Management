@@ -1,6 +1,6 @@
 ---
 fileName: README.md
-# Last-edited: Sat 2020.08.15.1614 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.08.15.1619 -- Danny Quah (me@DannyQuah.com)
 Type: Notes
 Tags: Software
 # Created: Sat 2020.08.15.1518 -- Danny Quah (me@DannyQuah.com)
@@ -17,7 +17,7 @@ On new Linux machine, hardware setup is as in Linux-2014.07 // Linux-Machine-New
 ```sh
 $ source ./Linux/src/linux-new-setup
 # OR
-$ wget -O - https://raw.githubusercontent.com/DannyQuah/Config-Management/master/Linux/src/linux-new-setup | sudo bash
+$ wget -O - https://raw.githubusercontent.com/DannyQuah/Config-Management/master/machines/Linux/src/linux-new-setup | sudo bash
 ```
 
 (which will take a while, depending on how fast the machine and Internet connection are). If the hardware setup works, though, since the filesystem there includes these scripts, I typically just run `linux-new-setup` from there.

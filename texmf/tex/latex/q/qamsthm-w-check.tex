@@ -1,0 +1,25 @@
+% @(#) qamsthm-w-check.tex: amsthm - but have substitute macros already loaded
+% Last edited: Thu 2019.10.03.0930h - Danny Quah (dq@pbook)
+% $
+% Revision History:
+%  % Thu 2019.10.03.0930h - Danny Quah (dq@pbook)
+%    First draft
+%% Loaded already?
+\ifx\undefined\qAmsthmCheck\else\endinput\fi
+\newcommand\qAmsthmCheck\relax
+%
+\ifx\undefined\proof%
+  \relax
+\else%
+  \let\proof\relax
+  \let\endproof\relax
+  \let\example\relax
+  \let\endexample\relax
+\fi
+\usepackage{amsthm}
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof qamsthm-w-check.tex

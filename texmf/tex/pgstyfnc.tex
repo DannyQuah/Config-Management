@@ -1,0 +1,59 @@
+% @(#) pgstyfnc.tex: Page style for Fancy look
+% Last edited: Fri Mar 30 12:10:37 2007 - Danny Quah (dq@TWINPEAKS)
+% $
+% Revision History:
+%  % Fri Mar 30 12:09:44 2007 - Danny Quah (dq@TWINPEAKS)
+%    For concrete, headheight should be at least 15pt, so
+%    \addtolength 3pt rather than 2pt
+%  % Wed Feb  1 17:34:32 2006 - Danny Quah (dq@sijak.lse.ac.uk)
+%    Switched to fancyhdr.sty use, so \setlength's changed
+%    to \renewcommand
+%  % Sun May 26 17:09:04 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    Make headers fancier (following layout in The LaTeX
+%    companion) for qPgHead+qTwoSide
+%  % Mon Nov 15 07:07:35 1999 -- Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%    First draft.  Ripped out of segment of titlem0.tex
+% $
+% $Log$
+ \pagestyle{fancyplain}%
+%
+%% For pagestyle fancy, LaTeX Companion 4.3.2 pp. 96ff
+%
+%% \setlength{\headrulewidth}{0pt}% 0.4pt default
+%% \setlength{\footrulewidth}{0pt}% 0pt default
+ \renewcommand{\headrulewidth}{0pt}% 0.4pt default
+ \renewcommand{\footrulewidth}{0pt}% 0pt default
+%% %% begin boolean{qPgHead}
+ \ifthenelse{\boolean{qPgHead}}{%
+%  \setlength{\headrulewidth}{0.2pt}% 0.4pt default
+  \renewcommand{\headrulewidth}{0.2pt}% 0.4pt default
+  \ifthenelse{\boolean{qTwoSide}}{%
+   \lhead[\fancyplain{}{\qPageHead \hfill \textbf{\thepage}}]{\fancyplain{}{}}%
+   \rhead[\fancyplain{}{}]{\fancyplain{}{\textbf{\thepage} \hfill \qPageHead}}%
+   \cfoot[\relax]{\relax}%
+   \chead{}\lfoot{}\rfoot{}% Set all these to nothing
+  }{%
+   \lhead[\fancyplain{}{}]{\fancyplain{}{}}%
+   \rhead[\fancyplain{}{\qPageHead}]{\fancyplain{}{\qPageHead}}%
+   \cfoot[\fancyplain{}{\textrm{--\thepage--}}]%
+         {\fancyplain{}{\textrm{--\thepage--}}}%
+   \chead{}\lfoot{}\rfoot{}%
+  }%\boolean{qTwoSide}
+%%
+ }{%!\boolean{qPgHead}
+  \lhead[\fancyplain{}{}]{\fancyplain{}{}}%
+  \rhead[\fancyplain{}{}]{\fancyplain{}{}}%
+  \cfoot[\fancyplain{}{\textrm{--\thepage--}}]%
+        {\fancyplain{}{\textrm{--\thepage--}}}%
+  \chead{}\lfoot{}\rfoot{}%
+ }%\boolean{qPgHead}
+%% %% finish boolean{qPgHead}
+% \addtolength{\headheight}{2pt}%
+ \addtolength{\headheight}{3pt}%
+% Restore
+ \thispagestyle{plain}
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof pgstyfnc.tex

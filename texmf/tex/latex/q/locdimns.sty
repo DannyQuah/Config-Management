@@ -1,0 +1,88 @@
+% @(#) locdimns.sty->twinp/locdimns.sty:  Local dimensions
+% [This always needs tuning for each local system, although
+% the linux/tex systems may have converged.]
+% Last edited: Wed Jan 17 10:25:05 2001 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+% $
+% Revision History:
+%  % Wed Mar  3 12:42:18 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Two on a page (Paper) and Four on a page (Paper)
+%    Used to be the same as locdimns.tex, but I'm shedding
+%    amstex and tex use, and so the .sty file now contains more.
+%  % Wed Sep 16 12:17:34 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    can't use `true cm' either with latex::seminar unless
+%    slidesmag{4} and !\twoup [by coincidence], as with
+%    `true in' below
+%  % Wed Aug  5 10:31:52 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    qPprSnglAdjLabel, qPprSnglHt, qPprSnglWd
+%  % Wed May 27 17:53:51 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    qPprQuadAdjLabel, qPprQuadHt, qPprQuadWd
+%  % Thu Feb  5 22:08:38 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    Can't use `true in' together with seminar in latex
+%    unless slidesmag{4} and !\twoup [by coincidence]
+%  % Wed Jan  7 16:48:48 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    qPprSnglAdjLabel
+%  % Wed Dec 10 14:36:54 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    First draft
+% $
+% $Log$
+%
+%% Loaded already?
+\ifx\undefined\qSemSingle\else\endinput\fi
+%
+%---------------------------------------------------------------------%
+%                   One on a page (seminar slides)                    %
+%---------------------------------------------------------------------%
+\newcommand\qSemSngSkip{{\relax}}
+\newdimen\qSemSingle%
+ \qSemSingle=3.5 in
+%
+%---------------------------------------------------------------------%
+%                   Two on a page (seminar slides)                    %
+%---------------------------------------------------------------------%
+\newcommand\qSemDblSkip{${ }$\vspace{0.1 in}}
+\newdimen\qSemDouble%
+ \qSemDouble=1.5  in
+\newdimen\qSemDblAdjLabel%
+ \qSemDblAdjLabel=-5pt%
+\newcommand{\qSemDblFSide}{{\relax}}% Do nothing
+%---------------------------------------------------------------------%
+%                   Four on a page (seminar slides)                   %
+%---------------------------------------------------------------------%
+\newcommand\qSemQdSkip{${ }$\vspace{0.2 in}}
+\newdimen\qSemQuadHt \newdimen\qSemQuadWd%
+ \qSemQuadHt=1.5  in%
+ \qSemQuadWd=1.8  in%
+%---------------------------------------------------------------------%
+%                        One on a page (Paper)                        %
+%---------------------------------------------------------------------%
+\newdimen\qPprSnglAdjLabel \newdimen\qPprSnglHt \newdimen\qPprSnglWd%
+ \qPprSnglAdjLabel=1.0 cm
+ \qPprSnglHt=16.0 cm % for years, at 12.0
+ \qPprSnglWd=12.0 cm % for years, at 12.0
+%---------------------------------------------------------------------%
+%                        Two on a page (Paper)                        %
+%---------------------------------------------------------------------%
+\newdimen\qPprDblAdjLabel \newdimen\qPprDblHt \newdimen\qPprDblWd%
+ \qPprDblAdjLabel=0.4  in%
+ \qPprDblHt=2.1  in%
+ \qPprDblWd=2.1  in%
+\newcommand{\qPprDblFSide}{\relax}% Do nothing
+%---------------------------------------------------------------------%
+%                       Four on a page (Paper)                        %
+%---------------------------------------------------------------------%
+\newdimen\qPprQuadAdjLabel \newdimen\qPprQuadHt \newdimen\qPprQuadWd%
+ \qPprQuadAdjLabel=0.2  in%
+ \qPprQuadHt=1.8  in%
+ \qPprQuadWd=1.8  in%
+%%
+%---------------------------------------------------------------------%
+% Default settings for qgrfinp.sty:  Changed on the fly %
+%---------------------------------------------------------------------%
+\newcommand{\qDblFSide}{\qSemDblFSide}
+\newdimen\qDblAdjLabel \qDblAdjLabel=\the\qSemDblAdjLabel
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof locdimns.sty

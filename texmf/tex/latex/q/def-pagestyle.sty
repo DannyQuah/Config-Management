@@ -1,0 +1,34 @@
+% @(#) def-pagestyle.sty:
+% Last edited: Thu Feb 28 10:31:36 2013 - Danny Quah (dquah@infinity)
+% $
+% Revision History:
+%  % Thu Feb 28 10:30:41 2013 - Danny Quah (dquah@infinity)
+%    First draft.  Previously tailend of defl.sty but that messes up
+%    beamer use.
+% $
+% $Log$
+%
+%
+%----------------------------------------------------------------------%
+%                               PAGESTYLE                              %
+%                     LaTeX Companion 4.3 pp. 91ff                     %
+%----------------------------------------------------------------------%
+%
+\newcommand{\ps@qPlain}{%
+ \renewcommand{\@oddhead}{\hfil\textrm{--\thepage--}\hfil}%
+ \renewcommand{\@evenhead}{\@oddhead}%
+ \renewcommand{\@oddfoot}{}%              NOTHING
+ \renewcommand{\@evenfoot}{}%             NOTHING
+}%
+%% Fri Apr  2 11:15:28 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%% CONSTs for choosing between pagestyles
+\newcounter{cnsQpsPlain} \newcounter{cnsQpsFancy}
+ \setcounter{cnsQpsPlain}{1}
+ \setcounter{cnsQpsFancy}{2}
+%
+\pagestyle{qPlain}
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof def-pagestyle.sty

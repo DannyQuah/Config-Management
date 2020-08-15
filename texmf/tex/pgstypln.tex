@@ -1,0 +1,38 @@
+% @(#) pgstypln.tex: Page style for Plain look
+% Last edited: Mon Apr 09 17:00:29 2007 - Danny Quah (dq@TWINPEAKS)
+% $
+% Revision History:
+%  % Mon Apr 09 17:00:13 2007 - Danny Quah (dq@TWINPEAKS)
+%    For concrete, headheight should be at least 15pt, so
+%    \addtolength 3pt rather than 2pt
+%  % Thu May 25 14:49:47 2006 - Danny Quah (dquah@DELL5971S)
+%    Switched to fancyhdr.sty use, so \setlength's changed
+%    to \renewcommand
+%  % Fri Apr 30 18:00:49 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    First draft
+% $
+% $Log$
+\pagestyle{fancyplain}%
+%
+%% For pagestyle fancy, LaTeX Companion 4.3.2 pp. 96ff
+%
+%% \setlength{\headrulewidth}{0.2pt}% 0.4pt default
+%% \setlength{\footrulewidth}{0.0pt}% 0pt default
+\renewcommand{\headrulewidth}{0.2pt}% 0.4pt default
+\renewcommand{\footrulewidth}{0.0pt}% 0pt default
+\lhead[\fancyplain{}{}]{\fancyplain{}{}}%
+\rhead[\fancyplain{}{}]{\fancyplain{}{}}%
+\cfoot[\fancyplain{}{\rm--\thepage--}]{\fancyplain{}{\rm--\thepage--}}%
+\chead[\fancyplain{}{}]{\fancyplain{}{}}%
+\lfoot[\fancyplain{}{}]%
+ {\fancyplain{}{}}%
+ \rfoot[\fancyplain{}{}]{\fancyplain{}{}}
+%
+% \addtolength{\headheight}{2pt}%
+\addtolength{\headheight}{3pt}%
+\thispagestyle{plain}
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof pgstypln.tex

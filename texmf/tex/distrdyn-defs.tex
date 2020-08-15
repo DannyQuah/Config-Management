@@ -1,0 +1,78 @@
+% @(#) distrdyn-defs.tex: Distribution dynamics, defines
+% Last edited: Tue Feb 16 07:17:18 2010 - Danny Quah (dq@HECHYO)
+% $
+% Revision History:
+%  % Thu Jan 25 09:27:52 2007 - Danny Quah (dq@TWINPEAKS)
+%    Some for ec413/06t07/ - \theExpct
+%  % Sun Sep  3 17:34:40 2006 - (dq@twinpeaks)
+%    First draft.  Extract from gnd/defs.tex
+% $
+% $Log$
+%
+\ifx\undefined\stchKrnl\else\endinput\fi
+% Estimation
+\newcommand\Likelihood{\ensuremath{\mathcal{L}}} % or \EuScript?
+% Distributions
+\newcommand\distSpace{\ensuremath{\mathbb{F}}} % space of distributions
+\newcommand{\theBorelsR}{\ensuremath{{\mathcal{R}}}}
+%
+\newcommand\theDFF{\ensuremath{\mathsf{F}}}% distribution
+\newcommand\theDFFt[1][\ensuremath{t}]{\ensuremath{\theDFF_{#1}}}
+\newcommand\theFxdDFF{\ensuremath{\overline{\theDFF}}}% fixed, given
+\newcommand\theMaxDFF{\ensuremath{\overline{\theDFF}}}
+\newcommand\theMinDFF{\ensuremath{{\underline\theDFF}}}% not very clear
+\newcommand\theInitDFF{\ensuremath{{\theDFF_\ast}}}
+\newcommand\theFinalDFF{\ensuremath{{\theDFF^\ast}}}
+% Transition operators, semigroup, resolvents
+\newcommand{\stchKrnl}{\ensuremath{\EuScript{M}}}
+\newcommand{\operKrnl}{\ensuremath{\EuScript{T}}}
+\newcommand\theTransDens{\ensuremath{p}}
+\newcommand\theTransDensity[1][\ensuremath{t}]{\ensuremath{\theTransDens_{#1}}}
+\newcommand\theDensF{\ensuremath{\mathsf{f}}}% density
+\newcommand\theExpct{\ensuremath{\mathsf{E}}}% expectation
+\newcommand\theDnsFt[1][\ensuremath{t}]{\ensuremath{\theDensF_{#1}}}
+\newcommand\theResolv[1][\ensuremath{\lambda}]{\ensuremath{\mathbf{R}_{#1}}}
+\newcommand\theResKrnlSymb{\ensuremath{G}}% use internally
+\newcommand\theResKrn[1][\ensuremath{\lambda}]{\ensuremath{\theResKrnlSymb_{#1}}}
+\newcommand\infinitGenr{\ensuremath{\mathbf{G}}}%infinitesimal generator
+ % Discrete states, Markov chains
+\newcommand\nmbStates{\ensuremath{M}} % number of states
+\newcommand\theState{\ensuremath{m}}  % the state, in 0..(\nmbStates-1)
+\newcommand\theStatN{\ensuremath{\theState'}} % the next state
+\newcommand\thePrblty{\ensuremath{\overline{\theDensF}}} %
+                                      % discrete probability
+\newcommand\thePrbltt[1][\ensuremath{t}]{\ensuremath{\thePrblty_{#1}}}
+ % (Discrete) Transition probability matrix
+\newcommand\theTransPrbM{\ensuremath{P}}
+\newcommand\theTransPrbMatrix[1][\ensuremath{t}]{\theTransPrbM_{#1}}
+ % Useful standard distributions
+%\newcommand\nrmRV{\ensuremath{\EuScript{N}}}   % the normal random variable
+\newcommand\nrmRV{\ensuremath{\mathsf{N}}}   % the normal random variable
+\newcommand\LogNrm{\ensuremath{\mathsf{L}}}  % log-normal
+\newcommand\stdBM{\ensuremath{B}}   % standard Brownian Motion
+\newcommand\stdBB{\ensuremath{\stdBM^{\circ}}} % standard Brownian Bridge
+ %
+\newcommand\sdeMean{\ensuremath{\mu}}
+\newcommand\sdeStdD{\ensuremath{\sigma}}
+%% Point process
+\newcommand\theDistrTimeUntilNext{\ensuremath{{\mathsf{P}}}}
+\newcommand\theDenstTimeUntilNext{\ensuremath{{\mathsf{p}}}}
+\newcommand\theHazardRate{\ensuremath{{\mathsf{h}}}}
+\newcommand\constHazardRate{\ensuremath{\overline{h}}} % Constant
+ % Observed data
+\newcommand\undlyObs{\ensuremath{X}}   % underlying rv for observation
+\newcommand\useObs{\ensuremath{x}}      % observations we use
+\newcommand\theUOn{\ensuremath{\useObs'}}% next point
+\newcommand\theDiscrUO{\ensuremath{\overline{\useObs}}}% discrete observation values
+\newcommand\theDiscrUd{\ensuremath{\overline{\useObs}'}}
+% Parameters
+\newcommand\theParms{\ensuremath{\mathbf\theta}}
+%\newcommand\parmDistr{\ensuremath{{\mathsf{F}}}}
+%\newcommand\parmDenst{\ensuremath{{\mathsf{f}}}}
+%\newcommand\parmExpct{\ensuremath{{\mathsf{E}}}}
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof distrdyn-defs.tex

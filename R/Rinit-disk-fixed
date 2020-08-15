@@ -1,0 +1,24 @@
+#! R
+# @(#) 1/db/R/Rinit-disk-fixed
+# Last edited: Sat Mar  5 06:56:52 2016 -  (dquah@localhost)
+# $
+# Called by ~/.Rprofile; changes go here as .Rprofile should be just a
+# stub to call this - this way we don't have to keep copying over
+# .Rprofile if on a Windows-like system
+# Revision History:
+#  % Fri Feb 26 17:59:57 2016 - Danny Quah (dquah@LSE039102)
+#    Extracted from Rinit-Common
+# $
+# $Log$
+##
+###
+# My personal R settings and initialization
+#
+myRoutinesDir <- file.path ("~", "Scene", "1", "j", "Code", "Routines")
+myDataDir     <- file.path ("~", "Scene", "1", "j", "Data")
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/Rinit-disk-fixed

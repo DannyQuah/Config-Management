@@ -1,0 +1,62 @@
+% @(#) definesgraphics.sty: Graphics defines
+% Last edited: Wed Nov  2 17:03:13 2016 - Danny Quah (dquah@XBOOK)
+% $
+% Revision History:
+%  % Thu Feb 07 14:25:27 2013 - Danny Quah (dquah@LSE016404)
+%
+\ifx\undefined\insertLSEletterhead\else\endinput\fi
+% Wed Nov  2 10:47:12 2016 - Danny Quah (dquah@xbook)
+\newcommand\insertLKYSPPletterhead{%
+ \setbox1=\hbox{\includegraphics[width=\paperwidth]%
+  {\DirImages/Logos/NUS/LKYSPP-DQ-letterhead-1}}
+ \vtop{%
+  \vspace*{-0.2in}
+  \hspace*{-2.0in}\box1
+  \vspace*{-10.3in} % using LKYSPP letterhead
+%  \vspace*{-10.82in} % using LKYSPP letterhead, max
+%  \vspace*{-8.4in} % using LSE letterhead
+%% \centerline{\relax\hfill +65 6601 5506}
+%% \centerline{\relax\hfill D.Quah@nus.edu.sg}
+ }
+}%\insertSEACletterhead
+%
+%%%\newcommand\insertLSEletterhead{%
+%%% \setbox1=\hbox{\includegraphics[scale=0.70]%
+%%%  {\DirImages/Logos/LSE/LSE-Letterhead-Logo-2010}}
+%%% \vtop{%
+%%%  \hsize=\wd1\vbox to 0pt{}
+%%%  \vspace*{-0.1in}
+%%%  \centerline{\hspace*{7.35in}\hfill\box1}
+%%%  \vspace*{-0.05in}
+%%% \centerline{\hspace*{8.1in}\hfill tel: +44 20 7955 7535}
+%%% \centerline{\hspace*{7.9in}\hfill email: D.Quah@lse.ac.uk}
+%%% }%\vtop
+%%% \hspace{+0in}
+%%%}%\insertLSEletterhead
+%
+% Wed Mar 04 17:39:54 2015 - Danny Quah (dquah@LSE039102)
+% This \insertSEACletterhead command still fails to produce the footer
+% but it's good enough for now.
+%%%\newcommand\insertSEACletterhead{%
+%%% \setbox1=\hbox{\includegraphics[width=\paperwidth]%
+%%%  {\DirImages/Logos/LSE/2014-SEAC-Letterhead-DQ}}
+%%% \vtop{%
+%%%  \vspace*{-0.2in}
+%%%  \hspace*{-2.0in}\box1
+%%%  \vspace*{-8.4in}
+%%% }
+%%%}%\insertSEACletterhead
+%
+\newcommand\insertDQsignature{%
+ \setbox1=\hbox{\includegraphics[scale=0.50]%
+ {\DirImages/Logos/DQ-signature-2010}}
+ \vtop{%
+  \hsize=\wd1\vbox to 0pt{}
+  \vspace*{-0.7in}
+  \centerline{\box1\hfill}
+  \vspace*{+0.1in}
+ }%\vtop
+% \hspace{+0in}
+}%\insertDQsignature
+% 
+% eof definesgraphics.sty

@@ -1,0 +1,35 @@
+#! R
+# @(#) 1/db/R/Rinit-Linux
+# Last edited: Sat Apr 23 11:20:40 2016 - Danny Quah (dquah@XBOOK)
+# $
+# Called by ~/.Rprofile; changes go here as .Rprofile should be just a
+# stub to call this - this way we don't have to keep copying over
+# .Rprofile if on a Windows-like system
+
+# X11Fonts(
+## Originals:
+# #    sans  = X11Font("-*-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*"),
+#     serif = X11Font("-*-times-%s-%s-*-*-%d-*-*-*-*-*-*-*"),
+#     sans  = X11Font("-*-charter-%s-%s-*-*-%d-*-*-*-*-*-*-*"),
+#     mono  = X11Font("-*-courier-%s-%s-*-*-%d-*-*-*-*-*-*-*")
+# )
+
+setHook(packageEvent("grDevices", "onLoad"),
+    function(...) {
+        grDevices::X11.options(
+            pointsize = 14,
+# I can't get X11Fonts() to take other than long complicated X11 fonts
+# so I'm putting this into family=
+            family = "Gill Sans MT"
+        )
+    }
+)
+
+# cat("When Console is ready, source(\"~/Scene/1/db/R/R-a-Linux\")")
+
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/Rinit-Linux

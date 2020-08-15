@@ -1,0 +1,31 @@
+#! R
+# @(#) 1/db/R/Rinit-Windows
+# Last edited: Sat Mar  5 06:57:13 2016 -  (dquah@localhost)
+# $
+# Called by ~/.Rprofile; changes go here as .Rprofile should be just a
+# stub to call this - this way we don't have to keep copying over
+# .Rprofile if on a Windows-like system
+
+setHook(packageEvent("grDevices", "onLoad"),
+    function(...) {
+        grDevices::windows.options(
+            pointsize = 14
+        )
+# Too elaborate? But windows.options() doesn't have a counterpart to
+# X11.options (family = "...")
+        grDevices::windowsFonts(
+            serif = grDevices::windowsFont("TT Cambria"),
+            sans  = grDevices::windowsFont("TT Gill Sans MT"),
+            mono  = grDevices::windowsFont("TT Gill Sans MT")
+        )
+    }
+)
+
+# cat("When Console is ready, source(\"~/Scene/1/db/R/R-a-Windows\")")
+
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/Rinit-Windows

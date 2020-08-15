@@ -1,0 +1,33 @@
+% @(#) title-simple.tex: For simple memos, reports, etc.
+% Last edited: Sun Apr 15 09:34:37 2007 - Danny Quah (dq@TWINPEAKS)
+% $
+% Revision History:
+%  % Mon Apr 09 17:00:13 2007 - Danny Quah (dq@TWINPEAKS)
+%    For concrete, headheight should be at least 15pt.
+%  % Wed Aug 30 12:01:59 2006 - dquah (dquah@DELL5971S.pc.lse.ac.uk)
+%    First draft
+% $
+% $Log$
+%
+\pagestyle{empty}
+\ifx\undefined\thisDocument\newcommand\thisDocument\relax\fi
+\newcommand\leftheadline{\textsl{\thisDocument}}
+\newcommand\rightheadline{\textsl{D. Quah}}
+%
+\pagestyle{fancyplain}
+\lhead[\leftheadline]{\leftheadline}
+\rhead[\rightheadline]{\rightheadline}
+\rfoot{\textbf{\thepage}} \cfoot{\relax}
+%
+% \setlength\headheight{14pt}
+\setlength\headheight{15pt}
+% Output begins
+\ifx\undefined\qTitlePrelim\newcommand\qTitlePrelim\relax\fi
+\qTitlePrelim\smallskip
+
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof title-simple.tex

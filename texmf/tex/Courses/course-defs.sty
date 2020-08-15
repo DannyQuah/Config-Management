@@ -1,0 +1,33 @@
+% @(#) course-defs.sty
+% Last edited: Tue Apr 29 11:00:02 2014 - Danny Quah (DQUAH@GRAVITY)
+% $
+% Definitions for courses - handouts and exams
+% Revision History:
+%  % Sat Mar 02 13:32:56 2013 - Danny Quah (DQUAH@GRAVITY)
+%    First draft
+% $
+% $Log$
+%
+\ifx\undefined\qPrintQuestions\newcommand\qPrintQuestions\relax\fi
+%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%   Reset in individual files as needed
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newboolean{qPrintAnswers} \setboolean{qPrintAnswers}{false}
+\newboolean{qPrintQuestions} \setboolean{qPrintQuestions}{true}
+\pagestyle{fancyplain}
+ \newcommand{\leftheadline}{\small\textsl{\qCourseNmbr\ \thisDocument}}
+ \newcommand{\rightheadline}{\small\textsl{\qCourseName}}
+ \lhead[\leftheadline]{\leftheadline}
+ \rhead[\rightheadline]{\rightheadline}
+ \rfoot{\thepage} \cfoot{\relax}
+%
+ \renewcommand\headrulewidth{0.0pt}% 0.4pt default
+ \renewcommand\footrulewidth{0.4pt}% 0pt default
+%\setlength{\headheight}{14pt}
+ \setlength{\headheight}{15pt}
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof course-defs.sty

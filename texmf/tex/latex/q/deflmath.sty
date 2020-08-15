@@ -1,0 +1,147 @@
+% @(#) deflmath.sty: Defines for LaTeX math
+% Last edited: Tue Nov  1 05:10:53 2016 - Danny Quah (dquah@XBOOK)
+% $
+% Revision History:
+%  % Mon Feb  2 14:00:20 2004 - Danny Quah (dq@sijak.lse.ac.uk)
+%    First draft
+% $
+% $Log$
+%
+%
+%----------------------------------------------------------------------%
+% Small math constants, vectors, ... \providecommand in
+% individual def files to re-define
+%----------------------------------------------------------------------%
+\newcommand\aVector{\ensuremath{X}}
+%----------------------------------------------------------------------%
+% Definitions - don't take up extra memory space but just
+% comment here to remember what to use; LaTeX Companion pp. 221-222
+%----------------------------------------------------------------------%
+% \lesseqqgtr, \gtreqqless
+%\newcommand\LessThanOrGreaterThan{\lessgtr}
+%\newcommand\GreaterThanOrLessThan{\gtrless}
+%
+%----------------------------------------------------------------------%
+%                       MATH SYMBOLS AND MACROS                        %
+%----------------------------------------------------------------------%
+\newcommand\sumZI[1][\ensuremath{s}]{\ensuremath{\sum_{{#1}=0}}^\infty}%
+\newcommand\integrII{\ensuremath{\int_{-\infty}^{\infty}}}
+\newcommand\integrZI{\ensuremath{\int_{0}^{\infty}}}
+\newcommand\pGrowthRs[1]{\ensuremath{{\dot{#1}}/#1}}
+\newcommand\pGrowthRf[1]{\ensuremath{\frac{\dot{{#1}}}{{#1}}}}
+%
+% Use theorem-qsect.sty, theorem-qlinr, etc. instead
+%
+%%%%%%%%% Alternative to LaTeX's numbered theorems
+%% https://en.wikibooks.org/wiki/LaTeX/Theorems#Theorem_styles
+%% ftp://ftp.ams.org/pub/tex/doc/amscls/amsthdoc.pdf
+\ifdefined\theoremstyle
+  \theoremstyle{definition}
+  \ifdefined\thesection
+    \newtheorem{qDefinition}{Definition}[section]
+  \else
+    \newtheorem{qDefinition}{Definition}
+  \fi
+%
+  \theoremstyle{plain}
+  \ifdefined\thesection
+    \newtheorem{qProposition}{Proposition}[section]
+  \else
+    \newtheorem{qProposition}{Proposition}
+  \fi
+\fi
+%
+% \theoremstyle{remark}
+% \newtheorem{qRemark}{Remark}[section]
+%%
+%% Thu Apr  1 12:04:01 1999 -- Danny Quah (dquah@twinpeaks.lse.ac.uk)
+%% e.g., \begin{Proclaim}{Theorem}{text of theorem}\end{Proclaim}
+%%  or \begin{Proclaim}{Proof}{text of proof \qendprf}\end{Proclaim}
+%% It is in Proofs that this gets used a lot.
+\newenvironment{Proclaim}[2]{%
+ \bigskip\noindent\textbf{#1}\ \ \textsl{#2}
+}{\bigskip}% \end {Proclaim} def
+%%%%%%%%%
+%
+  \newcommand{\qQED}{%
+   \textsl{Q.E.D.}%
+  }
+  \newcommand\qendprf{{\unskip\nobreak\hfil\penalty50
+     \hskip2em\hbox{}\nobreak\hfil
+     \qQED
+     \parfillskip=0pt \finalhyphendemerits=0 \par}
+  }%end \newcommand\qendprf
+  \newcommand\qendbox{{\vrule height4pt width3pt depth2pt}
+  }%end \newcommand\qendbox
+  \newcommand\qendstm{{\unskip\nobreak\hfil\penalty50
+    \hskip2em\hbox{}\nobreak\hfil
+    \qendbox
+    \parfillskip=0pt \finalhyphendemerits=0 \par}
+  }%end \newcommand\qendstm
+%
+ \newcommand\theReals{\ensuremath{\mathbb{R}}}% in amsfonts.sty
+%  \newcommand\qReal{\ensuremath{\hbox{\textrm{Re}}}}%
+%  \newcommand\qImag{\ensuremath{\hbox{\textrm{Im}}}}%
+%  \newcommand\qRes{\ensuremath{\mathit{Res}}}% variable names, p. 176 GMS
+ \newcommand\qReal{\ensuremath{\operatorname{Re}}}%
+ \newcommand\qImag{\ensuremath{\operatorname{Im}}}%
+ \newcommand\qVarn{\ensuremath{\operatorname{Var}}}%
+ \newcommand\qCov{\ensuremath{\operatorname{Cov}}}%
+%-old-Fri Jun 18 10:28:45 2004% \newcommand\qVarn{\ensuremath{\hbox{\textrm{Var}}}}
+%-old-Fri Jun 18 10:28:45 2004%  \newcommand\qCov{\ensuremath{\textrm{Cov}}}
+ \newcommand{\qProj}{\ensuremath{\operatorname{Proj}}}
+ \newcommand{\qProb}{\ensuremath{\operatorname{Prob}}}
+ \newcommand\innProd[2]{\ensuremath{\langle {#1} , {#2} \rangle}}
+ \newcommand{\qmDef}{\buildrel \hbox{\text{\scriptsize def}} \over =}%
+ \newcommand{\qmEqQ}{\buildrel \hbox{\text{\scriptsize ?}} \over =}%
+ \newcommand{\qImplies}{\;\Longrightarrow\;} % like \iff, p.361 (TeXBook)
+ \newcommand{\qImpliedBy}{\;\Longleftarrow\;}
+% http://tex.stackexchange.com/questions/16173/easiest-way-to-get-not-longrightarrow-to-look-good
+% in centernot package
+ \newcommand{\qNotImplies}{\;\centernot\Longrightarrow\;}
+ \newcommand{\qIFF}{\;\Longleftrightarrow\;}
+ \newcommand{\qApprox}{\doteq}
+%% Why not just \approx
+%%  \newcommand\qVec{\mathop{\text{\rm vec}}\nolimits}
+  \newcommand{\qVec}{\operatorname{vec}}
+  \newcommand{\diag}{\operatorname{diag}}
+%%  \newcommand{\argmin}{\operatornamewithlimits{arg\,min}}
+%%  \newcommand{\argmax}{\operatornamewithlimits{arg\,max}}
+%%  \newcommand{\arginf}{\operatornamewithlimits{arg\,inf}}
+%%  \newcommand{\argsup}{\operatornamewithlimits{arg\,sup}}
+%%  \newcommand{\plim}{\operatornamewithlimits{plim}}
+% Changed Fri Jun 26 12:34:34 2015 - Danny Quah (dquah@LSE039102)
+% http://tex.stackexchange.com/questions/5223/command-for-argmin-or-argmax
+  \DeclareMathOperator\hav{hav}
+  \DeclareMathOperator*{\argmin}{arg\,min}
+  \DeclareMathOperator*{\argmax}{arg\,max}
+  \DeclareMathOperator*{\arginf}{arg\,inf}
+  \DeclareMathOperator*{\argsup}{arg\,sup}
+%
+  \newcommand\qWeak{\ensuremath{\Rightarrow}}
+  \newcommand\qPrLim{\ensuremath{\buildrel \Pr \over \longrightarrow }}
+  \newcommand\qLaw{\ensuremath{\buildrel{\EuScript{L}}\over \longrightarrow}}
+  \newcommand\qDistr{\ensuremath{\buildrel{\EuScript{D}}\over\longrightarrow}}
+  \newcommand\qDist{\ensuremath{\buildrel {d} \over\longrightarrow}}
+%  \newcommand\qLaw{\buildrel {\fras {L}} \over \longrightarrow }
+  \newcommand\qCnvMS{\ensuremath{\buildrel\text{m.s.}\over\longrightarrow}}
+  \newcommand\qCnvQM{\ensuremath{\buildrel\text{q.m.}\over\longrightarrow}}
+  \newcommand\qCnvAS{\ensuremath{\buildrel\text{a.s.}\over\longrightarrow}}
+%  \DeclareMathOperator{\BigO}{O}
+%  \DeclareMathOperator{\littleo}{o}
+  \newcommand\brackDispL{\biggl}% p.~149 of TeXBook; hang out a little
+  \newcommand\brackDispR{\biggr}
+%%
+% Matrices, vectors
+\newcommand\mtrxTransp{\ensuremath{\top}}% Matrix transpose
+%
+%  \newif\ifqConsecEqn%
+%   \qConsecEqntrue%\qConsecEqnfalse%, as necessary
+%%-as necessary%%
+%% \numberwithin{equation}{section} % number equations within sections
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof deflmath.sty

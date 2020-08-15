@@ -1,0 +1,24 @@
+#! R
+# @(#) Scene/1/db/Rprofile-Linux -> ~/.Rprofile ["ln -s"]
+# Last edited: Wed 2020.06.24.1326 -- Danny Quah
+# Created:     Thu Apr 28 23:34:34 2016 - Danny Quah (dquah@XBOOK)
+# $
+# Just a stub to call .../db/R/Rinit-Linux, where all substantial
+# commands and changes go 
+
+RDefsDir <- file.path("~", "0", "Scene", "1", "db", "R")
+RinitThe <- file.path(RDefsDir, "Rinit-Linux")
+RinitCom <- file.path(RDefsDir, "Rinit-Common")
+
+source (RinitThe)
+source (RinitCom)
+
+# source ("~/0/Scene/1/db/R/Rinit-Linux")
+# source ("~/0/Scene/1/db/R/Rinit-Common")
+
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof Scene/1/db/Rprofile-Linux -> ~/.Rprofile ["ln -s"]

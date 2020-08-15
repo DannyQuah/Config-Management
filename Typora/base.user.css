@@ -1,0 +1,30 @@
+/* @(#) Typora // base.user.css
+ * Last-edited: Sun 2020.08.09.1209 -- Danny Quah (me@DannyQuah.com)
+ * Link this to ~/.config/Typora/themes/base.user.css and then
+ * re-open Typora.
+ */
+
+/* ********************************************************************* */
+
+/* From https://github.com/typora/typora-issues/issues/2921
+ * to display custom internal anchors as inline-html
+ *  * If the HTML anchor is empty, shows an Anchor.
+ *  * When spacing matters, I prefer not to use this, though.
+ */
+/* hide the anchor HTML */
+a[name]:empty + .md-raw-inline {
+  display:none;
+}
+a[name]:empty {
+  text-decoration: none;
+}
+a[name]:empty:before {
+ content:"⚓";
+}
+/* show the anchor HTML when cursor is inside */
+.md-expand .md-raw-inline {
+    display: inline !important;
+}
+
+/* ********************************************************************* */
+

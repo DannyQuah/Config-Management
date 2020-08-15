@@ -1,0 +1,298 @@
+" @(#) db/Vim/Vimrc <- .vimrc
+" Last-edited: Sat 2020.08.15.1213 -- Danny Quah (me@DannyQuah.com)
+" ----------------------------------------------------------------
+" Revision History:
+"  % Tue 2020.08.11.2318 -- Danny Quah (me@DannyQuah.com)
+"    GVim on W10 doesn't like strftime formats that have numbers;
+"    so just %Y, not %4Y; just %m, not %2m.
+"  % Mon 2020.05.25.2108 -- Danny Quah (me@DannyQuah.com)
+"    Plugins
+"  % Tue 2020.03.02.1030 -- Danny Quah (me@DannyQuah.com)
+"    First draft
+" ----------------------------------------------------------------
+"
+"  Preliminaries -------------------------------------------------
+"
+if has('win32') || has('win64')
+  set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
+endif
+
+execute pathogen#infect()
+
+if has("syntax")
+  syntax on                    "Syntax highlighting
+endif
+
+if has("autocmd")
+  filetype indent on
+  filetype plugin on
+endif
+"
+"  General configuration -----------------------------------------
+"
+set encoding=utf8              "Standard file encoding
+set autoread                   "Reload files changed externally
+set conceallevel=1             "Don't hide characters
+set visualbell                 "No sounds
+"set noerrorbells              "Don't make noises
+
+" https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+"                              "space is your <LEADER> (prev ',')
+let mapleader=' '
+"nnoremap <Leader>sov :source $MYVIMRC"
+"                              "copy/delete/paste system clipboard
+vmap <Leader>y "+y
+vmap <Leader>d "+d
+nmap <Leader>p "+p
+nmap <Leader>P "+P
+vmap <Leader>p "+p
+vmap <Leader>P "+P
+"                              "visual line mode - discouraged
+"nmap <Leader><Leader> V
+"
+"  Swap, undo, backup directories and files ----------------------
+"  https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
+"
+"                              " Out of the way so they don't get synced
+set backupdir=~/tmp//
+set directory=~/tmp//
+set undodir=~/tmp//
+set noswapfile                "No need for swapfile
+"set nobackup                  "No backup
+"set noundofile                "No undofile
+"
+"  Layout --------------------------------------------------------
+"
+set wrap
+set linebreak                  "Wrap lines where apt
+set hidden                     "Allowed buffer change even unsaved"
+set autoindent
+set smartindent
+set smarttab
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+set expandtab                  "Tabs to spaces
+set showmatch
+set matchtime=10               "in tenths of a second
+"
+"  alternative, with markdown exception; inactive ----------------
+" set nowrap
+" autocmd FileType markdown setlocal wrap   " Except Markdown
+"
+"  Appearance ----------------------------------------------------
+
+if !has('gui_running')
+                               "fuller Themes in .gvimrc
+  source ~/0/Scene//1/db/Vim/appearances.vim
+endif
+
+set lines=51 columns=160       "lines=48+n, n for mode lines,
+                               "directory listing in netrw etc.
+
+"let g:thematic#theme_name = 'base'
+                               " Activate above or keep splashscreen
+
+"  Editing -------------------------------------------------------
+map Y y$
+                               "So Y acts to end of line, not whole
+
+"  Movement ------------------------------------------------------
+"
+" Move by visible lines, not logical
+" (displayed lines, not physical; screen lines, not buffer lines)
+" Better for wrapped prose but also works generally.
+" http://bit-101.com/techtips/2018/02/23/Better-cursor-movement-in-vim/
+nnoremap j gj
+nnoremap k gk
+nnoremap 0 g0
+nnoremap $ g_
+"                              "Don't need the newline
+"nnoremap d$ dg$
+"nnoremap c$ cg$
+"nnoremap y$ yg$
+"nnoremap $ g$
+"
+"  Search --------------------------------------------------------
+"
+set incsearch                  " Find next match as input proceeds
+"set hlsearch                  " Highlight searches by default
+set ignorecase                 " Ignore case ...
+set smartcase                  " ...unless it's uppercase
+" ******************************
+" https://stackoverflow.com/questions/657447/vim-clear-last-search-highlighting
+" This clears the last search highlight in with ESC key
+" but it also messes up, starting vim in REPLACEMENT mode.
+" Better just to :noh after.
+" nnoremap <CR> :nohlsearch<CR><CR>
+"
+"  Autocorrect, abbreviations ------------------------------------
+
+" abbr Lniux Linux
+" abbr hte the
+
+" Time, templates ------------------------------------------------
+
+"nnoremap <Leader>idt :put=strftime('%Y.%2m.%2d.%H%M')<CR>
+"nnoremap <Leader>idt :put=strftime('%Y.%m.%d.%H%M')<CR>
+nnoremap <Leader>idt "=strftime('%Y.%m.%d.%H%M')<CR>P
+                               "Insert-datetime
+
+"nnoremap <Leader>iddt :put=strftime('%a %Y.%2m.%2d.%H%M')<CR>
+nnoremap <Leader>iddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
+                               "Insert day-datetime
+
+source ~/0/Scene//1/db/Vim/timestamps.vim
+                               "Timestamp on call
+
+" Buffers, files, folders ---------------------------------------
+
+nnoremap <Leader>iht :r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-general.txt<CR>
+                               "Insert-header-general-text
+
+nnoremap <Leader>ihy :r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md<CR>
+                               "Insert-header-yaml
+
+nnoremap <Leader>ily :r ~/0/Scene/1/db/Templates/Plaintext/DQ-latex-yaml.md<CR>
+                               "Insert-latex-yaml"
+
+nnoremap <Leader>ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
+                               "Insert-my-email-signature
+
+"                              " Filetypes // here, if not filetype.vim
+"source filetype.vim            "Automatic in Vim
+
+" Directories and files
+"                              "Flow control disabled on most modern setups
+"                              "So go ahead and use C-s
+nnoremap <C-s> :w<CR>
+inoremap <C-s> <Esc>:w<CR>
+nnoremap <Leader>w  :w<CR>
+nnoremap <Leader>b :ls<CR>:buffer<SPACE>
+"                              "Edit buffer by buffer number
+nnoremap <Leader>bd :bd<CR>
+"                              "Delete this buffer
+
+augroup dqFilesFoldersGrp
+  autocmd!
+                               " Remove all dqFilesFoldersGrp autocommands
+" https://www.tecmint.com/create-custom-header-template-for-shell-scripts-in-vim/
+  autocmd BufNewFile *.txt 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-custom-header.txt
+  autocmd BufNewFile *.md  0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md
+  autocmd BufNewFile *.R   0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-Rscript.R
+  autocmd BufNewFile *.tex 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.tex
+
+" Change current directory to the file's
+" https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
+  autocmd BufEnter * silent! lcd %:p:h
+" A more direct alternative:
+" set autochdir
+" but some plugins will fail when they make assumptions about their
+" current directory.
+" Can also get fancier and not change lcd for certain places:
+" autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+augroup END
+
+"nnoremap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
+" Use instead netrw https://shapeshed.com/vim-netrw/
+" Open with :Explore, :Sexplore (or :Sex, snicker), :Vexplore
+let g:netrw_liststyle=3
+let g:netrw_banner=0           "Remove directory banner
+let g:netrw_browse_split=3     "Open file in new tab
+let g:netrw_altv = 1
+" But can achieve NERDtree likeness with:
+" let g:netrw_banner = 0
+" let g:netrw_liststyle = 3
+" let g:netrw_browse_split = 4
+" let g:netrw_altv = 1
+" let g:netrw_winsize = 25
+" augroup ProjectDrawer
+"   autocmd!
+"   autocmd VimEnter * :Vexplore
+" augroup END
+" OR open in new tab if desired
+" let g:netrw_browse_split=3
+"
+"  Syntax and modes ----------------------------------------------
+                               "pencil ---------------------------
+
+let g:pencil#wrapModeDefault = 'soft'
+                               "default, hard
+let g:pencil#textwidth = 80
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,mkd  call pencil#init()
+  autocmd FileType text          call pencil#init()
+augroup END
+" Pencil - initialise pencil
+" NoPencil - restore to global settings
+" TogglePencil or PencilToggle
+" PencilSoft / PencilHard
+
+                               "lightline ------------------------
+
+set laststatus=2
+set noshowmode                 "Get rid of redundant INSERT
+set t_Co=256                   "Have to do this by hand
+let g:lightline = {
+\   'colorscheme': 'powerline',
+\   'active': {
+\     'left': [ [ 'mode', 'paste' ],
+\               [ 'readonly', 'filename', 'modified', 'charvaluehex' ] ]
+\     },
+\ 'component': {
+\   'charvaluehex': '0x%B'
+\   },
+\ }
+
+                               "vim-notes ------------------------
+
+" let g:notes_suffix = '.txt'
+let g:notes_directories = ['~/0/Board/1/1-Notes/Notes', '~/0/Board/1/1-Notes/tmp']
+let g:notes_smart_quotes = 0
+let g:notes_unicode_enabled = 1
+let g:notes_conceal_bold = 0
+let g:notes_conceal_italic = 0
+
+                               "goyo, limelight ------------------
+
+" http://www.bit-101.com/techtips/2018/02/24/Editing-text-with-Vim-Goyo-and-Limelight/
+nnoremap <Leader>gy :Goyo<CR>
+augroup goyogroup
+  autocmd!
+  autocmd User GoyoEnter Limelight
+  autocmd User GoyoLeave Limelight!
+augroup END
+" let g:limelight_conceal_ctermfg = 240
+
+                               "TeX ------------------------------
+
+let g:tex_flavor="latex"       "LaTeX // otherwise, might be plaintex
+augroup texcode
+  autocmd!
+  autocmd FileType tex setlocal textwidth=72
+  autocmd FileType tex setlocal colorcolumn=73
+augroup END
+                               "Markdown -------------------------
+" https://vim.works/2019/03/16/using-markdown-in-vim/
+" https://stackoverflow.com/questions/10964681/enabling-markdown-highlighting-in-vim
+" set conceallevel=2
+
+"                              "vim markdown ---------------------
+
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_frontmatter=1
+
+                               "Bullets --------------------------
+let g:bullets_enabled_file_types = [
+  \ 'text',
+  \ 'markdown',
+  \ 'notes',
+  \ 'scratch'
+  \]
+" Line spacing between bullets - 1=no blank lines, 2=one blank line
+let g:bullets_line_spacing = 1 "default = 1
+"
+
+" eof db/Vim/Vimrc <- .vimrc

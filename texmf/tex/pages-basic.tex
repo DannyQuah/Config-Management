@@ -1,0 +1,54 @@
+% @(#) pages-basic.tex: For simple memos, reports, etc.
+% Last edited: Mon Apr  8 09:26:17 2013 - Danny Quah (dquah@infinity)
+% $
+% Optional
+%  \newcommand{\thisDocument}{...}
+%  \newcommand{\thisAuthor}{...}
+% Revision History:
+%  % Fri Feb  1 15:04:07 2013 - Danny Quah (dquah@spartan)
+%    First draft - cloned from title-simple.tex
+% $
+% $Log$
+%
+\pagestyle{empty}
+\ifx\undefined\thisDocument\newcommand\thisDocument\relax\fi
+%\ifx\undefined\thisAuthor\newcommand\thisAuthor\relax\fi
+\ifx\undefined\thisAuthor\newcommand\thisAuthor{D.~Quah}\fi
+
+\pagestyle{fancyplain}
+% Tips from
+% http://texblog.org/2007/11/07/headerfooter-in-latex-with-fancyhdr/
+% Clear the default layout
+\fancyhead{}
+\fancyfoot{}
+
+\fancyhead[L]{\textsl{\thisDocument}}
+\fancyhead[R]{\textsl{\thisAuthor}}
+\fancyfoot[R]{\thepage}
+%% \fancyfoot[RO, LE]{\thepage} % if twoside option
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+%% Default layout
+%% \fancyhead[LE,RO]{\slshape \rightmark}
+%% \fancyhead[LO,RE]{\slshape \leftmark}
+%% \fancyfoot[C]{\thepage}
+%% \headrulewidth 0.4pt
+%% \footrulewidth 0 pt
+
+% \newcommand\leftheadline{\textsl{\thisDocument}}
+% \newcommand\rightheadline{\textsl{\thisAuthor}}
+%
+% \pagestyle{fancyplain}
+% \lhead[\leftheadline]{\leftheadline}
+% \rhead[\rightheadline]{\rightheadline}
+% \rfoot{\textbf{\thepage}} \cfoot{\relax}
+%
+\setlength\headheight{14pt} % minimum 14.9999
+\setlength\headheight{15pt}
+% Output begins
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof pages-basic.tex

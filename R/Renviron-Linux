@@ -1,0 +1,25 @@
+# @(#) Scene/1/db/R/Renviron-Linux -> ~/.Renviron
+# Last edited: Wed 2020.06.24.1251 -- Danny Quah
+# Created:     Mon Jan  6 06:58:21 2014 - Danny Quah (dquah@planet)
+# $
+# But is this set through Right Click/Computer/...Environment?
+# Revision History:
+#  % Mon 27 May 2019 0900h - Danny Quah (dq@pbook)
+#    Don't keep all the R libraries in just one Folder as my
+#    Linux systems are on different distributions, and the
+#    R libraries differ.
+#  % Mon Jan  6 06:58:21 2014 - Danny Quah (dquah@planet)
+#    First draft.
+# myOwnRLib="~/0/Scene/1/db/machines/Linux/lib/R/library"
+# myOwnRLib="~/lib/R/library"
+# defOwnRLib="~/lib/R/library"
+#  defOwnRLib="~/R"
+#
+# R_LIBS_USER=${myOwnRLib-defOwnRLib}
+# check using .libPaths()
+#    Builtin ""
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof 1/db/R/Renviron-Linux

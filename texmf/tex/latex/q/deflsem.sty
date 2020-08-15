@@ -1,0 +1,90 @@
+% @(#) deflsem.sty: Own defines for LaTeX seminar package
+% Last edited: Wed Oct 30 23:47:29 2013 - Danny Quah (DQUAH@GRAVITY)
+% $
+% Revision History:
+%  % Thu Jul 19 13:52:10 2007 - (dq@twinpeaks)
+%    \color needs \usepackage[usenames]{color}
+%  % Fri Feb  6 12:52:41 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    First draft.  Ripped out of defl.sty
+% $
+% $Log$
+%
+
+%
+%----------------------------------------------------------------------%
+%                            SLIDES/SEMINAR                            %
+%----------------------------------------------------------------------%
+%                               SECTIONS                               %
+%% GMS LaTeX Companion 2.3 pp. 18ff %%
+%%
+% Thu Dec 11 14:54:53 1997 -- Danny Quah (dquah@exz)
+\newcommand{\qSsBegSection}{\@startsection
+ {section}%			% the name
+ {1}%				% the level
+ {0mm}%				% the indent
+ {-\baselineskip}%		% the beforeskip
+ {0.5\baselineskip}%		% the afterskip
+ {\center\Large\bfseries}%	% the style
+}%\qBegSection definition
+%
+% Thu Feb 19 23:08:49 1998 -- Danny Quah (dquah@exy.lse.ac.uk)
+\newcommand{\qSsSubSection}{\@startsection
+ {subsection}%					% the name
+ {2}%						% the level
+ {0mm}%						% the indent
+ {-\baselineskip}%				% the beforeskip
+ {0.5\baselineskip}%				% the afterskip
+ {\normalfont\normalsize\bfseries}%	% the style
+}%\qSsSubSection definition
+%
+% Tue Mar  5 16:44:34 2002 - Danny Quah (dquah@twinpeaks.lse.ac.uk)
+\newcommand{\qSsSubSubSection}{\@startsection
+ {subsubsection}%				% the name
+ {3}%						% level
+ {0mm}%						% the indent
+ {-\baselineskip}%				% the beforeskip
+ {0.5\baselineskip}%				% the afterskip
+ {\normalfont\normalsize\slshape}%		% the style
+}%\qSsSubSubsection definition
+%
+%
+%----------------------------------------------------------------------%
+%                            SLIDES/SEMINAR                            %
+%----------------------------------------------------------------------%
+% Individual TOKENS %
+%
+\newcommand\qSsTopLineAcross{{\color{BrickRed}%
+ \rule[-1.0pt]{0.667\textwidth}{2.5pt}%
+ \rule{0.333\textwidth}{0.4pt}}}
+%
+\newcommand\qSsBtmLineAcross{{\color{BrickRed}\hrule}}
+\newcommand\qSsHeading[1]{{\noindent\large\textbf{#1}}}
+\newcommand\qSsSlideFooter{\vfil\qSsBtmLineAcross\bigskip}
+\newcommand\qSsSlideHeader[1]{%
+ \vspace*{3pt}
+ \qSsHeading{#1}
+ \smallskip\qSsTopLineAcross\bigskip
+}
+%
+%\definecolor{qDarkBlue}{rgb}{0,0.08,0.45}
+\newcommand\qColorEmph{\color{qDarkBlue}}
+%%%%%%%%%
+% %%% OLD STYLE (don't use anymore) %%%
+\outer\long\def\qSsBegSect#1\par{%
+  \global\advance\qsectno by 1%
+  \global\qsubsectno=1%
+  \ifqConsecEqn%
+   \relax{} % do nothing
+  \else
+   \global\qreqno=1 % reset equations
+  \fi%
+  \global\qclaimno=1%
+  \global\itemno=0%
+  \global\itemitno=0%
+%%
+ \begin{center}
+  {\Large\textbf{\the\qsectno{}.  {#1}}}
+ \end{center}
+}% end \def\qSsBegSect
+
+% eof deflsem.sty

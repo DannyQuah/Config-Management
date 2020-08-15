@@ -1,0 +1,173 @@
+#! /bin/bash
+# @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
+# Last-edited: Sun 2020.07.19.1505 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
+#    Added into Bash-dispatcher git use functions
+#    that were previously in Common/Shellsrc;
+#    zsh needs to run git plugin for those and others as certain
+#    themes such as gallois need a lot of git plugin
+#  % Mon 2020.05.25.1142 -- Danny Quah (me@DannyQuah.com)
+#    First draft: Commands in common across .bashrc and .zshrc
+# ----------------------------------------------------------------
+
+# Branch on OS ---------------------------------------------------
+# Have decided to leave ATOM_HOME at its default, so each machine
+# keeps something its own. Otherwise, the cloud server/syncthing on
+# Scene keeps having to move lots of atom customisation about, needlessly,
+# as a lot of what gets put there is just one-time from the atom.io/
+# anyway
+#
+# Still need a way to separate when coming in on ssh, whereupon xmodmap
+# not needed anywhere.
+case "$OSTYPE" in
+  linux*)
+#
+# Keyboard -------------------------------------------------------
+## setxkbmap -option "ctrl:nocaps"
+  if [ -s ~/.Xmodmap ]; then
+   xmodmap ~/.Xmodmap
+  fi
+#  if [ -s ~/.Xmodmap-swapctrlcaps ]; then
+#    xmodmap ~/.Xmodmap-swapctrlcaps
+#  fi
+#
+#  alias xbook-biscroff='xrandr --output eDP-1 --off'
+##    export ATOM_HOME=~/0/Scene/1/db/machines/Editors/Atom.l
+    # do nothing, accept defaults
+    #   export ATOM_HOME="~/.atom"
+    ;;
+  msys*)
+    # Shell and GNU utilities, part of MinGW
+#    export ATOM_HOME=~/0/Scene/1/db/machines/Editors/Atom.w
+    # do nothing, accept defaults
+    #   export ATOM_HOME="~/.atom"
+     ;;
+  *)
+    # do nothing, accept defaults
+    #   export ATOM_HOME="~/.atom"
+    ;;
+esac
+# ###############################
+#
+BIN_DIRS="${HOME}/bin ${HOME}/local/bin"
+
+for bindir in $BIN_DIRS ; do
+  if [ -d "$bindir" ]; then
+   PATH="$bindir":$PATH
+  fi
+done
+export PATH
+
+#
+# ###############################
+# https://gnunn1.github.io/tilix-web/manual/vteconfig/
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+	source /etc/profile.d/vte.sh
+fi
+# ###############################
+# Filesystems organisation
+TMPDIR=${HOME}/tmp
+FSROOT=${HOME}/0
+CDPATH=\
+${FSROOT}/Scene/1/db:\
+${FSROOT}/Board/1/1-Notes/Listings:\
+${FSROOT}/Light/1/t/Writings:
+# ${FSROOT}/Stage/Photos
+export CDPATH
+
+# source /usr/share/autojump/autojump.sh
+
+#
+# Timezone
+export TZ='Asia/Singapore'
+# export TZ='Europe/London'
+# export TZ='America/New_York'
+
+# ###############################
+# What zsh calls normal aliases, and bash just aliases
+
+# apt use - took out ubuntu plugin
+APT=apt
+# APT=apt-get
+alias afs='apt-file search --regexp'
+alias agi='sudo $APT install'
+alias agp='sudo $APT purge'
+alias agr='sudo $APT remove'
+alias agu='sudo $APT update'
+alias agud='sudo $APT update && sudo $APT dist-upgrade'
+alias agug='sudo $APT upgrade'
+alias aguu='sudo $APT update && sudo $APT upgrade'
+
+alias ls='/bin/ls' # since many systems set this elsewhere to '/bin/ls --color=auto'
+alias ll='/bin/ls -lF'
+alias lt='/bin/ls -ltF'
+alias lf='/bin/ls -F'
+
+alias trash='zip -m9or ${TMPDIR}/dq-trash $@'
+alias notabs-dq='sed -ie "s/\t//g" $@'
+alias grep1n='grep --include=\*.md --colour=never -rnw ~/0/Board/1/1-Notes -e $@'
+# alias grep1n='find ~/0/Board/1/1-Notes -type f -name "*.md" -exec grep -EH $@ {} ";"'
+# alias dollmd-dq="sed -ie 's/ \$/ \\$/g' $@"
+# alias starmd-dq="sed -ie 's/ \*/ \\*/g' $@"
+alias syncconf-find='find ~/0 -type f -name "*sync-conflict*"'
+alias syncconf-trash='find ~/0 -type f -name "*sync-conflict*" | zip -m9@ ${TMPDIR}/dq-trash'
+alias texcln='zip -m9o ${TMPDIR}/dq-trash *.log *.aux *.nav *.out *.snm *.synctex.gz *.toc *.tex~'
+
+# Below just archive; all commented out --------------------------
+# Aliases for scaling on Pixelbook - also through .desktop in
+# ~/.local/share/applications/
+# alias atomqpb="atom --force-device-scale-factor=1.8"
+# alias extterm="sommelier -X -scale0.6 -dpi=140 /usr/bin/extraterm"
+# alias tbqpb="sommelier -X --scale=0.6 --dpi=140 /usr/bin/thunderbird"
+# alias loqpb="sommelier -X --scale=0.6 --dpi=120 /usr/bin/libreoffice6.1"
+# alias fotext="sommelier -X --scale=0.6 --dpi=140 /usr/bin/textmaker18free"
+# alias foplan="sommelier -X --scale=0.6 --dpi=140 /usr/bin/planmaker18free"
+# alias fopres="sommelier -X --scale=0.6 --dpi=140 /usr/bin/presentations18free"
+
+# But I prefer not to have colors --- too distracting
+# askubuntu.com/questions/466198/how-do-i-change-the-color-for-directories-with-ls-in-the-console
+# LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
+
+## Filesystems pre-2019.05
+# export GGDDIR=${HOME}/0/Floor # Google Docs will only save to Google Drive
+# export DRPDIR=${HOME}/0/Scene/1 # Legacy Dropbox, but no gain from Google Drive
+# export BRDDIR=${HOME}/0/Board #
+# export SCNDIR=${HOME}/0/Scene
+# export STGDIR=${HOME}/0/Stage #
+# export CDPATH=${GGDDIR}/1/t:${BRDDIR}/1/1-Notes:${BRDDIR}/1/t:${SCNDIR}/1/t/Writings/Notes-Events:${GGDDIR}/1/t/Writings:${GGDDIR}/1/j:${DRPDIR}/db:${DRPDIR}/i:${STGDIR}/Photos:
+
+# Tue Jan 21 13:26:16 2014 - Danny Quah (dquah@spartan)
+# With texlive 2012 on, there is no longer need for all this.  Just
+# put everything in ~/texmf/
+# TEXINPUTS discouraged
+# TeX (extra colon allows texmf.cnf [or compiled default]
+# export TEXINPUTS=.:$SHAREDIR/t/dbs/tex/:$LOCALDIR/db/machines/[Linux,Windows]:
+# TEXINPUTS has a Linux/Windows dependency and so is set in Bash-Linux
+# or Bash-Windows instead
+# export BSTINPUTS=.:$GGDDIR/t/dbs/tex:
+# export BIBINPUTS=.:$GGDDIR/t/dbs/tex:
+
+# alias mountfloor='google-drive-ocamlfuse ${HOMEFLOOR}'
+# alias umountfloor='fusermount -u ${HOMEFLOOR}'
+
+# alias dvitmp='/usr/bin/dvips -Ppdf -D600 $@ -o ~/tmp/0.ps'
+# alias econbash='ssh -i ~/.ssh/id_rsa dquah@econ.lse.ac.uk "/bin/bash --login"'
+
+# LSE vpn needs to be connected for this mount
+# alias lsepwp-mount='sudo mount.cifs //pwp.lse.ac.uk/webs/dquah ${HOME}/Documents/mnt/lsepwp -o user=dquah,domain=lse,uid=dquah'
+# alias lsepwp-umount='sudo umount -t cifs $HOME/Documents/mnt/lsepwp'
+# DannyQuah.com/www/ - Still trying on this
+
+# Have never quite gotten the below to work but would still like to, one day
+# alias mydom-mount='sudo mount -t davfs p3plcpnl0680.prod.phx3.secureserver.net:2078/ ~/Documents/mnt/mydomain'
+# Back up my entire blogsite
+# Mon Jan 19 15:41:44 2015 - Danny Quah (dquah@spartan)
+# http://darcynorman.net/2011/12/24/archiving-a-wordpress-website-with-wget/
+# http://www.leancrew.com/all-this/2013/01/local-archive-of-wordpress-posts/
+
+# This below is yet the most hopeful but it's still not working
+# alias backup-DQ='wget --mirror -p --html-extension --convert-links -e robots=off -P . http://www.DannyQuah.com/writings/'
+
+# eof Shellsrc

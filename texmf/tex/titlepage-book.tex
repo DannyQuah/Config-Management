@@ -1,0 +1,74 @@
+% @(#) titlepage-book.tex
+% Assumes
+% \theTitle
+% \theAuthor
+% \theAffiliation
+% \theDate
+% Last edited: Tue Feb  4 16:58:06 2014 - Danny Quah (dquah@spartan)
+% $
+% Revision History:
+%  % Sun Feb 02 10:21:51 2014 - Danny Quah (DQUAH@GRAVITY)
+%    First draft
+% $
+% $Log$
+%
+
+\newcommand*{\makemytitle}{
+ \begingroup
+
+%% \pretitle{\begin{center}\LARGE}
+%% \posttitle{\par\end{center}\vskip 0.5em}
+%% \preauthor{\begin{center}
+%%     \large \lineskip 0.5em%
+%%     \begin{tabular}[t]{c}}
+%% \postauthor{\end{tabular}\par\end{center}}
+%% \predate{\begin{center}\large}
+%% \postdate{\par\end{center}}
+
+% Title
+\thispagestyle{empty}
+~\\ \vskip+1.5cm
+
+%%\raggedleft
+\vspace*{\baselineskip}
+
+\rule{\linewidth}{0.5mm} \\[0.4cm]
+{\LARGE\bfseries\theTitle \\[0.4cm] }
+
+\rule{\linewidth}{0.5mm} \\[1.5cm]
+
+
+% Author
+\begin{minipage}{0.8\textwidth}
+\begin{flushleft}
+{\large\theAuthor}
+
+{\large\theAffiliation}
+
+{\large\theDate}
+\end{flushleft}
+\end{minipage}
+%
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft}
+
+% Note - Rough Draft
+
+\end{flushleft}
+\end{minipage}
+
+\vfill
+
+% Bottom of the page
+
+ \endgroup
+}
+
+
+
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof titlepage-book.tex

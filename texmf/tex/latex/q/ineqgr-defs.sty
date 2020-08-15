@@ -1,0 +1,56 @@
+% @(#) ineqgr-defs.sty: Inequality
+% Last edited: Fri Nov 14 11:47:32 2014 - Danny Quah (dquah@LSE016404)
+% $
+% Revision History:
+%  % Fri Nov 14 08:20:57 2014 - Danny Quah (DQUAH@GRAVITY)
+%    Moved to .sty from .tex
+%  % Tue Mar 20 13:41:23 2012 - Danny Quah (DQUAH@GRAVITY)
+%    <- ec413/2005t06/h/ineqgr_defs.tex
+%  % Sun Sep  3 17:14:26 2006 - (dq@twinpeaks)
+%    First draft.  Extracted gnd/defs, six/lug/defs
+% $
+% $Log$
+%
+\ifx\undefined\theGini\else\endinput\fi
+% \newcommand\useObs{\ensuremath{x}}      % observations we use
+% \newcommand\pGrowthRs[1]{\ensuremath{%
+%  {\dot{{#1}}} / {{#1}}%
+% }}
+\newcommand\parmDistr{\ensuremath{{\mathsf{F}}}}
+\newcommand\parmDenst{\ensuremath{{\mathsf{f}}}}
+\newcommand\parmExpct{\ensuremath{{\mathsf{E}}}}
+\newcommand\theMean{\parmExpct}
+\newcommand\lorenzCurve{\ensuremath{\mathcal{L}}}
+\newcommand\theGini{\ensuremath{{\mathcal{I}_G}}}
+\newcommand\lowLevel{\ensuremath{{\underline{Y}}}}
+\newcommand{\thePopln}{\ensuremath{P}}
+\newcommand{\thePHC}{\ensuremath{{\textsl{HC}}}}
+%
+\providecommand\qSSgr{\ensuremath{\xi}}% steady-state growth rate
+% Consumption and welfare
+\providecommand\Cons{\ensuremath{C}}% consumption
+\providecommand\useCons{\ensuremath{c}}% use particular value for consumption
+\providecommand\Welfare{\ensuremath{W}}% lifetime utility
+\providecommand\Utility{\ensuremath{U}}
+\providecommand\discRate{\ensuremath{\rho}}% discount rate, continuous time
+\providecommand\cfCRRA{\ensuremath{R}}% coefficient of relative risk aversion
+ % discount factor, can't use \beta as that's in \beta convergence
+\providecommand\discFactor{\ensuremath{\delta}}% discrete time
+\providecommand\thePopln{{\ensuremath{N}}}
+% Distribution characteristics
+\providecommand\theMean{\ensuremath{{\EuScript{E}}}}
+\providecommand\theLogMean{\ensuremath{\theMean_\ell}}
+\providecommand\theInequalities{\ensuremath{{\EuScript{I}}}}
+\providecommand\theGini{\ensuremath{\theInequalities_G}}
+\providecommand\theTheil{\ensuremath{\theInequalities_{\text{Th}}}}
+\providecommand\theGEntropy{\ensuremath{\theInequalities_{\text{GE},\alpha}}}%
+\providecommand\theLogSD{\ensuremath{\theInequalities}_{\ell}}%
+\providecommand\LorenzCurve{\ensuremath{\mathcal{Z}}}%
+\providecommand\thePHC{\ensuremath{{\textsl{HC}}}}%
+\providecommand\lowLevel{\ensuremath{\underline{\useObs}}}%
+%
+% ^L
+% Local Variables:
+% mode: LaTeX
+% end:
+% eof ineqgr-defs.sty

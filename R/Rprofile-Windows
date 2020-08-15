@@ -1,0 +1,23 @@
+#! R
+# @(#) Scene/1/db/R/Rprofile-Windows -> ~/.Rprofile [mklink]
+# Last edited: Thu Apr 28 23:34:51 2016 - Danny Quah (dquah@XBOOK)
+# $
+# Just a stub to call ~/Scene/db/R/Rinit-Windows, where all substantial
+# commands and changes go 
+
+RDefsDir <- file.path("~", "0", "Scene", "1", "db", "R")
+RinitThe <- file.path(RDefsDir, "Rinit-Windows")
+RinitCom <- file.path(RDefsDir, "Rinit-Common")
+
+source (RinitThe)
+source (RinitCom)
+
+# source ("~/0/Scene/1/db/R/Rinit-Windows")
+# source ("~/0/Scene/1/db/R/Rinit-Common")
+
+#
+# ^L
+# Local Variables:
+# mode: sh
+# end:
+# eof Scene/1/db/Rprofile-Windows -> ~/.Rprofile [mklink]

@@ -1,0 +1,128 @@
+% @(#) qgrfinp.sty:
+%  Insert graphs in a LaTeX document with a caption.
+% Last edited: Thu Mar  4 12:53:29 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+% $
+% Revision History:
+%  % Wed Mar  3 12:42:40 1999 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    Made grafTwo depend on Paper/Seminar sizes
+%  % Wed Aug  5 10:38:11 1998 -- Danny T. Quah (dquah@twinpeaks.lse.ac.uk)
+%    grafOne
+%  % Wed Dec 10 11:23:44 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    ``figure='' (old) -> ``file='' (irrelevant)
+%  % Fri Jun  6 09:52:49 1997 -- Danny Quah (dquah@exy.lse.ac.uk)
+%    grafBoxTwo.  Use centerline, not any of the LaTeX
+%    environments.
+%  % Thu Jun  5 16:54:09 1997 -- Danny Quah (dquah@exz)
+%    hacked from qgrfinp.tex
+%  % Wed Aug 18 15:21:51 1993 -- Danny Quah (dquah@exx)
+%    \grafthree
+%  % Sat Nov 14 11:29:38 1992 -- Danny Quah (dquah@exx)
+%    Took out \tenpoint, and thus fonts.tex unneeded (really slows
+%    things down)
+%  % Fri Nov 13 19:15:22 1992 -- Danny Quah (dquah@pc386nb)
+%    Hacked from graphin8.tex (from Sargent)
+% $
+
+%% Loaded already?
+\ifx\undefined\grafbox\else\endinput\fi
+
+% load the fonts if not done before
+%% \ifx\tenpoint\undefined
+%% \input fonts \else\relax\fi
+%% \input qpsfig
+
+% Local dimensions
+\input{locdimns.sty}
+
+\newdimen\captionsize 
+%
+%-----------------------------------------------------------------------%
+%                         --- One on a page ---                         %
+%-----------------------------------------------------------------------%
+\newcommand{\grafOne}[2]{%
+ \setbox1=\psfig{file=#1}%
+ \ifdim \wd1>\hsize
+  \captionsize=\hsize
+ \else
+  \captionsize=\wd1
+ \fi 
+%% \advance\captionsize by -1em
+ \setbox2=\vbox{\hsize=\captionsize\noindent\strut #2\hfill}%
+ \centerline{\hss\grafBoxOne{\wd1}{\ht2}{\box1}{\box2}\hss}%
+}%\end\def\grafOne
+%
+\newcommand{\grafBoxOne}[4]{%
+ \vtop{%
+  \hsize=#1%
+  \vbox to 0pt{}
+  \centerline{#3}
+  \vspace{\the\qPprSnglAdjLabel}%
+%  \centerline{\vbox to #2{#4\vss}}%
+  {\vbox to #2{#4\vss}}%
+ }%\end\vtop
+}%\end\def\grafBoxOne
+%
+%-----------------------------------------------------------------------%
+%                         --- Two on a page ---                         %
+%-----------------------------------------------------------------------%
+%
+\newcommand{\graftwo}[4]{%
+ \setbox1=\psfig{file=#1}%
+ \setbox3=\psfig{file=#3}%
+ \setbox2=\vbox{\hsize=\wd1 \noindent {#2}\hfil}
+ \setbox4=\vbox{\hsize=\wd3 \noindent {#4}\hfil}
+  \centerline{%
+%% \hss%
+  \grafBoxTwo{\wd1}{\ht2}{\box1}{\box2}%
+  \hfil
+  \grafBoxTwo{\wd3}{\ht4}{\box3}{\box4}%
+%%  \hss
+ }
+}%\end\def\graftwo
+ %
+\newcommand{\grafBoxTwo}[4]{%
+ \vtop{%
+  \hsize=#1%
+%%  \vbox to 0pt{}%
+  \centerline{\qDblFSide{}{#3}}%
+  \vspace{\the\qDblAdjLabel}%
+  \centerline{\vbox to #2{#4\vss}}%
+ }%\end\vtop
+}%\end\def\grafBoxTwo%
+%
+%-----------------------------------------------------------------------%
+%                              --- OLD ---                              %
+%-----------------------------------------------------------------------%
+%
+\def\grafbox#1#2#3#4{\vtop{\hsize=#1
+     \vbox to 0pt{}\centerline{#3}%
+     \vspace{-5.75em}
+     \centerline{\vbox to #2{#4\vss}}}}%
+ %
+\def\grafone#1#2{\setbox1=\psfig{file=#1} 
+     \ifdim \wd1>\hsize \captionsize=\hsize \else\captionsize=\wd1 \fi 
+     \advance\captionsize by -1em
+%%   \setbox2=\vbox{\hsize=\captionsize\tenpoint\noindent\strut #2\hfil}
+   \setbox2=\vbox{\hsize=\captionsize\noindent\strut #2\hfil}
+   \centerline{\hss\grafbox{\wd1}{\ht2}{\box1}{\box2}}\hss}%
+%
+\def\grafthree#1#2#3#4#5#6{%
+ \setbox1=\psfig{file=#1}
+ \setbox2=\psfig{file=#3}
+ \setbox3=\psfig{file=#5}
+%
+ \setbox4=\vbox{\hsize=\wd1\noindent #2\hfil}
+ \setbox5=\vbox{\hsize=\wd2\noindent #4\hfil}
+ \setbox6=\vbox{\hsize=\wd3\noindent #6\hfil}
+ \begin{flushleft}{%
+  \hss%
+  \grafbox{\wd1}{\ht4}{\box1}{\box4}
+  \hskip20pt plus 10pt minus 10pt
+  \grafbox{\wd2}{\ht5}{\box2}{\box5}
+  \hskip15pt plus 3pt minus 3pt
+  \grafbox{\wd3}{\ht6}{\box3}{\box6}
+  \hss%
+ }\end{flushleft}%
+}%\end\def\grafthree%
+
+% eof qgrfinp.sty

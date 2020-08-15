@@ -1,0 +1,70 @@
+% @(#) qfront-matter.tex: document frontmatter
+% Last edited: Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+% $
+% Revision History:
+%  % Sun Sep 08 07:30 2019 - Danny Quah (dq@pbook)
+%    First draft
+\ifthenelse{\isundefined\qAEAclass}{%
+  \thispagestyle{empty}
+  \clearpage
+  \setcounter{page}{1}
+  \setcounter{secnumdepth}{2} % turn on numbered chapters (0), numbered
+                               % sections (1)
+}{%
+  \title\theTitle
+  \shortTitle\theShortTitle
+  \author\theAEAauthor
+  \date\today
+  \pubMonth\thePublMonth
+  \pubYear\thePublYear
+  \pubVolume\thePublVol
+  \pubIssue\thePublIssue
+  \JEL\theJELcodes
+  \Keywords\theKeywords
+  \begin{abstract}\theAbstract\end{abstract}
+  {\let\newpage\relax \maketitle} % Otherwise \maketitle puts in blankpage
+  % https://tex.stackexchange.com/questions/86249/maketitle-text-before-title
+  %% %% if draftmode, get rid of pubVolume, pubIssue
+  %% %% I hacked this from AEA.cls -- DQ, 2019.09.08
+    \if@draftmode
+    \def\ps@headings{%
+      \leftskip=0pt\rightskip=0pt
+      \let\@oddfoot\@empty
+      \let\@evenfoot\@empty
+      \def\@oddhead{{\relax\hfil\@shortTitle\hfil\thepage}}
+      \def\@evenhead{{\small\textit{\MakeUppercase{\thepage\hfil\@issueName\hfil\relax}}}}
+    }
+    \fi
+}% end \qAEAclass
+%%%%%
+\ifthenelse{\isundefined\qELSclass}{%
+  \relax
+}{%
+\begin{frontmatter}
+  \title\theTitle
+  \author[DQa]{\theAuthor\fnref{fn1}}
+  \ead\theEmail
+  \fntext[fn1]{%
+  { } \dqMonthYear.
+  \theThanks}
+  \address[DQa]{\theAffiliation}
+  \date\theDate
+  \begin{abstract}\theAbstract\end{abstract}
+  \begin{keyword}\theKeywords\end{keyword}
+  \end{frontmatter}
+%  \makemytitle
+}
+%%%%%
+\ifthenelse{\isundefined\qTufteclass}{%
+  \relax
+}{%
+  \usepackage{relsize}\relsize{3}
+  \input{titlepage-book.tex}
+  \tableofcontents
+}
+%
+% ^L
+% Local Variables:
+% mode: TeX
+% end:
+% eof qfront-matter.tex

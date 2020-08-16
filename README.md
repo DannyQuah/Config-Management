@@ -1,6 +1,6 @@
 ---
 fileName: README.md
-# Last-edited: Sat 2020.08.15.1619 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.08.15.1629 -- Danny Quah (me@DannyQuah.com)
 Type: Notes
 Tags: Software
 # Created: Sat 2020.08.15.1518 -- Danny Quah (me@DannyQuah.com)
@@ -10,7 +10,7 @@ output: pdf_document
 
 # Config-Management
 
-My shell scripts, dotfiles, Linux installations, editor configurations
+My shell scripts, dotfiles, Linux installations, editor configurations, templates, stylesheets
 
 On new Linux machine, hardware setup is as in Linux-2014.07 // Linux-Machine-New (including filesystem loading). Then as needed might still run the following:
 

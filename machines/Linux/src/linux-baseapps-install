@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) linux-baseapps-install
-# Last-edited: Fri 2020.08.14.1935 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.08.15.2015 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Fri 2020.08.14.1928 -- Danny Quah (me@DannyQuah.com)
@@ -30,6 +30,7 @@ installBaseApps() {
     thunderbird \
     okular \
     xournal \
+    jpegoptim \
     variety \
     pandoc
 # end installBaseApps()

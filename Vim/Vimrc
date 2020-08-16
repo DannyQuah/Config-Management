@@ -1,5 +1,5 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Sat 2020.08.15.1213 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2020.08.16.2114 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Tue 2020.08.11.2318 -- Danny Quah (me@DannyQuah.com)
@@ -89,6 +89,7 @@ endif
 
 set lines=51 columns=160       "lines=48+n, n for mode lines,
                                "directory listing in netrw etc.
+set termguicolors
 
 "let g:thematic#theme_name = 'base'
                                " Activate above or keep splashscreen
@@ -108,6 +109,7 @@ nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g_
 "                              "Don't need the newline
+
 "nnoremap d$ dg$
 "nnoremap c$ cg$
 "nnoremap y$ yg$
@@ -133,19 +135,25 @@ set smartcase                  " ...unless it's uppercase
 
 " Time, templates ------------------------------------------------
 
-"nnoremap <Leader>idt :put=strftime('%Y.%2m.%2d.%H%M')<CR>
 "nnoremap <Leader>idt :put=strftime('%Y.%m.%d.%H%M')<CR>
-nnoremap <Leader>idt "=strftime('%Y.%m.%d.%H%M')<CR>P
+"nnoremap <Leader>idt "=strftime('%Y.%m.%d.%H%M')<CR>P
+iabbrev <expr> idt strftime('%Y.%m.%d.%H%M')
                                "Insert-datetime
 
 "nnoremap <Leader>iddt :put=strftime('%a %Y.%2m.%2d.%H%M')<CR>
-nnoremap <Leader>iddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
+"nnoremap <Leader>iddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
+iabbrev <expr> iddt strftime('%a %Y.%m.%d.%H%M')
                                "Insert day-datetime
 
 source ~/0/Scene//1/db/Vim/timestamps.vim
                                "Timestamp on call
-
+"
 " Buffers, files, folders ---------------------------------------
+"
+"inoremap ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
+"nnoremap <Leader>ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
+iabbrev ies -- Danny Quah (me@DannyQuah.com)
+                               "Insert-my-email-signature
 
 nnoremap <Leader>iht :r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-general.txt<CR>
                                "Insert-header-general-text
@@ -156,13 +164,10 @@ nnoremap <Leader>ihy :r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md<CR>
 nnoremap <Leader>ily :r ~/0/Scene/1/db/Templates/Plaintext/DQ-latex-yaml.md<CR>
                                "Insert-latex-yaml"
 
-nnoremap <Leader>ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
-                               "Insert-my-email-signature
-
 "                              " Filetypes // here, if not filetype.vim
 "source filetype.vim            "Automatic in Vim
 
-" Directories and files
+"  Directories and files ----------------------------------------
 "                              "Flow control disabled on most modern setups
 "                              "So go ahead and use C-s
 nnoremap <C-s> :w<CR>
@@ -170,6 +175,7 @@ inoremap <C-s> <Esc>:w<CR>
 nnoremap <Leader>w  :w<CR>
 nnoremap <Leader>b :ls<CR>:buffer<SPACE>
 "                              "Edit buffer by buffer number
+
 nnoremap <Leader>bd :bd<CR>
 "                              "Delete this buffer
 
@@ -193,6 +199,8 @@ augroup dqFilesFoldersGrp
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
 augroup END
 
+"  Directory management ------------------------------------------
+"
 "nnoremap <Leader>v :vnew <C-R>=escape(expand("%:p:h"), ' ') . '/'<CR>
 " Use instead netrw https://shapeshed.com/vim-netrw/
 " Open with :Explore, :Sexplore (or :Sex, snicker), :Vexplore
@@ -212,8 +220,25 @@ let g:netrw_altv = 1
 " augroup END
 " OR open in new tab if desired
 " let g:netrw_browse_split=3
+
 "
-"  Syntax and modes ----------------------------------------------
+" Session management ---------------------------------------------
+"   For xolox/vim-session
+let g:session_autosave='no'
+let g:session_directory='~/0/Scene/1/db/Vim/sessions'
+let g:session_autoload='prompt'
+"let g+session_autosave_periodic=15
+set sessionoptions-=help
+set sessionoptions-=buffers
+"                              "Don't save hidden or unloaded buffers in
+"                              sessions
+
+set sessionoptions-=options
+"                              "Don't persist options and mappings
+
+"
+" Syntax and modes ----------------------------------------------
+"
                                "pencil ---------------------------
 
 let g:pencil#wrapModeDefault = 'soft'
@@ -291,8 +316,8 @@ let g:bullets_enabled_file_types = [
   \ 'notes',
   \ 'scratch'
   \]
-" Line spacing between bullets - 1=no blank lines, 2=one blank line
-let g:bullets_line_spacing = 1 "default = 1
+" Line spacing between bullets - 1=no blank lines (default), 2=one blank line
+let g:bullets_line_spacing=1
 "
 
 " eof db/Vim/Vimrc <- .vimrc

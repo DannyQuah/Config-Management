@@ -1,5 +1,4 @@
 ## Front Matter -- for LaTeX
-title: DocTitle
 author:
   - Danny Quah `\\\\`{=latex} Lee Kuan Yew School of Public Policy, NUS `\\\\`{=latex} D.Quah@nus.edu.sg
 #  - My Coauthor `\\\\`{=latex} Economics Department, NUS `\\\\`{=latex} ecsdqlsh@nus.edu.sg

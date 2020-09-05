@@ -1,5 +1,5 @@
 " @(#) Vim/Gvimrc <- ~/.gvimrc
-" Last-edited: Sun 2020.08.16.2113 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sat 2020.08.29.1526 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Sun 2020.07.19.0745 -- Danny Quah (me@DannyQuah.com)
@@ -43,14 +43,20 @@ if has('gui_running')
     set guifont=Source\ Code\ Pro\ 9
   endif
 
-  colorscheme torte
-  " colorscheme torte            " came with GVim, but like
-  " colorscheme monokai          " vim-monokai
-  " colorscheme papaya           " vim-theme-papaya
-  " let g:papaya_gui_color='blue'
+  "let g:dracula_colorterm=0 
+  "highlight normal guibg=none ctermbg=none 
+  "colorscheme dracula 
+
+  "colorscheme torte           "came with GVim, but like 
+  "colorscheme ron
+  colorscheme koehler 
+  "colorscheme industry
+  "colorscheme monokai         "vim-monokai
+  "colorscheme papaya          "vim-theme-papaya
+  "let g:papaya_gui_color='blue'
 
 " Themes ---------------------------------------------------------
-"  Transparency doesn't work on Gvim, at least not on non-Mac systems
+"Transparency doesn't work on Gvim, at least not on non-Mac systems
   let g:thematic#themes = {
   \ 'plain'       : { 'colorscheme': 'torte',
   \                  'typeface': 'Consolas',

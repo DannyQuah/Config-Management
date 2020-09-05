@@ -1,5 +1,5 @@
 # @(#) db/.gitignore
-# Last-edited: Sat 2020.08.15.1606 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.09.05.0932 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
@@ -18,7 +18,9 @@ machines/Zsh/oh-my-zsh
 texmf/doc/
 texmf/scripts/
 texmf/source/
-Vim/bundle
-Vim/sessions
+Vim/Session.vim 
+Vim/autoload/
+Vim/bundle/
+Vim/sessions/ 
 # eof db/.gitignore
 

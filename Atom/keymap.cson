@@ -1,9 +1,14 @@
 # DQ keymap.cson: Atom/keymap.cson <- ~/.atom/keymap.cson
-# Last-edited: Sun 2020.07.26.1900 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2020.08.23.1722 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.26.1813 -- Danny Quah (me@DannyQuah.com)
 #    First draft: j, k, 0, $ to move by displayed lines, not physical
+# ----------------------------------------------------------------
+# Markdown-preview-enhanced to match Vim (which returns C-m and C-S-m 
+# with the Enter key)
+'atom-text-editor':
+  'ctrl-shift-p': 'markdown-preview-enhanced:toggle'
 # https://stackoverflow.com/questions/24102457/move-cursor-up-down-one-line-in-atom
 # Originals at https://github.com/t9md/atom-vim-mode-plus/blob/master/keymaps/vim-mode-plus.cson
 # ----------------------------------------------------------------

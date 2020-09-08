@@ -1,7 +1,9 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Sat 2020.09.05.0916 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Tue 2020.09.08.1933 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
-" Revision History:
+" Revision History: 
+"  % Sat 2020.09.05.0942 -- Danny Quah (me@DannyQuah.com) 
+"    VimWiki, Calendar
 "  % Fri 2020.09.04.2116 -- Danny Quah (me@DannyQuah.com) 
 "    Under W10, cannot get VimWiki links to activate in Board (OneDrive).
 "    Keeping my personal vimwiki on Scene/1/db/Vim/Vimwiki/
@@ -64,8 +66,8 @@ set backupdir=~/tmp//
 set directory=~/tmp//
 set undodir=~/tmp//
 set noswapfile                "No need for swapfile
-"set nobackup                  "No backup
-"set noundofile                "No undofile
+"set nobackup                 "No backup
+"set noundofile               "No undofile
 "
 "  Layout --------------------------------------------------------
 "
@@ -95,8 +97,10 @@ if !has('gui_running')
 endif
 
 
-set lines=51 columns=160       "lines=48+n, n for mode lines,
-                               "directory listing in netrw etc.
+set lines=51 columns=110       "lines=48+n, n for mode lines,
+                               "directory listing in netrw etc. 
+                               "I like a sidebar (30 cols) for SideCal,
+                               "netrw, and similar
 set termguicolors
 
 "let g:thematic#theme_name = 'base'
@@ -154,14 +158,14 @@ iabbrev <expr> idt strftime('%Y.%m.%d.%H%M')
 iabbrev <expr> iddt strftime('%a %Y.%m.%d.%H%M')
                                "Insert day-datetime
 
-source ~/0/Scene//1/db/Vim/timestamps.vim
+source ~/0/Scene/1/db/Vim/timestamps.vim
                                "Timestamp on call
 "
 " Buffers, files, folders ---------------------------------------
 "
 "inoremap ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
 "nnoremap <Leader>ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
-iabbrev ies -- Danny Quah (me@DannyQuah.com)
+iabbrev iDQ -- Danny Quah (me@DannyQuah.com)
                                "Insert-my-email-signature
 
 nnoremap <Leader>iht :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-general.txt<CR>
@@ -172,7 +176,6 @@ nnoremap <Leader>ihy :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md<CR
 
 nnoremap <Leader>ily :r ~/0/Scene/1/db/Templates/Plaintext/DQ-latex-yaml.md<CR>
                                "Insert-latex-yaml"
-
 "                              " Filetypes // here, if not filetype.vim
 "source filetype.vim            | "Automatic in Vim
 
@@ -213,7 +216,9 @@ augroup END
 " Open with :Explore, :Sexplore (or :Sex, snicker), :Vexplore
 let g:netrw_liststyle=3
 let g:netrw_banner=0           "Remove directory banner
-let g:netrw_browse_split=3     "Open file in new tab
+"let g:netrw_browse_split=3     "Open file in new tab
+let g:netrw_browse_split=4     "Open file in previous window
+let g:netrw_winsize = 26       "In percent, not cols; gives 30 with 110
 let g:netrw_altv = 1
 " But can achieve NERDtree likeness with:
 " let g:netrw_banner = 0
@@ -228,6 +233,14 @@ let g:netrw_altv = 1
 " OR open in new tab if desired
 " let g:netrw_browse_split=3
 
+"Otherwise you get asked to save every single netrw listing 
+"https://github.com/tpope/vim-vinegar/issues/13
+augroup netrwBuffers
+  autocmd!
+  autocmd FileType netrw setlocal bufhidden=delete 
+  " or else try replacing delete with wipe
+augroup end 
+let g:netrw_fastbrowse = -1
 "
 " Session management ---------------------------------------------
 "   For xolox/vim-session: Use OpenSession, SaveSession
@@ -279,31 +292,68 @@ let g:lightline = {
 \ }
 
 "                              "VimWiki --------------------------
-"Multiple Wikis --- although just using one seriously for now ---- 
-" following https://opensource.com/article/18/6/vimwiki-gitlab-notes
-let myWiki_1 = {} 
-let myWiki_1.path = '~/0/Scene/1/db/VimWiki/'
-let myWiki_1.syntax = 'markdown' 
-let myWiki_1.ext = '.wiki'
+" :VWS /thisToken/ - will search across all wiki notes
+" :lopen - lists all found
+"Multiple Wikis --- although just using myWikiWork seriously for now ---- 
+" https://opensource.com/article/18/6/vimwiki-gitlab-notes
+let myWikiWork = {} 
+let myWikiWork.path = '~/0/Scene/1/db/VimWiki/'
+let myWikiWork.syntax = 'markdown' 
+let myWikiWork.ext = '.md'
 
-"Putting this as my second Wiki just as a reminder, since
-"I can't get a VimWiki to work in Board (OneDrive): 
-"Neither vimwiki nor markdown links will activate
-let myWiki_2 = {}
-let myWiki_2.path = '~/0/Board/1/1-Notes'
-let myWiki_2.syntax = 'markdown' 
-let myWiki_2.ext = '.wiki'
+"Putting this as my next Wiki for future possibilities but
+"I can't get VimWiki to work in OneDrive under W10: 
+"1. With markdown syntax, links in markdown format will not activate,
+"although vimwiki-style links will. 
+"2. Switching to vimwiki syntax, links will not open automatically
+"in the Vim instance, but instead pop open a shell handler. 
+"myWikiTrial works fine, however, in Ubuntu. 
+"Links both vimwiki and markdown style work in myWikiWork, and open
+"correctly with Enter.
+let myWikiTrial = {}
+let myWikiTrial.path = '~/0/Board/1/1-Notes/tmp/'
+let myWikiTrial.syntax = 'markdown' 
+let myWikiTrial.ext = '.md'
 
-let g:vimwiki_list = [myWiki_1, myWiki_2]
-let g:vimwiki_markdown_link_ext = 1 
-"from https://github.com/vimwiki/vimwiki/issues/924 
-"'No longer able to follow links with dots' 
+let g:vimwiki_list = [myWikiWork, myWikiTrial]
+let g:vimwiki_markdown_link_ext = 0 
+"0 - Make sure not to append Wiki file extension to Markdown files
+
 let g:vimwiki_global_ext = 0 
 " Try to keep markdown not under vimwiki control as markdown, not vimwiki 
+
 let g:vimwiki_ext2syntax = {'.md': 'markdown'} 
-let g:vimwiki_autowriteall = 1 
+let g:vimwiki_autowriteall = 1
 " Turn onautowrite when switching across wiki pages
 "
+"                              "Calendar ------------------------- 
+command! SideCal Calendar -view=year -split=vertical -width=30 
+
+"From Chris Mague own domain https://blog.mague.com/?p=602 
+function! ToggleCalendar()
+  execute ":Calendar"
+  if exists("g:calendar_open")
+    if g:calendar_open == 1
+      execute "q"
+      unlet g:calendar_open
+    else
+      g:calendar_open = 1
+    end
+  else
+    let g:calendar_open = 1
+  end
+endfunction
+":autocmd FileType vimwiki map d :VimwikiMakeDiaryNote 
+":autocmd FileType vimwiki map c :call ToggleCalendar() 
+
+"From Marcus Kazmierczak https://mkaz.blog/working-with-vim/vimwiki/
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+  autocmd!
+  " on read diary, automatically update links to build index 
+  autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+
 "                              "vim-notes ------------------------
 "let g:notes_suffix = '.md'
 "let g:notes_directories = ['~/0/Board/1/1-Notes/Notes', '~/0/Board/1/1-Notes/tmp']
@@ -312,8 +362,7 @@ let g:vimwiki_autowriteall = 1
 "let g:notes_conceal_bold = 0
 "let g:notes_conceal_italic = 0
 
-                               "goyo, limelight ------------------
-
+"                              "goyo, limelight ------------------
 " http://www.bit-101.com/techtips/2018/02/24/Editing-text-with-Vim-Goyo-and-Limelight/
 nnoremap <Leader>gy :Goyo<CR>
 augroup goyogroup
@@ -323,8 +372,15 @@ augroup goyogroup
 augroup END
 " let g:limelight_conceal_ctermfg = 240
 
-                               "TeX ------------------------------
+"                              "spelunker, spellcheck ------------
+" Otherwise doubled-up with vim's own spell
+set nospell 
 
+" 1 - spellcheck when open/save 
+" 2 - spellcheck words in buffer
+let g:spelunker_check_type = 2
+
+                               "TeX ------------------------------
 let g:tex_flavor="latex"       "LaTeX // otherwise, might be plaintex
 augroup texcode
   autocmd!
@@ -343,7 +399,7 @@ let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter=1
 
 "                              "vim-markdown-preview -------------
-let vim_markdown_preview_toggle=1
+let vim_markdown_preview_toggle=0
 "                              |"0 - generate preview w/o images
 "                              |"1 - display images in preview
 let vim_markdown_preview_hotkey='<C-S-p>'

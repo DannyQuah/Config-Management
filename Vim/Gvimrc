@@ -1,5 +1,5 @@
 " @(#) Vim/Gvimrc <- ~/.gvimrc
-" Last-edited: Sat 2020.08.29.1526 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2020.09.06.1738 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Sun 2020.07.19.0745 -- Danny Quah (me@DannyQuah.com)
@@ -10,9 +10,11 @@
 " ----------------------------------------------------------------
 " https://superuser.com/questions/419372/how-do-i-set-the-default-window-size-in-vim
 " https://alvinalexander.com/blog/post/linux-unix/how-set-vim-gvim-default-color-scheme/
-"
+" 
+"The entire script below is enclosed in 'gui_running' 
+"Might well be redundant given this is .gvimrc, but keep for now.
 if has('gui_running')
-                                " GUI running or about to start
+                                "GUI running or about to start
 
 "  Bars menu, tool, scroll ---------------------------------------
 
@@ -49,8 +51,8 @@ if has('gui_running')
 
   "colorscheme torte           "came with GVim, but like 
   "colorscheme ron
-  colorscheme koehler 
-  "colorscheme industry
+  "colorscheme koehler 
+  colorscheme industry
   "colorscheme monokai         "vim-monokai
   "colorscheme papaya          "vim-theme-papaya
   "let g:papaya_gui_color='blue'

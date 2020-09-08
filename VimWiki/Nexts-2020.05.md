@@ -1,9 +1,5 @@
 Nexts
 
-**MAP** 
-Teaching Philosophy
-1. Need be an active producer in just one or two areas, but must be a discriminating consumer in all fields that they will come into contact with.
-
 
 **Inequality** 
 - Up to Git Repo 
@@ -40,15 +36,6 @@ GitHub
 
 - 
 () MAP, FAR
-CHRS // Other Systems // MAP My Academic Plan https://wws.nus.edu.sg/MAP/Portfolio/Main 
-- Profile
-  - Other Biodata
-  - (Name of PhD supervisor and thesis committee members) Essays in Dynamic Macroeconometrics / Thomas J. Sargent; Mark Watson; James Stock
-  - (Brief description of PhD or Post-doc research areas) Timeseries Econometrics. Economic Growth. Income Inequality. International Economic Relations
-- Education
-  - (Teaching Philosophy) I seek to have all students and teacher reach the right balance of difficult, rigorous analytical thinking, on the one hand, and quick muscle-memory type understanding, on the other. In my thinking, muscle-memory understanding is the "presence of mind" factor in discussions and conversations with others who are similarly expert as well as skeptics or simply those generally interested, whether they are policy-makers or academics in cognate areas. Without the rigorous, analytical thinking, interlocutors cannot work out appropriate analysis in new and novel situations. Without the muscle-memory understanding, important issues can often end up treated the wrong way, because sometimes the student or teacher only has one shot at getting the argument right and convincing. 
-  Second, teaching needs to be clear on who among the class participants seeks to be expert producer in what subjects, and who among them seeks only to be discriminating consumer.
-
 
 - Student recruitment message
 
@@ -89,7 +76,6 @@ Grant extension
 ESM email re EESF from SFL
 https://voxeu.org/article/inequality-what-has-happened-why-care-and-what-can-be-done
 
-Unit Trusts \$200k in each of Fidelty and Targ (as recommended by OCBC / Michelle Li, but OCBC will charge 3% commission)
 
 Merge Writings/0-Notes/[0-Collections, 0-Pages]
 

@@ -1,5 +1,5 @@
-" @(#) db/machines/Editors/Vim/Fri 2020.07.17.2312 s.vim
-" Last-edited: Tue 2020.08.11.2321 -- Danny Quah (me@DannyQuah.com)
+" @(#) db/Vim/timestamps.vim
+" Last-edited: Fri 2020.09.18.0606 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Tue 2020.08.11.2318 -- Danny Quah (me@DannyQuah.com)
@@ -19,4 +19,4 @@ let g:timestamp_regexp='\v\c%(Last-%([cC]hanged?|[eE]dited):\s+)@<=\a+ \d{4}.\d{
                                " 'Last-edited' so it's a single token
 let g:timestamp_modelines=10   "Default is modelines, typically 5
 
-" eof db/machines/Editors/Vim/Fri 2020.07.17.2312 s.vim
+" eof db/Vim/timestamps.vim

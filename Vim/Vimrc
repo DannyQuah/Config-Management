@@ -1,7 +1,12 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Tue 2020.09.08.1933 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2020.09.27.0554 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History: 
+"  % Tue 2020.09.15.1612 -- Danny Quah (me@DannyQuah.com)
+"    ftplugin/vimwiki.vim
+"  % Mon 2020.09.14.0907 -- Danny Quah (me@DannyQuah.com)
+"    Moved personal vimwiki to Sound (Scene Dropbox now only allowing 3
+"    devices)
 "  % Sat 2020.09.05.0942 -- Danny Quah (me@DannyQuah.com) 
 "    VimWiki, Calendar
 "  % Fri 2020.09.04.2116 -- Danny Quah (me@DannyQuah.com) 
@@ -61,7 +66,7 @@ vmap <Leader>P "+P
 "  Swap, undo, backup directories and files ----------------------
 "  https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
 "
-"                              " Out of the way so they don't get synced
+"                              "Put out of the way so they don't get synced
 set backupdir=~/tmp//
 set directory=~/tmp//
 set undodir=~/tmp//
@@ -76,18 +81,21 @@ set linebreak                  "Wrap lines where apt
 "set hidden                     "Allowed buffer change even unsaved"
 set autoindent
 set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab                  "Tabs to spaces
 "set showmatch
 "set matchtime=10               "in tenths of a second
-let g:loaded_matchparen=1      |"Don't load matchparen.vim
-"
 "  alternative, with markdown exception; inactive ----------------
 " set nowrap
 " autocmd FileType markdown setlocal wrap   " Except Markdown
+let g:loaded_matchparen=1      |"Don't load matchparen.vim 
+
+"                              "Tab best practice ---------------- 
+" https://stackoverflow.com/questions/1878974/redefine-tab-as-4-spaces 
+set smarttab
+set tabstop=4                  "Width of TAB
+set softtabstop=4              "Number columns for a TAB
+"set expandtab                 |"Tabs to spaces // Makefile ssheet paste fail 
+set noexpandtab
+set shiftwidth=4               "Indents have this width
 "
 "  Appearance ----------------------------------------------------
 
@@ -96,10 +104,10 @@ if !has('gui_running')
   source ~/0/Scene//1/db/Vim/appearances.vim
 endif
 
-
-set lines=51 columns=110       "lines=48+n, n for mode lines,
+set lines=51 columns=160       "lines=48+n, n for mode lines,
                                "directory listing in netrw etc. 
-                               "I like a sidebar (30 cols) for SideCal,
+                               "I have also experimented with
+							   "a sidebar (30 cols) for SideCal,
                                "netrw, and similar
 set termguicolors
 
@@ -107,8 +115,8 @@ set termguicolors
                                " Activate above or keep splashscreen
 
 "  Editing -------------------------------------------------------
-nnoremap Y y$
 nnoremap A g_a 
+nnoremap Y y$
 "                              |"So Y acts to end of line, not whole
 
 "  Movement ------------------------------------------------------
@@ -121,8 +129,8 @@ nnoremap j gj
 nnoremap k gk
 nnoremap 0 g0
 nnoremap $ g_
-"                              |"Don't need the newline
 
+"                              |"Don't need the newline
 nnoremap d$ dg$
 nnoremap c$ cg$
 nnoremap y$ yg$
@@ -148,55 +156,87 @@ set smartcase                  " ...unless it's uppercase
 
 " Time, templates ------------------------------------------------
 
+"                              "Insert-datetime
 "nnoremap <Leader>idt :put=strftime('%Y.%m.%d.%H%M')<CR>
 "nnoremap <Leader>idt "=strftime('%Y.%m.%d.%H%M')<CR>P
 iabbrev <expr> idt strftime('%Y.%m.%d.%H%M')
-                               "Insert-datetime
 
+"                              "Insert day-datetime
 "nnoremap <Leader>iddt :put=strftime('%a %Y.%2m.%2d.%H%M')<CR>
 "nnoremap <Leader>iddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
 iabbrev <expr> iddt strftime('%a %Y.%m.%d.%H%M')
-                               "Insert day-datetime
 
+"                              "Insert diary-date
+iabbrev <expr> qIDD strftime('%a %d %b %Y')
+
+"                              "Timestamp on call
 source ~/0/Scene/1/db/Vim/timestamps.vim
-                               "Timestamp on call
 "
 " Buffers, files, folders ---------------------------------------
 "
 "inoremap ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
 "nnoremap <Leader>ies :r ~/0/Scene/1/db/Templates/Plaintext/DQ-sign-email.txt<CR>
-iabbrev iDQ -- Danny Quah (me@DannyQuah.com)
                                "Insert-my-email-signature
+iabbrev iDQ -- Danny Quah (me@DannyQuah.com)
 
-nnoremap <Leader>iht :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-general.txt<CR>
                                "Insert-header-general-text
+nnoremap <Leader>iht :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-general.txt<CR>
 
-nnoremap <Leader>ihy :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md<CR>
                                "Insert-header-yaml
+nnoremap <Leader>ihy :0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md<CR>
 
-nnoremap <Leader>ily :r ~/0/Scene/1/db/Templates/Plaintext/DQ-latex-yaml.md<CR>
                                "Insert-latex-yaml"
-"                              " Filetypes // here, if not filetype.vim
-"source filetype.vim            | "Automatic in Vim
+nnoremap <Leader>ily :r ~/0/Scene/1/db/Templates/Plaintext/DQ-latex-yaml.md<CR>
 
-"  Directories and files ----------------------------------------
-"                              "Flow control disabled on most modern setups
+"                              " Filetypes // here, if not filetype.vim
+"source filetype.vim           |"Automatic in Vim
+
+"  Directories and files ------------------------------------------
+"                              "Fuzzy File Finder via CtrlP
+cabbrev CPB CtrlPBuffer
+cabbrev CPM CtrlPMRU
+cabbrev CPL CtrlP ~/0/Light/1
+cabbrev CPC CtrlP ~/0/Scene/1
+cabbrev CPS CtrlP ~/0/Sound/1
+"                              "Start search from current file's directory 
+let g:ctrlp_working_path_mode = 'a'
+"let g:ctrlp_user_command = 'find %s -type f' 
+"Does W10 need instead
+"let g:ctrlp_user_command = 'dir %s /-n /b /s /a-d'
+"                              "Flow control disabled on modern setups
 "                              "So go ahead and use C-s
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <Esc>:w<CR>
-nnoremap <Leader>w :w<CR>
 
-nnoremap <Leader>bd :bd<CR>
-"                              "Delete this buffer
+"Window splits ----------------------------------------------------
+"                              "I'm used to new splits opening below
+"                              "and to the right, unlike the default
+set splitbelow
+set splitright
+
+"Buffer control ---------------------------------------------------
+"https://stackoverflow.com/questions/4571494/open-a-buffer-as-a-vertical-split-in-vim
+"                              "Choose buffer to use
+nnoremap <Leader>bb :ls<cr>:b
+"                              "Choose buffer to vsplit and use
+nnoremap <Leader>bv :ls<cr>:vsplit<space>
+"                              "Choose buffer to h-split and use
+nnoremap <Leader>bs :ls<cr>:split<space>
+"                              "Choose buffer to delete
+nnoremap <Leader>bd :ls<CR>:bd
+"nnoremap <Leader>bc :buffers<CR>:buffer 
 
 augroup dqFilesFoldersGrp
+"First, as usual, remove all dqFilesFoldersGrp autocommands
   autocmd!
-                               " Remove all dqFilesFoldersGrp autocommands
 " https://www.tecmint.com/create-custom-header-template-for-shell-scripts-in-vim/
   autocmd BufNewFile *.txt 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-custom-header.txt
-  autocmd BufNewFile *.md  0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md
   autocmd BufNewFile *.R   0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-Rscript.R
   autocmd BufNewFile *.tex 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.tex
+  autocmd BufNewFile *.py  0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.py
+
+"Too many markdown files that I don't need the YAML header each time
+"  autocmd BufNewFile *.md  0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-yaml.md 
 
 " Change current directory to the file's
 " https://vim.fandom.com/wiki/Set_working_directory_to_the_current_file
@@ -242,23 +282,6 @@ augroup netrwBuffers
 augroup end 
 let g:netrw_fastbrowse = -1
 "
-" Session management ---------------------------------------------
-"   For xolox/vim-session: Use OpenSession, SaveSession
-let g:session_autosave='no'
-let g:session_directory='~/0/Scene/1/db/Vim/sessions'
-let g:session_autoload='prompt'
-"let g+session_autosave_periodic=15
-set sessionoptions-=help
-set sessionoptions-=buffers
-"                              "Don't save hidden or unloaded buffers in
-"                              sessions
-
-set sessionoptions-=options
-"                              "Don't persist options and mappings
-
-"    ZoomWin <c-w>o toggles between just one window and session
-"    However, far as I can tell, it uses :mksession's Session.vim
-"
 " Syntax and modes ----------------------------------------------
 "
                                "pencil ---------------------------
@@ -291,31 +314,32 @@ let g:lightline = {
 \   },
 \ }
 
-"                              "VimWiki --------------------------
-" :VWS /thisToken/ - will search across all wiki notes
-" :lopen - lists all found
-"Multiple Wikis --- although just using myWikiWork seriously for now ---- 
-" https://opensource.com/article/18/6/vimwiki-gitlab-notes
-let myWikiWork = {} 
-let myWikiWork.path = '~/0/Scene/1/db/VimWiki/'
-let myWikiWork.syntax = 'markdown' 
-let myWikiWork.ext = '.md'
+"                              "VimWiki -------------------------- 
+"Multiple Wikis 
+" https://opensource.com/article/18/6/vimwiki-gitlab-notes 
+" 
+" Use wiki names via :h vimwiki-option-name
+" Clone off a default https://github.com/vimwiki/vimwiki/issues/365 
+let myWikiDefault = {}
+let myWikiDefault.syntax = 'markdown'
+let myWikiDefault.ext = 'md'
+" 
+let myWikiPrsn = copy(myWikiDefault)
+let myWikiPrsn.path = '~/0/Sound/1/VimWiki/'
+let myWikiPrsn.name = 'myWikiPrsn'
 
-"Putting this as my next Wiki for future possibilities but
 "I can't get VimWiki to work in OneDrive under W10: 
 "1. With markdown syntax, links in markdown format will not activate,
 "although vimwiki-style links will. 
 "2. Switching to vimwiki syntax, links will not open automatically
 "in the Vim instance, but instead pop open a shell handler. 
-"myWikiTrial works fine, however, in Ubuntu. 
-"Links both vimwiki and markdown style work in myWikiWork, and open
-"correctly with Enter.
-let myWikiTrial = {}
-let myWikiTrial.path = '~/0/Board/1/1-Notes/tmp/'
-let myWikiTrial.syntax = 'markdown' 
-let myWikiTrial.ext = '.md'
+"All works fine, however, in Ubuntu: Links both vimwiki and markdown 
+"style work, and open correctly with Enter.
+let myWikiWork = copy(myWikiDefault)
+let myWikiWork.path = '~/0/Light/1/VimWiki' 
+let myWikiWork.name = 'myWikiWork'
 
-let g:vimwiki_list = [myWikiWork, myWikiTrial]
+let g:vimwiki_list = [myWikiPrsn, myWikiWork]
 let g:vimwiki_markdown_link_ext = 0 
 "0 - Make sure not to append Wiki file extension to Markdown files
 
@@ -326,42 +350,17 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown'}
 let g:vimwiki_autowriteall = 1
 " Turn onautowrite when switching across wiki pages
 "
-"                              "Calendar ------------------------- 
-command! SideCal Calendar -view=year -split=vertical -width=30 
-
-"From Chris Mague own domain https://blog.mague.com/?p=602 
-function! ToggleCalendar()
-  execute ":Calendar"
-  if exists("g:calendar_open")
-    if g:calendar_open == 1
-      execute "q"
-      unlet g:calendar_open
-    else
-      g:calendar_open = 1
-    end
-  else
-    let g:calendar_open = 1
-  end
-endfunction
-":autocmd FileType vimwiki map d :VimwikiMakeDiaryNote 
-":autocmd FileType vimwiki map c :call ToggleCalendar() 
-
 "From Marcus Kazmierczak https://mkaz.blog/working-with-vim/vimwiki/
 command! Diary VimwikiDiaryIndex
-augroup vimwikigroup
+augroup vimwikiGroup
   autocmd!
-  " on read diary, automatically update links to build index 
+  "On read diary, automatically update links to build index 
   autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+  "Python rather than just static template as different every day
+  autocmd BufNewFile */diary/*.md :silent 0r !~/0/Scene/1/db/Vim/bin/gen-vimw-diary-template.py
 augroup end
-
-"                              "vim-notes ------------------------
-"let g:notes_suffix = '.md'
-"let g:notes_directories = ['~/0/Board/1/1-Notes/Notes', '~/0/Board/1/1-Notes/tmp']
-"let g:notes_smart_quotes = 0
-"let g:notes_unicode_enabled = 1
-"let g:notes_conceal_bold = 0
-"let g:notes_conceal_italic = 0
-
+" The rest of what used to be here is now in ftplugin/vimwiki.vim 
+"
 "                              "goyo, limelight ------------------
 " http://www.bit-101.com/techtips/2018/02/24/Editing-text-with-Vim-Goyo-and-Limelight/
 nnoremap <Leader>gy :Goyo<CR>
@@ -372,13 +371,6 @@ augroup goyogroup
 augroup END
 " let g:limelight_conceal_ctermfg = 240
 
-"                              "spelunker, spellcheck ------------
-" Otherwise doubled-up with vim's own spell
-set nospell 
-
-" 1 - spellcheck when open/save 
-" 2 - spellcheck words in buffer
-let g:spelunker_check_type = 2
 
                                "TeX ------------------------------
 let g:tex_flavor="latex"       "LaTeX // otherwise, might be plaintex
@@ -398,17 +390,29 @@ let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_frontmatter=1
 
-"                              "vim-markdown-preview -------------
-let vim_markdown_preview_toggle=0
-"                              |"0 - generate preview w/o images
-"                              |"1 - display images in preview
-let vim_markdown_preview_hotkey='<C-S-p>'
-"                              |"vim keymap doesn't distinguish C-S and C-
-"                              " but it's with the shift in Atom
-let vim_markdown_preview_browser='Google Chrome'
-let vim_markdown_preview_temp_file=0
-"                              |"1 - remove rendered HTML (used for preview)
-let vim_markdown_preview_pandoc=1
+"iamccor/markdown-preview-nvim ----------------------------------- 
+" :MarkdownPreview // :MarkdownPreviewStop
+" This mkdp install has to be run just once; it's a no-op afterwards
+call mkdp#util#install()
+let g:mkdp_auto_close = 1      
+                               "1 autoclose window when done; 0 otherwise
+let g:mkdp_refresh_slow = 0    
+							   "0 autorefresh as editing; 1 otherwise 
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false
+    \ } 
+
+let g:mkdp_markdown_css = '~/0/Scene/1/db/Templates/stylesheets/github-markdown.css'
+
 "                              |"Use MacFarlane pandoc to render HTML
                                "Bullets --------------------------
 let g:bullets_enabled_file_types = [

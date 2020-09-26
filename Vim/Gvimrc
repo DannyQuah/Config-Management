@@ -1,5 +1,5 @@
 " @(#) Vim/Gvimrc <- ~/.gvimrc
-" Last-edited: Sun 2020.09.06.1738 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Thu 2020.09.17.0729 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Sun 2020.07.19.0745 -- Danny Quah (me@DannyQuah.com)
@@ -51,8 +51,8 @@ if has('gui_running')
 
   "colorscheme torte           "came with GVim, but like 
   "colorscheme ron
-  "colorscheme koehler 
-  colorscheme industry
+  colorscheme koehler 
+  "colorscheme industry
   "colorscheme monokai         "vim-monokai
   "colorscheme papaya          "vim-theme-papaya
   "let g:papaya_gui_color='blue'

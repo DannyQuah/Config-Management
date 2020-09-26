@@ -1,6 +1,6 @@
 #! /bin/bash
 # @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
-# Last-edited: Sun 2020.07.19.1505 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2020.09.21.1047 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -72,8 +72,9 @@ TMPDIR=${HOME}/tmp
 FSROOT=${HOME}/0
 CDPATH=\
 ${FSROOT}/Scene/1/db:\
-${FSROOT}/Board/1/1-Notes/Listings:\
-${FSROOT}/Light/1/t/Writings:
+${FSROOT}/Sound/1/VimWiki:\
+${FSROOT}/Light/1/VimWiki:\
+${FSROOT}/Light/1/t:
 # ${FSROOT}/Stage/Photos
 export CDPATH
 
@@ -107,7 +108,7 @@ alias lf='/bin/ls -F'
 
 alias trash='zip -m9or ${TMPDIR}/dq-trash $@'
 alias notabs-dq='sed -ie "s/\t//g" $@'
-alias grep1n='grep --include=\*.md --colour=never -rnw ~/0/Board/1/1-Notes -e $@'
+alias grepww='grep --include=\*.md --colour=never -rnw ~/0/Light/1/VimWiki -e $@'
 # alias grep1n='find ~/0/Board/1/1-Notes -type f -name "*.md" -exec grep -EH $@ {} ";"'
 # alias dollmd-dq="sed -ie 's/ \$/ \\$/g' $@"
 # alias starmd-dq="sed -ie 's/ \*/ \\*/g' $@"

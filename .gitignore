@@ -1,5 +1,5 @@
 # @(#) db/.gitignore
-# Last-edited: Sun 2020.09.27.0603 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.10.03.2051 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
@@ -9,6 +9,8 @@
 *.swp
 .netrwhist
 1Unused.zip
+Config/Vifm/colors/
+Config/Vifm/vifm-help.txt
 EndNote/
 machines/Linux/bin/
 machines/Linux/fonts/

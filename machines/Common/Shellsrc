@@ -1,6 +1,6 @@
 #! /bin/bash
 # @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
-# Last-edited: Mon 2020.09.21.1047 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2020.09.27.0626 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -89,6 +89,7 @@ export TZ='Asia/Singapore'
 # ###############################
 # What zsh calls normal aliases, and bash just aliases
 
+alias python='/usr/bin/python3'
 # apt use - took out ubuntu plugin
 APT=apt
 # APT=apt-get

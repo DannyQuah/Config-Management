@@ -1,0 +1,100 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/dq/
+	..
+1601674936
+'b
+	/home/dq/bin/
+	..
+1601674936
+'h
+	/home/dq/
+	..
+1601674936
+'z
+	/home/dq/.config/vifm
+	..
+1601674936
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/dq
+	0
+1
+d/home/dq/0
+	Light
+4
+d/home/dq/0/Light
+	1
+1
+d/home/dq/0/Light/1
+	VimWiki
+1
+d/home/dq/0/Light/1/VimWiki
+	..
+0
+d/home/dq/0/Light/1
+	VimWiki
+1
+d/home/dq/0/Light
+	1
+1
+d/home/dq/0
+	Sound
+6
+d/home/dq/0/Sound
+	1
+1
+d/home/dq/0/Sound/1
+	VimWiki
+1
+d/home/dq/0/Sound/1/VimWiki
+	diary
+4
+d/home/dq/0/Sound/1/VimWiki/diary
+	2020-10-01.md
+27
+d
+
+# Right window history (oldest to newest):
+D/home/dq
+	..
+0
+D
+
+# Command line history (oldest to newest):
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.1
+[F
+F
+I1
+].1
+]F
+s0

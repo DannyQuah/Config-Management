@@ -1,5 +1,5 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Sun 2020.09.27.0554 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2020.09.27.1022 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History: 
 "  % Tue 2020.09.15.1612 -- Danny Quah (me@DannyQuah.com)
@@ -356,8 +356,12 @@ augroup vimwikiGroup
   autocmd!
   "On read diary, automatically update links to build index 
   autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
-  "Python rather than just static template as different every day
-  autocmd BufNewFile */diary/*.md :silent 0r !~/0/Scene/1/db/Vim/bin/gen-vimw-diary-template.py
+  "Python script rather than just static template as different every day
+  "On Linux we can get away with reading the script output ...
+"  autocmd BufNewFile */diary/*.md :silent 0r !~/0/Scene/1/db/Vim/bin/gen-vimw-diary-template.py 
+  "but for both W10 and Linux it's necessary to run execute, following
+  "https://stackoverflow.com/questions/9346318/how-to-use-windows-environment-variables-in-vim-script 
+  autocmd BufNewFile */diary/*.md silent execute "%! ".$HOME."/0/Scene/1/db/Vim/bin/gen-vimw-diary-template.py"
 augroup end
 " The rest of what used to be here is now in ftplugin/vimwiki.vim 
 "

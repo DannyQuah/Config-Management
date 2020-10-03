@@ -1,6 +1,6 @@
-#!python3
+#!/usr/bin/env python
 # @(#) gen-vimw-diary-template.py 
-# Last-edited: Sun 2020.09.27.0551 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2020.09.27.0956 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.09.26.0659 -- Danny Quah (me@DannyQuah.com)
@@ -20,16 +20,16 @@ myTemplate = """# {theLocalDate}
 
 ({theDateTime})
 
-## Checklist
-
+## Daily.Checklist
 - [ ] Lisoril, Gluocasamine, Vitamin C
-
-## Todo 
-
 - [ ] Temperature.AM
-- [ ] Temperature.PM
+- [ ] Temperature.PM  
+
+## ToDo 
+- [ ] 
 
 ## Notes"""
+
 # ----------------------------------------------------------------
 
 # Date, my way

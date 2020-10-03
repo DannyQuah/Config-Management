@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) linux-baseapps-install
-# Last-edited: Mon 2020.09.14.1519 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.10.03.1019 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Fri 2020.08.14.1928 -- Danny Quah (me@DannyQuah.com)
@@ -12,7 +12,8 @@ installBaseApps() {
 # Base Apps
 #  sudo apt --fix-broken install
   sudo apt -y install software-properties-common \
-	  apt-file \
+    apt-file \ 
+    dos2unix \
     snapd \
     wget \
     powerline \
@@ -20,9 +21,11 @@ installBaseApps() {
     gnupg \
     gconf2 gconf-service gvfs-bin libxkbfile1 \
     compizconfig-settings-manager \
-    nemo \
+    nemo \ 
+	thunar \
     npm \
-    vim-gnome \
+    vim-gnome \ 
+	vifm \
     zsh \
     autojump \
     zip \
@@ -34,6 +37,10 @@ installBaseApps() {
     variety \
     pandoc
 # end installBaseApps()
+#
+# nemo is my preferred File Manager but thunar has Bulk Rename
+# So I install both
+#
 # sudo apt-get -y install gnome-online-accounts
 # sudo apt-get -y install evolution evolution-plugins evolution-ews
 # sudo apt-get -y install evolution-plugins-experimental

@@ -22,7 +22,7 @@
 
 # TUI:
 al
-q0
+q1
 v2
 ov
 m-1
@@ -30,6 +30,51 @@ l2
 r2
 
 # Left window history (oldest to newest):
+d/home/dq/0/Light/1/VimWiki/Projects-Open/Thinktanks-Research-Institutes-Centres-External
+	Think-Tank-Rankings-2020.10.md
+5
+d/home/dq/0/Light/1/VimWiki/Projects-Open
+	Thinktanks-Research-Institutes-Centres-External
+5
+d/home/dq/0/Scene
+	1
+1
+d/home/dq/0/Scene/1
+	db
+1
+d/home/dq/0/Scene/1/db
+	Config
+2
+d/home/dq/0/Scene/1/db/Config
+	OneDrive
+1
+d/home/dq/0/Scene/1/db
+	Config
+2
+d/home/dq/0/Scene/1
+	db
+1
+d/home/dq/0/Light/1/t/Writings/Gists
+	Quah-D-2020.06-Pulse-Secure-Client-Ubuntu-Linux
+4
+d/home/dq/0/Light/1/t/Writings/Gists/Quah-D-2020.06-Pulse-Secure-Client-Ubuntu-Linux
+	Quah-D-2020.06-Pulse-Secure-Client-on-Ubuntu-Linux.md
+1
+d/home/dq/0/Light/1/t/Writings/Gists
+	Quah-D-2020.06-Pulse-Secure-Client-Ubuntu-Linux
+4
+d/home/dq/0/Sound/1/VimWiki/Portable
+	Posts.md
+13
+d/home/dq/0/Light/1/VimWiki/LKYSPP/Students-Alumni
+	..
+0
+d/home/dq/0/Light/1/VimWiki/LKYSPP
+	LKYSPP-Undergraduate-2020.08.md
+47
+d/home/dq/0/Light/1/VimWiki/Events/2019
+	2019.09.17.1030h-Bethany.Lee-2nd-interview-AM-Government-Relations-Strategic-Projects.md
+29
 d/home/dq
 	0
 1
@@ -67,11 +112,230 @@ d/home/dq/0/Light/1/VimWiki
 	Meeting-Notes.md
 10
 d/home/dq/0/Sound/1/VimWiki
-	Lookups.md
+	..
+0
+d/home/dq/0/Sound/1
+	..
+0
+d/home/dq/0/Sound
+	1
+1
+d/home/dq/0/Sound/1
+	db
+2
+d/home/dq/0/Sound/1/db
+	Commons
+1
+d/home/dq/0/Sound/1/db/Commons
+	..
+0
+d/home/dq/0/Sound/1/db
+	..
+0
+d/home/dq/0/Sound/1
+	t
+3
+d/home/dq/0/Sound/1/t
+	Projects
+1
+d/home/dq/0/Sound/1/t/Projects
+	..
+0
+d/home/dq/0/Sound/1/t
+	..
+0
+d/home/dq/0/Sound/1
+	db
+2
+d/home/dq/0/Sound/1/db
+	Commons
+1
+d/home/dq/0/Sound/1/db/Commons
+	..
+0
+d/home/dq/0/Sound/1/db
+	Commons
+1
+d/home/dq/0/Sound/1
+	db
+2
+d/home/dq/0/Sound
+	1
+1
+d/home/dq/0
+	Sound
+6
+d/home/dq/0/Sound
+	1
+1
+d/home/dq/0
+	Light
+4
+d/home/dq/0/Light
+	1
+1
+d/home/dq/0
+	Light
+4
+d/home/dq/0/Light
+	1
+1
+d/home/dq/0/Light/1
+	t
+4
+d/home/dq/0/Light/1/t
+	Writings
+5
+d/home/dq/0/Light/1/t/Writings
+	..
+0
+d/home/dq/0/Light/1/t
+	Writings
+5
+d/home/dq/0/Light/1
+	VimWiki
+1
+d/home/dq/0/Light/1/VimWiki
+	References
+6
+d/home/dq/0/Light/1/VimWiki/References
+	Q
+18
+d/home/dq/0/Light/1/VimWiki/References/Q
+	Qin-A-2020.03-China-Beating-Coronavirus-Painful-Cost-NYT.assets
+1
+d/home/dq/0/Light/1/VimWiki/References/Q/Qin-A-2020.03-China-Beating-Coronavirus-Painful-Cost-NYT.assets
+	..
+0
+d/home/dq/0/Light/1/VimWiki/References/Q
+	Quah-D-0-Notes
+2
+d/home/dq/0/Light/1/VimWiki/References/Q/Quah-D-0-Notes
+	China-US-Western-Conflict-2018.10.md
+14
+d/home/dq/0/Light/1/VimWiki/References/Q
+	Quah-D-0-Notes
+2
+d/home/dq/0/Light/1/VimWiki/References
+	Q
+18
+d/home/dq/0/Light/1/VimWiki
+	People-Groups-Confidential
+4
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Quah.Danny-2016.07.assets
+6
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential/Quah.Danny-2016.07.assets
+	2020.09-Danny.Quah-Annual-Performance-Management-Report-LKYSPP.md
+17
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Quah.Danny-2016.07.assets
+6
+d/home/dq/0/Light/1/VimWiki
+	Events
+1
+d/home/dq/0/Light/1/VimWiki/Events
+	2020
+24
+d/home/dq/0/Light/1/VimWiki/Events/2020
+	2020.10.05.1530-CNA-Asia-Now-Live-Interview-US-Elections-Zoom.md
+46
+d/home/dq/0/Sound/1/VimWiki
+	diary
+4
+d/home/dq/0/Sound/1/VimWiki/diary
+	diary.md
+32
+d/home/dq/0/Sound/1/VimWiki
+	diary
+4
+d/home/dq/0/Light/1/VimWiki
+	Email-drafts.md
 7
+d/home/dq/0/Sound/1/VimWiki
+	diary
+4
+d/home/dq/0/Light/1/VimWiki
+	Email-drafts.md
+7
+d/home/dq/0/Light/1/t
+	Corr
+1
+d/home/dq/0/Light/1/t/Corr
+	Email-signature-LKYSPP-Dean-DQ.html
+18
+d/home/dq/0/Sound/1/VimWiki
+	LifePINs
+1
+d/home/dq/0/Sound/1/VimWiki/LifePINs
+	Restaurants
+3
+d/home/dq/0/Sound/1/VimWiki/LifePINs/Restaurants
+	Restaurants-2020.04.md
+5
+d/home/dq/0/Light/1/VimWiki
+	Events
+1
+d/home/dq/0/Light/1/VimWiki/Events
+	2020
+24
+d/home/dq/0/Light/1/VimWiki/Events/2020
+	2020.10.14.2000-Asia-Society-US-Presidential-Elections-Zoom.md
+46
+d/home/dq/0/Light/1/VimWiki
+	People-Groups-Confidential
+4
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Ryu-Yongwook-2018.03.assets
+4
+d/home/dq/0/Light/1/VimWiki
+	Machines
+3
+d/home/dq/0/Light/1/VimWiki/Machines
+	Internet-Services
+3
+d/home/dq/0/Light/1/VimWiki/Machines/Internet-Services
+	OneDrive-2020.10.md
+25
+d/home/dq/0/Sound/1/VimWiki
+	diary
+4
+d/home/dq/0/Sound/1/VimWiki/diary
+	2020-10-07.md
+33
+d/home/dq/0/Light/1/VimWiki
+	People-Groups-Confidential
+4
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Ho.Selina-2016.07.assets
+19
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential/Ho.Selina-2016.07.assets
+	..
+0
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Ho.Selina-2016.07.assets
+19
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential/Ho.Selina-2016.07.assets
+	2019.07.29.1000h-FAR-Selina.Ho.md
+1
+d/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	Ho.Selina-2016.07.assets
+19
+d/home/dq/0/Light/1/VimWiki
+	Machines
+3
+d/home/dq/0/Light/1/VimWiki/Machines
+	Apps
+1
+d/home/dq/0/Light/1/VimWiki/Machines/Apps
+	..
+0
 d
 
 # Right window history (oldest to newest):
+D/home/dq/0/Board
+	tmp
+9
 D/home/dq
 	0
 1
@@ -252,14 +516,23 @@ D/home/dq/0/Light/1/t/Corr/archive/2012/2012.01-Qianni_Hua
 D/home/dq/0/Light/1/t/Corr/archive/2012
 	2012.01-Qianni_Hua
 1
+D/home/dq/0/Light/1/VimWiki
+	People-Groups-Confidential
+4
+D/home/dq/0/Light/1/VimWiki/People-Groups-Confidential
+	..
+0
 D
 
 # Command line history (oldest to newest):
+:change
+:w
+:e ~/0
+:13,15d
 :help vifm
 :set nohl
 :nohlsearch
 :q
-:nohl
 :mar
 :file *.md
 :file
@@ -269,26 +542,61 @@ D
 :help e
 :fileview
 :fileview Nexts.md
-:view
 :delmarks H
 :delmarks b
-:marks
-:colorscheme molokai
 :colorscheme onedark
 :colorscheme semidarkdesert
 :colorscheme zenburn
+:colorscheme dracula
+:colorscheme molokai
+:colorscheme iceberg
+:marks
+:set dotfiles?
+:nohl
+:e ~/0/
+:examine
+:explore
+:view
 :colorscheme matrix
+:set number
+:help
 
 # Search history (oldest to newest):
+/Steh
+/Lawrence
+/Bethhh
+/Betha
 /Morton
+/Amul
+/Chivy
+/Esther
+/Selina
 
 # Prompt history (oldest to newest):
+pQuah-D-1997.02-iwe.pdf
+pQuah-D-1997.02-nhm.pdf
+pQuah-D-1997.04-mpf.pdf
+pQuah-D-1997.05-ios.pdf
+pQuah-D-1997.06-evd.pdf
+pQuah-D-1997.09-awsj.pdf
+pQuah-D-1997.09-tfp2.pdf
+pQuah-D-1997.10-euro.pdf
+pQuah-D-1997.10-pcio.pdf
+pQuah-D-1997.11-ace.pdf
+pThink-Tank-Rankings-2020.10.md
 pMorton-Wright.Ben-1998.md
+p2020.10.05.1530-CNA-Asia-Now-Live-Interview-US-Elections-Zoom.md
+p2020.10.06.0900-Provost-Academic-Annual-Review-L501.md
+pOneDrive-2020.10.md
+p2020.09-2913_C1_Selina Ho.pdf
+p2020.09-MTAR-2913_C1_Selina.Ho.pdf
+p2020.09-2913_FC_Selina.Ho_MTAR_FPTC-Final-Report.pdf
+p2020.09-2913_MC_Selina.Ho-MTARC-Report.pdf
 
 # Local filter history (oldest to newest):
 
 # Registers:
-""/home/dq/.local/share/vifm/Trash/000_cv_qianni hua_2012 (1).pdf
+""/home/dq/.local/share/vifm/Trash/000_diary
 
 # Directory stack (oldest to newest):
 
@@ -297,6 +605,16 @@ t/home/dq/.local/share/vifm/Trash/000_2020.09-Danny.Quah-Annual-Performance-Mana
 	/home/dq/0/Light/1/VimWiki/People-Groups-Confidential/2020.09-Danny.Quah-Annual-Performance-Management-Report-LKYSPP.md
 t/home/dq/.local/share/vifm/Trash/000_cv_qianni hua_2012 (1).pdf
 	/home/dq/0/Light/1/t/Corr/archive/2012/2012.01-Qianni_Hua/cv_qianni hua_2012 (1).pdf
+t/home/dq/.local/share/vifm/Trash/000_Li.Chivy-2018.10.odt
+	/home/dq/0/Light/1/VimWiki/People-Groups-Confidential/Li.Chivy-2018.10.odt
+t/home/dq/.local/share/vifm/Trash/000_diary
+	/home/dq/0/Light/1/VimWiki/diary
+t/home/dq/.local/share/vifm/Trash/000_Posts (conflicted 1).md
+	/home/dq/0/Sound/1/VimWiki/Portable/Posts (conflicted 1).md
+t/home/dq/.local/share/vifm/Trash/000_Posts (conflicted).md
+	/home/dq/0/Sound/1/VimWiki/Portable/Posts (conflicted).md
+t/home/dq/.local/share/vifm/Trash/000_Posts {CONFLICTED}.md
+	/home/dq/0/Sound/1/VimWiki/Portable/Posts {CONFLICTED}.md
 
 # State:
 f

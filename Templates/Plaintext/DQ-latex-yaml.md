@@ -27,18 +27,18 @@ mathfont: ccmath
 fontfamily: concrete
 documentclass: article
 classoption:
-  - notitlepage
-  - onecolumn
+ - notitlepage
+ - onecolumn
 fontenc: T1
 geometry:
-  - a4paper
-  - top=35mm
-  - left=30mm
-  - heightrounded
+ - a4paper
+ - top=35mm
+ - left=30mm
+ - heightrounded
 colorlinks: true
 urlcolor: blue
 header-includes:
-- |
+ - |
   ```{=latex}
   \usepackage{amsmath,amsfonts,euscript,tikz,fancyhdr,float}
   \floatplacement{figure}{H}

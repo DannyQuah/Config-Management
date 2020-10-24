@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 # (@) linux-new-setup
-# Last edited: 2020.05.23.1255h -- Danny Quah
+# Last-edited: Wed 2020.10.21.2032 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------  
 # Revision History:
-#  % 2018.09.28 0500h - Danny Quah (dq@pbook)
+#  % Sun 2018.09.28.0500 - Danny Quah (me@DannyQuah.com)
 #    First draft
-#
+# ---------------------------------------------------------------- 
 install_one() {
 # This to install just one, mostly for experimentaiton
   sudo apt -y install \

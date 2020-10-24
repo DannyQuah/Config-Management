@@ -1,5 +1,6 @@
-" vim: filetype=vifm :
-" Last-edited: Sat 2020.10.03.2104 -- Danny Quah (me@DannyQuah.com)
+" @(#) Config/Vifm/vifmrc <- ~/.config/vifmrc
+" vim: filetype=vim :
+" Last-edited: Mon 2020.10.05.1950 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Fri 2020.10.02.1804 -- Danny Quah (me@DannyQuah.com)
@@ -17,10 +18,13 @@
 " If you would like to use another vi clone such as Elvis or Vile
 " you will need to change this setting.
 
-set vicmd=gvim
+set vicmd=gvim\ --remote-tab-silent
 " set vicmd=vim
 " set vicmd=elvis\ -G\ termcap
 " set vicmd=vile
+
+"No dotfiles is the default so there's no need to
+"set nodotfiles
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -64,9 +68,9 @@ set norunexec
 
 " Selected color scheme
 "colorscheme Default
-colorscheme iceberg
+"colorscheme iceberg
 "colorscheme matrix
-"colorscheme molokai
+colorscheme molokai
 "colorscheme onedark
 "colorscheme semidarkdesert
 "colorscheme zenburn
@@ -75,7 +79,7 @@ colorscheme iceberg
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
 
-set timefmt=%Y.%m.%d\ %H%M
+set timefmt=%Y.%m.%d.%H%M 
 " set timefmt=%m/%d\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
@@ -190,7 +194,7 @@ command! reload :write | restart
 
 "Markdown
 filextype  *.md typora %c &
-fileviewer *.md typora %c &
+"fileviewer *.md typora %c &
 
 "PDF
 " filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c

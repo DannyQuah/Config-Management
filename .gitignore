@@ -1,5 +1,5 @@
 # @(#) db/.gitignore
-# Last-edited: Sat 2020.10.03.2051 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2020.10.25.0430 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
@@ -24,6 +24,5 @@ Vim/Session.vim
 Vim/autoload/
 Vim/bundle/
 Vim/sessions/ 
-VimWiki/
 # eof db/.gitignore
 

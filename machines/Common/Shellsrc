@@ -1,6 +1,6 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
-# Last-edited: Sun 2020.09.27.0626 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.10.24.0710 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -26,7 +26,7 @@ case "$OSTYPE" in
 #
 # Keyboard -------------------------------------------------------
 ## setxkbmap -option "ctrl:nocaps"
-  if [ -s ~/.Xmodmap ]; then
+  if [[ -s ~/.Xmodmap && -n "${DISPLAY+x}" ]]; then
    xmodmap ~/.Xmodmap
   fi
 #  if [ -s ~/.Xmodmap-swapctrlcaps ]; then
@@ -52,7 +52,6 @@ esac
 # ###############################
 #
 BIN_DIRS="${HOME}/bin ${HOME}/local/bin"
-
 for bindir in $BIN_DIRS ; do
   if [ -d "$bindir" ]; then
    PATH="$bindir":$PATH
@@ -72,10 +71,17 @@ TMPDIR=${HOME}/tmp
 FSROOT=${HOME}/0
 CDPATH=\
 ${FSROOT}/Scene/1/db:\
-${FSROOT}/Sound/1/VimWiki:\
+${FSROOT}/Floor/1/VimWiki:\
 ${FSROOT}/Light/1/VimWiki:\
-${FSROOT}/Light/1/t:
+${FSROOT}/Light/1/t
 # ${FSROOT}/Stage/Photos
+
+WIN_DIRS="/mnt/c/Users/sppdqlsh /mnt/d/dq"
+for windir in $WIN_DIRS ; do
+	if [ -d "$windir" ]; then
+		CDPATH=$CDPATH:"$windir"
+	fi
+done
 export CDPATH
 
 # source /usr/share/autojump/autojump.sh
@@ -107,14 +113,17 @@ alias ll='/bin/ls -lF'
 alias lt='/bin/ls -ltF'
 alias lf='/bin/ls -F'
 
+# largest files recursively from here
+# alias Largest='find -L . -type f -printf "%s %p\n" | sort -nr | head -20'
+
 alias trash='zip -m9or ${TMPDIR}/dq-trash $@'
 alias notabs-dq='sed -ie "s/\t//g" $@'
 alias grepww='grep --include=\*.md --colour=never -rnw ~/0/Light/1/VimWiki -e $@'
-# alias grep1n='find ~/0/Board/1/1-Notes -type f -name "*.md" -exec grep -EH $@ {} ";"'
+# alias grep1n='find -L ~/0/Board/1/1-Notes -type f -name "*.md" -exec grep -EH $@ {} ";"'
 # alias dollmd-dq="sed -ie 's/ \$/ \\$/g' $@"
 # alias starmd-dq="sed -ie 's/ \*/ \\*/g' $@"
-alias syncconf-find='find ~/0 -type f -name "*sync-conflict*"'
-alias syncconf-trash='find ~/0 -type f -name "*sync-conflict*" | zip -m9@ ${TMPDIR}/dq-trash'
+alias syncconf-find='find -L ~/0 -type f -name "*sync-conflict*"'
+alias syncconf-trash='find -L ~/0 -type f -name "*sync-conflict*" | zip -m9@ ${TMPDIR}/dq-trash'
 alias texcln='zip -m9o ${TMPDIR}/dq-trash *.log *.aux *.nav *.out *.snm *.synctex.gz *.toc *.tex~'
 
 # Below just archive; all commented out --------------------------

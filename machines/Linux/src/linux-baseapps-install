@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # @(#) linux-baseapps-install
-# Last-edited: Sat 2020.10.03.1019 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Wed 2020.10.21.2042 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Fri 2020.08.14.1928 -- Danny Quah (me@DannyQuah.com)
 #    Source Code Pro font
-#  % Fri 2018.09.28.0500 -- Danny Quah (dq@pbook)
+#  % Fri 2018.09.28.0500 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 #
 installBaseApps() {
@@ -36,7 +36,6 @@ installBaseApps() {
     jpegoptim \
     variety \
     pandoc
-# end installBaseApps()
 #
 # nemo is my preferred File Manager but thunar has Bulk Rename
 # So I install both
@@ -69,10 +68,10 @@ installBaseApps() {
   sudo snap install -y p3x-onenote
 ################################
 # telegram-desktop 2020.02
-  sudo snap install -y telegram-desktop
+#  sudo snap install -y telegram-desktop
 ################################
 # Internet radio
-  sudo snap install -y odio
+#  sudo snap install -y odio
 ###############################
 # Pulse Secure client // need to source deb from somewhere but then
   sudo apt install lib32z1 libwebkitgtk-1.0 \
@@ -87,6 +86,7 @@ installBaseApps() {
   git clone https://github.com/adobe-fonts/source-code-pro.git ~/0/Scene/1/db/machines/Linux/fonts/adobe-fonts/source-code-pro
 #  fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 ###############################
+# end installBaseApps()
 }
 
 ## Begin execution here

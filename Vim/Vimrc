@@ -1,7 +1,10 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Sun 2020.09.27.1022 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sat 2020.10.24.1231 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
-" Revision History: 
+" Revision History:
+"  % Thu 2020.10.22.2247 -- Danny Quah (me@DannyQuah.com)
+"    Moved personal VimWiki to Floor; previously at Sound 
+"    but pCloud takes a bit too long to sync up
 "  % Tue 2020.09.15.1612 -- Danny Quah (me@DannyQuah.com)
 "    ftplugin/vimwiki.vim
 "  % Mon 2020.09.14.0907 -- Danny Quah (me@DannyQuah.com)
@@ -43,6 +46,13 @@ endif
 "
 "  General configuration -----------------------------------------
 "
+"fileformats including dos allow DOS-ending files to be read cleanly,
+"stripping ^M as needed. However, fileformat set to unix will then 
+"only write out the file in unix format, similarly creating new files.
+"If needed ':e ++ff=dos' will re-read (and strip) a DOS textfile.
+set fileformats=unix,dos
+set fileformat=unix
+
 set encoding=utf8              "Standard file encoding
 set autoread                   "Reload files changed externally
 set conceallevel=1             "Don't hide characters
@@ -81,6 +91,7 @@ set linebreak                  "Wrap lines where apt
 "set hidden                     "Allowed buffer change even unsaved"
 set autoindent
 set smartindent
+set number
 "set showmatch
 "set matchtime=10               "in tenths of a second
 "  alternative, with markdown exception; inactive ----------------
@@ -197,7 +208,7 @@ cabbrev CPB CtrlPBuffer
 cabbrev CPM CtrlPMRU
 cabbrev CPL CtrlP ~/0/Light/1
 cabbrev CPC CtrlP ~/0/Scene/1
-cabbrev CPS CtrlP ~/0/Sound/1
+cabbrev CPS CtrlP ~/0/Floor/1
 "                              "Start search from current file's directory 
 let g:ctrlp_working_path_mode = 'a'
 "let g:ctrlp_user_command = 'find %s -type f' 
@@ -325,7 +336,7 @@ let myWikiDefault.syntax = 'markdown'
 let myWikiDefault.ext = 'md'
 " 
 let myWikiPrsn = copy(myWikiDefault)
-let myWikiPrsn.path = '~/0/Sound/1/VimWiki/'
+let myWikiPrsn.path = '~/0/Floor/1/VimWiki/'
 let myWikiPrsn.name = 'myWikiPrsn'
 
 "I can't get VimWiki to work in OneDrive under W10: 

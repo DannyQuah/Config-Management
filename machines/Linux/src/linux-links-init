@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 # @(#) linux-links-init
-# Last-edited: Fri 2020.08.14.1926 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sat 2020.10.17.1151 -- Danny Quah (me@DannyQuah.com)
 # ****************************************************************
 # Revision History:
 #  % Mon 2020.05.25.0620h -- Danny Quah (me@DannyQuah.com)
@@ -50,6 +50,8 @@ ln -s ~/0/Scene/1/db//Typora/base.user.css ./base.user.css
 # texmf
 rm -rf ~/texmf
 ln -s ~/0/Scene/1/db/texmf ~/texmf
+rm -f ~/0/Makefile
+ln -s ~/0/Light/1/t/Writings/Makefile ~/0
 ################################
 # Ssh
 rm -rf ~/.ssh/config
@@ -62,6 +64,11 @@ rm -rf ~/.fonts
 ln -s ~/0/Scene/1/db/machines/Linux/fonts ~/.fonts
 fc-cache -f -v 
 #
+################################
+# bin
+rm -rf ~/bin/update-mydomain ~/bin/recents0 
+ln -s ~/0/Scene/1/db/machines/Common/update-mydomain ~/bin/
+ln -s ~/0/Scene/1/db/machines/Common/recents0 ~/bin/
 # cd ~
 # rm -rf ~/bin ~/tmp
 # mkdir ~/bin

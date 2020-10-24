@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # @(#) gen-vimw-diary-template.py 
-# Last-edited: Sun 2020.09.27.0956 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Fri 2020.10.09.1942 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.09.26.0659 -- Danny Quah (me@DannyQuah.com)

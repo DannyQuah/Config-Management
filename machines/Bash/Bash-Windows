@@ -1,10 +1,11 @@
-#! /bin/bash
+#!/usr/bin/env bash
 # @(#) Dropbox/1/db/machines/Bash/Bash-Windows
-# Last-edited: Tue 2020.07.07.0640 -- Danny Quah
-# Created:     Tue 2013.01.29.1220 -- Danny Quah (dquah@LSE016404)
+# Last-edited: Sat 2020.10.24.2315 -- Danny Quah
+# ----------------------------------------------------------------
 # Revision History:
-#  % Tue Jan 29 12:20:57 2013 - Danny Quah (dquah@LSE016404)
+#  % Tue 2013.01.29.1220 -- Danny Quah (dquah@LSE016404)
 #    First draft
+# ----------------------------------------------------------------
 #
 # export USER=dquah # Set in linux on login but not in Windows
 # ################################
@@ -17,7 +18,6 @@ source $HOME/0/Scene/1/db/machines/Bash/Bash-dispatcher
 # With texlive 2012 on, there is no longer need for all this.  Just
 # put everything in ~/texmf/
 ## TeX (extra colon allows texmf.cnf [or compiled default]
-# TeX (extra colon allows texmf.cnf [or compiled default]
 # Doubled // for recursive search
 # export TEXINPUTS=.:$HOME/texmf//:$ONEDIR/db/machines/Windows:
 # However, on Cygwin the instruction kpsewhich -var-value=TEXMFHOME

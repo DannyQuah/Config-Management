@@ -1,6 +1,7 @@
-" @(#) Config/Vifm/vifmrc <- ~/.config/vifmrc
+" @(#) Config/Vifm/vifmrc <- ~/.config/vifmrc (on linux)
+" <- %APPDATA%/Vifm/vifmrc (W10)
 " vim: filetype=vim :
-" Last-edited: Mon 2020.10.05.1950 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2020.11.08.1835 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Fri 2020.10.02.1804 -- Danny Quah (me@DannyQuah.com)
@@ -12,7 +13,9 @@
 " Blank lines are ignored.
 " The basic format for each item is shown with an example.
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------
+
+set columns=160
 
 " Command used to edit files in various contexts.  The default is vim.
 " If you would like to use another vi clone such as Elvis or Vile
@@ -131,12 +134,12 @@ mark h ~/
 "These were set from within vifm and are stored in viminfo. Therefore,
 "they aren't needed here. But I'm just recording them:
 "mark W ~/0/Light/1/VimWiki/
-"mark P ~/0/Sound/1/VimWiki/ 
+"mark P ~/0/Floor/1/VimWiki/ 
 "mark t ~/0/Light/1/t/
 
 "Get rid of unwanted marks using :delmarks marks   
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------
 
 " :com[mand][!] command_name action
 " The following macros can be used in a command
@@ -159,7 +162,7 @@ command! mkcd :mkdir %a | cd %a
 command! vgrep vim "+grep %a"
 command! reload :write | restart
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------
 
 " The file type is for the default programs to be used with
 " a file extension. 
@@ -488,7 +491,7 @@ nnoremap <f6> :move<cr>
 nnoremap <f7> :mkdir<space>
 nnoremap <f8> :delete<cr>
 
-" ------------------------------------------------------------------------------
+" ----------------------------------------------------------------
 
 " Various customization examples
 

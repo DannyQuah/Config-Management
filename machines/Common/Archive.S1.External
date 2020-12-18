@@ -1,0 +1,35 @@
+#!/usr/bin/env sh
+# @(#) bin/Archive.S1.External -> 0/Scene/1/db/machines/Common/ 
+# Last-edited: Sat 2020.12.05.1202 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Tue 2020.10.27.1004 -- Danny Quah (me@DannyQuah.com)
+#    First draft: Backup onto External HD; try to do so regularly
+# ----------------------------------------------------------------
+trap 'exit 0' 2 15 
+USAGE_MESSAGE='Usage: Archive.S1.External {-n|-a} (no action|archive)' 
+EXT_HD=/media/dq/DQS
+PERSONAL_FOLDER=Users/dq
+LIST_FOLDERS="0 1"
+RSYNC_FLAGS='-avrulhRHpEXgt --progress'
+#
+if test $# -le 0 ; then
+  echo $USAGE_MESSAGE
+  exit 1
+fi
+
+cd ~
+
+if test $1 = -n ; then
+  for thisFolder in $LIST_FOLDERS ; do
+    rsync $RSYNC_FLAGS -n $thisFolder $EXT_HD/$PERSONAL_FOLDER
+  done
+elif test $1 = -a ; then
+  for thisFolder in $LIST_FOLDERS ; do
+    rsync $RSYNC_FLAGS $thisFolder $EXT_HD/$PERSONAL_FOLDER
+  done
+else
+  echo "Invalid flag: $1"
+  echo $USAGE_MESSAGE
+fi
+

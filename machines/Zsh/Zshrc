@@ -1,9 +1,12 @@
 #!/usr/bin/env zsh
 # @(#) $HOME/0/Scene/1/db/machines/Zsh/Zshrc
-# Last-edited: Sat 2020.10.24.1149 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2020.12.06.2043 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # $
 ## Revision History:
+#  % Sun 2020.10.25.0431 -- Danny Quah (me@DannyQuah.com)
+#    unsetopt BG_NICE as my WSL on kve2.dq-w10 generates an 
+#    error on each directory change otherwise
 #  % Sun 2020.10.18.0054 -- Danny Quah (me@DannyQuah.com)
 #    ZSH_DISABLE_COMPFIX true for W10 / WSL
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -17,6 +20,8 @@
 #    First draft. From ~/.oh-my-zsh/templates/zshrc.zsh-template
 #    Upgrade Oh My Zsh is upgrade_oh_my_zsh
 # ----------------------------------------------------------------
+# Following https://github.com/rupa/z/pull/200
+unsetopt BG_NICE
 #
 ZSH_DISABLE_COMPFIX="true"
 # If you come from bash you might have to change your $PATH.
@@ -159,7 +164,7 @@ alias -s txt=vim
 
 # Autoloads
 autoload -U zmv
-# batch rename, e.g., zmv -Wv "TimePhoto_20201*" "2020.1*"`
+# batch rename, e.g., zmv -Wv "TimePhoto_20201*" "2020.1*"
 
 # Parameterised aliases
 function Largest() {
@@ -172,17 +177,3 @@ function acs() {
 
 # eof Zshrc
 
-#Unneeded DQ # >>> conda initialize >>>
-#Unneeded DQ # !! Contents within this block are managed by 'conda init' !!
-#Unneeded DQ __conda_setup="$('${HOME}/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#Unneeded DQ if [ $? -eq 0 ]; then
-#Unneeded DQ     eval "$__conda_setup"
-#Unneeded DQ else
-#Unneeded DQ     if [ -f "${HOME}/anaconda3/etc/profile.d/conda.sh" ]; then
-#Unneeded DQ         . "${HOME}/anaconda3/etc/profile.d/conda.sh"
-#Unneeded DQ     else
-#Unneeded DQ         export PATH="${HOME}/anaconda3/bin:$PATH"
-#Unneeded DQ     fi
-#Unneeded DQ fi
-#Unneeded DQ unset __conda_setup
-#Unneeded DQ # <<< conda initialize <<<

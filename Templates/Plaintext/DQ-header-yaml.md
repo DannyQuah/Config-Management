@@ -9,7 +9,7 @@ output: pdf_document
 title: DocTitle
 ## include DQ-latex-yaml.md, etc., as required here
 ---
-
+NO LONGER USED. Replaced by python script gen-yaml-head-md.py
 <!---
    Invisible section
 -->

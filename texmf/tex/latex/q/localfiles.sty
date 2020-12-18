@@ -3,7 +3,7 @@
 % $
 % Copy to localfiles.sty, depending on fixed or removable disk
 % ("removable disk" option is legacy from when my Chromebooks
-% needed to use removable media for storage)
+% needed to use removable media for storage). 
 % Revision History:
 %  % 2020.02.04.1002h -- Danny Quah (dq@pbook)
 %    Since I've had to move many things out of Floor from the expiry
@@ -15,6 +15,12 @@
 %  % Tue Jan 21 13:32:23 2014 - Danny Quah (dquah@spartan)
 %    moved from previous Linux/Windows version to ~/texmf for texlive
 %    Integrated Linux/Windows using ``\string~`` for HOME directory
+% https://tex.stackexchange.com/questions/372809/specify-path-to-home-directory-in-windows
+% https://leancrew.com/all-this/2016/05/path-expansion-in-latex/
+% https://tug.org/texinfohtml/kpathsea.html#Tilde-expansion
+% However, https://sourceforge.net/p/miktex/bugs/2535/ shows tilde
+% expansion can fail (for me even outside of just pdftex.exe). So kludge
+% below using \ifplatform.
 %  % Tue May 15 08:19:03 2012 - Danny Quah (DQUAH@GRAVITY)
 %    moved from ./force/ to ./; with SkyDrive, separate
 %    machines minimized
@@ -29,9 +35,19 @@
 %    this is fine here
 % $
 % $Log$
+% 
+\newcommand\HomeD{\string~}
+
+%% No longer needed as I'm back with texlive but 
+%% this is a kludge as my MiKTeX on lbook is not
+%% expanding \string~ // 2020.12.05.0639
+%\ifwindows
+%  \renewcommand\HomeD{C:/Users/sppdqlsh}
+%\fi
 %
-\newcommand\HomeT{\string~/0/Light/1/t}
-\newcommand\HomeScene{\string~/0/Scene/1}
+%%
+\newcommand\HomeT{\HomeD/0/Light/1/t}
+\newcommand\HomeScene{\HomeD/0/Scene/1}
 % The below can likely remain unchanged
 \newcommand\DirWritings{\HomeT/Writings}
 \newcommand\DirTikz{\DirWritings/Tikz}

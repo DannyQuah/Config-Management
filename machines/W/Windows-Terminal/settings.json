@@ -1,5 +1,5 @@
 // settings.json
-// Last-edited: Sat 2020.10.24.1711 -- Danny Quah (me@DannyQuah.com)
+// Last-edited: Sun 2020.11.29.0706 -- Danny Quah (me@DannyQuah.com)
 // %LOCALAPPDATA%\Packages\Microsoft. WindowsTerminal_8wekyb3d8bbwe\LocalState\ <- Windows-Terminal/
 // ----------------------------------------------------------------
 // Revision History:
@@ -28,7 +28,7 @@
 
 	// Sun 2020.10.18.0839 -- Danny Quah (me@DannyQuah.com)
 	"initialCols": 80,
-	"initialRows": 50,
+	"initialRows": 25,
 
 
     // If enabled, selections are automatically copied to your clipboard.
@@ -50,12 +50,12 @@
         "list":
         [
             {
-                // msys2 profile	
-                "guid": "{09dc5eef-6840-4050-ae69-21e55e6a2e63}",
-                "name": "MSYS2",
-                "commandline": "C:\\msys64\\usr\\bin\\bash.exe -i -l",
+                // msys2/zsh profile	
+                "guid": "{0592677f-1bf7-4e72-8b5d-83eeb1dc5c45}",
+                "name": "MSYS2//zsh",
+                "commandline": "C:\\msys64\\usr\\bin\\zsh.exe -i -l",
                 // "commandline": "msys2.cmd",
-                "acrylicOpacity": 0.75,                
+                "acrylicOpacity": 0.65,
                 "closeOnExit": true,
                 "colorScheme": "Elementary",
                 "cursorColor": "#FFFFFF",
@@ -64,20 +64,20 @@
                 "fontSize": 10,
                 "hidden": false,
                 "historySize": 100,
-                "icon": "ms-appdata:///roaming/msys2.ico",
+                // "icon": "ms-appdata:///roaming/msys2.ico",
                 "padding": "0, 0, 0, 0",
                 "snapOnInput": true,
-                "tabTitle": "msys2",
+                "tabTitle": "MSYS2-zsh",
                 "useAcrylic": true
             },
             {
                 // Ubuntu-20.04 profile
                 "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
                 "name": "Ubuntu-20.04",
-                "acrylicOpacity": 0.9,
+                "commandline": "wsl",
+                "acrylicOpacity": 0.70,
                 "colorScheme": "UbuntuLegit",
                 "closeOnExit": true,
-                "commandline": "wsl",
                 "cursorColor": "#FFFFFF",
                 "cursorHeight": 25,
                 "cursorShape": "vintage",
@@ -90,6 +90,27 @@
                 //"startingDirectory": "%USERPROFILE%",
                 "startingDirectory": "//wsl$/Ubuntu-20.04/home/dq",
                 "tabTitle": "Ubuntu",
+                "useAcrylic": true
+            },
+            {
+                // msys2/bash profile	
+                "guid": "{09dc5eef-6840-4050-ae69-21e55e6a2e63}",
+                "name": "MSYS2//bash",
+                "commandline": "C:\\msys64\\usr\\bin\\bash.exe -i -l",
+                // "commandline": "msys2.cmd",
+				"acrylicOpacity": 0.75,
+                "closeOnExit": true,
+                "colorScheme": "Elementary",
+                "cursorColor": "#FFFFFF",
+                "cursorShape": "bar",
+                "fontFace": "Inconsolata",
+                "fontSize": 10,
+                "hidden": false,
+                "historySize": 100,
+                // "icon": "ms-appdata:///roaming/msys2.ico",
+                "padding": "0, 0, 0, 0",
+                "snapOnInput": true,
+                "tabTitle": "MSYS2-bash",
                 "useAcrylic": true
             },
             {

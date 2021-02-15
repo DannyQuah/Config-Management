@@ -1,5 +1,5 @@
 " @(#) Vim/Gvimrc <- ~/.gvimrc
-" Last-edited: Thu 2020.09.17.0729 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Sun 2021.01.03.0640 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Sun 2020.07.19.0745 -- Danny Quah (me@DannyQuah.com)
@@ -26,10 +26,9 @@ if has('gui_running')
   set guioptions-=m "remove menubar
   set guioptions-=T "remove toolbar
   set guioptions-=r "remove right-hand scrollbar
-  " set guioptions-=L  "remove left-hand scrollbar
+  set guioptions-=L  "remove left-hand scrollbar
                                "Also Thematic base, but keep splashscreen
 
-                               
 " Fonts ----------------------------------------------------------
 " Input fontspec with :put =&guifont
    if has('win32') || has('win64')
@@ -45,13 +44,15 @@ if has('gui_running')
     set guifont=Source\ Code\ Pro\ 9
   endif
 
+" Favorites
+  colorscheme torte           "came with GVim, but like 
+  "colorscheme koehler
+"
   "let g:dracula_colorterm=0 
-  "highlight normal guibg=none ctermbg=none 
+  "highlight normal guibg=none ctermbg=none
   "colorscheme dracula 
 
-  "colorscheme torte           "came with GVim, but like 
   "colorscheme ron
-  colorscheme koehler 
   "colorscheme industry
   "colorscheme monokai         "vim-monokai
   "colorscheme papaya          "vim-theme-papaya
@@ -60,17 +61,33 @@ if has('gui_running')
 " Themes ---------------------------------------------------------
 "Transparency doesn't work on Gvim, at least not on non-Mac systems
   let g:thematic#themes = {
-  \ 'plain'       : { 'colorscheme': 'torte',
+  \ 'plain'       : { 'colorscheme': 'koehler',
   \                  'typeface': 'Consolas',
   \                  'font-size': 10,
+  \                  'linespace': 0,
+  \                },
+  \ 'fira'       : { 'colorscheme': 'torte',
+  \                  'typeface': 'Fira Code',
+  \                  'font-size': 9,
+  \                  'linespace': 0,
+  \                },
+  \ 'dejavu'       : { 'colorscheme': 'dracula',
+  \                  'typeface': 'DejaVu Sans Mono',
+  \                  'font-size': 9,
+  \                  'linespace': 0,
+  \                },
+  \ 'liberation'       : { 'colorscheme': 'koehler',
+  \                  'typeface': 'Liberation Mono',
+  \                  'font-size': 9,
+  \                  'linespace': 0,
   \                },
   \ 'base'       : { 'colorscheme': 'desert',
-  \                  'typeface': 'Liberation Mono',
+  \                  'typeface': 'Consolas',
   \                  'font-size': 9,
   \                  'transparency': 20,
   \                  'linespace': 0,
   \                },
-  \ 'bubblegum'  : { 'typeface': 'Consolas Regular',
+  \ 'bubblegum'  : { 'typeface': 'Menlo',
   \                  'font-size': 9,
   \                  'transparency': 30,
   \                  'linespace': 1,
@@ -79,7 +96,7 @@ if has('gui_running')
   \                  'background': 'dark',
   \                  'ruler': 1,
   \                  'laststatus': 0,
-  \                  'typeface': 'Cousine Regular',
+  \                  'typeface': 'Source Code Pro Light',
   \                  'font-size': 9,
   \                  'transparency': 40,
   \                  'linespace': 0,
@@ -88,7 +105,7 @@ if has('gui_running')
   \                  'background': 'light',
   \                  'laststatus': 0,
   \                  'ruler': 1,
-  \                  'typeface': 'Monospace Regular',
+  \                  'typeface': 'Source Code Pro',
   \                  'transparency': 50,
   \                  'font-size': 9,
   \                  'linespace': 0,

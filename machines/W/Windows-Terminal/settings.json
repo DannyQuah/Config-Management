@@ -1,5 +1,5 @@
 // settings.json
-// Last-edited: Sun 2020.11.29.0706 -- Danny Quah (me@DannyQuah.com)
+// Last-edited: Mon 2021.01.04.1158 -- Danny Quah (me@DannyQuah.com)
 // %LOCALAPPDATA%\Packages\Microsoft. WindowsTerminal_8wekyb3d8bbwe\LocalState\ <- Windows-Terminal/
 // ----------------------------------------------------------------
 // Revision History:
@@ -28,15 +28,14 @@
 
 	// Sun 2020.10.18.0839 -- Danny Quah (me@DannyQuah.com)
 	"initialCols": 80,
-	"initialRows": 25,
+	"initialRows": 40,
 
 
     // If enabled, selections are automatically copied to your clipboard.
-    "copyOnSelect": true,
+	"copyOnSelect": true,
 
     // If enabled, formatted data is also copied to your clipboard
-    "copyFormatting": true,
-
+	"copyFormatting": true,
     // A profile specifies a command to execute paired with information about how it should look and feel.
     // Each one of them will appear in the 'New Tab' dropdown,
     //   and can be invoked from the commandline with `wt.exe -p xxx`
@@ -56,8 +55,12 @@
                 "commandline": "C:\\msys64\\usr\\bin\\zsh.exe -i -l",
                 // "commandline": "msys2.cmd",
                 "acrylicOpacity": 0.65,
+                "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/23.jpg",
+                "backgroundImageAlignment": "center",
+                "backgroundImageOpacity": 0.05,
+                "backgroundImageStretchMode": "uniformToFill",
                 "closeOnExit": true,
-                "colorScheme": "Elementary",
+                // "colorScheme": "Elementary",
                 "cursorColor": "#FFFFFF",
                 "cursorShape": "bar",
                 "fontFace": "Inconsolata",
@@ -77,6 +80,10 @@
                 "commandline": "wsl",
                 "acrylicOpacity": 0.70,
                 "colorScheme": "UbuntuLegit",
+                "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Commons/Wallpapers/Ubuntu-Linux/Displacing-Windows-MacOS-221297.png",
+                "backgroundImageAlignment": "center",
+                "backgroundImageOpacity": 0.1,
+                "backgroundImageStretchMode": "uniformToFill",
                 "closeOnExit": true,
                 "cursorColor": "#FFFFFF",
                 "cursorHeight": 25,
@@ -98,7 +105,7 @@
                 "name": "MSYS2//bash",
                 "commandline": "C:\\msys64\\usr\\bin\\bash.exe -i -l",
                 // "commandline": "msys2.cmd",
-				"acrylicOpacity": 0.75,
+				"acrylicOpacity": 0.65,
                 "closeOnExit": true,
                 "colorScheme": "Elementary",
                 "cursorColor": "#FFFFFF",
@@ -117,9 +124,13 @@
                 // Make changes here to the powershell.exe profile.
                 "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
                 "name": "Windows PowerShell",
-                "colorScheme": "Raspberry",
-                "acrylicOpacity": 0.9,
                 "commandline": "powershell.exe",
+                "acrylicOpacity": 0.5,
+                "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/52.jpg",
+                "backgroundImageAlignment": "center",
+                "backgroundImageOpacity": 0.02,
+                "backgroundImageStretchMode": "uniformToFill",
+                "colorScheme": "Raspberry",
                 "fontSize": 10,
                 "hidden": false,
                 "tabTitle": "PowerShell",

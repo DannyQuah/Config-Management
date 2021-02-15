@@ -49,6 +49,5 @@ header-includes:
  - \renewcommand{\headrulewidth}{0.2pt}
  - \renewcommand{\footrulewidth}{0.2pt}
  - \fancyfoot[C]{\thepage}
-# - \thispagestyle{empty} Put this at the start of the text contents
 ---
-\thispagestyle{empty}
+\thispagestyle{empty}% Put this at the start of the text contents

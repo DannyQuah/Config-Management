@@ -1,30 +1,49 @@
 #!/usr/bin/env sh
 # @(#) bin/Archive.S1.External -> 0/Scene/1/db/machines/Common/ 
-# Last-edited: Sat 2020.12.05.1202 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Wed 2021.02.10.2056 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
+#  % Wed 2021.02.10.2039 -- Danny Quah (me@DannyQuah.com)
+#    On lbook if /mnt/e not already mounted or available, first unlock
+#    BitLocker-protected external drive onto E:, then open new WSL and
+#    execute 
+#    sudo mkdir /mnt/e  
+#    sudo mount -t drvfs -o uid=1000,gid=1000 e: /mnt/e
 #  % Tue 2020.10.27.1004 -- Danny Quah (me@DannyQuah.com)
 #    First draft: Backup onto External HD; try to do so regularly
 # ----------------------------------------------------------------
 trap 'exit 0' 2 15 
-USAGE_MESSAGE='Usage: Archive.S1.External {-n|-a} (no action|archive)' 
-EXT_HD=/media/dq/DQS
-PERSONAL_FOLDER=Users/dq
+USAGE_MESSAGE='Usage: `basename $0` {-n|-a} {-l|-p}' 
 LIST_FOLDERS="0 1"
-RSYNC_FLAGS='-avrulhRHpEXgt --progress'
+RSYNC_FLAGS='-LavrulhRHpEXgt --exclude .git/ --progress'
 #
 if test $# -le 0 ; then
   echo $USAGE_MESSAGE
   exit 1
 fi
 
-cd ~
+if test $2 = -p ; then
+# pbook backup
+  EXT_HD=/media/dq/DQS
+  PERSONAL_FOLDER=Users/dq
+elif test $2 = -l ; then
+# lbook backup
+  EXT_HD=/mnt/e/dq
+  PERSONAL_FOLDER=backups
+else
+  echo "Invalid flag $2 // Unrecognised machine"
+  echo $USAGE_MESSAGE
+  exit 1
+fi
 
+cd ~
 if test $1 = -n ; then
+# no action
   for thisFolder in $LIST_FOLDERS ; do
     rsync $RSYNC_FLAGS -n $thisFolder $EXT_HD/$PERSONAL_FOLDER
   done
 elif test $1 = -a ; then
+# archive
   for thisFolder in $LIST_FOLDERS ; do
     rsync $RSYNC_FLAGS $thisFolder $EXT_HD/$PERSONAL_FOLDER
   done

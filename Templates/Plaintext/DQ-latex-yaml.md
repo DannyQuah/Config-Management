@@ -43,4 +43,6 @@ header-includes:
   \usepackage{amsmath,amsfonts,euscript,tikz,fancyhdr,float}
   \floatplacement{figure}{H}
   ```
-pagestyle: headings
+ - \pagenumbering{gobble}
+ - \setlength{\headheight}{15pt}
+ - \pagestyle{fancy}

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
-# Last-edited: Sun 2020.11.29.1621 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2021.02.01.2209 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -24,40 +24,39 @@
 case "$OSTYPE" in
   linux*)
 #
+    WIN_DIRS="/mnt/c/Users/sppdqlsh /mnt/d/dq"
+    BIN_DIRS="${HOME}/bin ${HOME}/local/bin"
+
 # Keyboard -------------------------------------------------------
 ## setxkbmap -option "ctrl:nocaps"
-  if [[ -s ~/.Xmodmap && -n "${DISPLAY+x}" ]]; then
-   xmodmap ~/.Xmodmap
-  fi
+    if [[ -s ~/.Xmodmap && -n "${DISPLAY+x}" ]]; then
+     xmodmap ~/.Xmodmap
+    fi
 #  if [ -s ~/.Xmodmap-swapctrlcaps ]; then
 #    xmodmap ~/.Xmodmap-swapctrlcaps
 #  fi
 #
 #  alias xbook-biscroff='xrandr --output eDP-1 --off'
-##    export ATOM_HOME=~/0/Scene/1/db/machines/Editors/Atom.l
-    # do nothing, accept defaults
-    #   export ATOM_HOME="~/.atom"
-    ;;
+  ;;
   msys*)
-    # Shell and GNU utilities, part of MinGW
-#    export ATOM_HOME=~/0/Scene/1/db/machines/Editors/Atom.w
-    # do nothing, accept defaults
-    #   export ATOM_HOME="~/.atom"
+# Shell and GNU utilities, part of MinGW
+    BIN_DIRS="${HOME}/bin ${HOME}/local/bin /c/ProgramData/chocolatey/bin /c/texlive/2020/bin/win32" 
      ;;
   *)
+# Catch-all everything else
+#  export ATOM_HOME=~/0/Scene/1/db/machines/Editors/Atom.w
     # do nothing, accept defaults
     #   export ATOM_HOME="~/.atom"
     ;;
 esac
 # ###############################
 #
-BIN_DIRS="${HOME}/bin ${HOME}/local/bin"
-for bindir in $BIN_DIRS ; do
+for bindir in $( echo "$BIN_DIRS" ) ; do
   if [ -d "$bindir" ]; then
    PATH="$bindir":$PATH
   fi
 done
-export PATH
+export PATH=$PATH
 
 #
 # ###############################
@@ -73,17 +72,15 @@ CDPATH=\
 ${FSROOT}/Scene/1/db:\
 ${FSROOT}/Floor/1/VimWiki:\
 ${FSROOT}/Light/1/VimWiki:\
+${FSROOT}/Light/1/j:\
 ${FSROOT}/Light/1/t
-# ${FSROOT}/Stage/Photos
 
-WIN_DIRS="/mnt/c/Users/sppdqlsh /mnt/d/dq"
-for windir in $WIN_DIRS ; do
-	if [ -d "$windir" ]; then
-		CDPATH=$CDPATH:"$windir"
-	fi
+for windir in $( echo "$WIN_DIRS" ) ; do
+  if [ -d "$windir" ]; then
+    CDPATH=$CDPATH:"$windir"
+  fi
 done
-export CDPATH
-
+export CDPATH=$CDPATH
 # source /usr/share/autojump/autojump.sh
 
 #
@@ -118,7 +115,10 @@ alias lf='/bin/ls -F'
 
 alias trash='zip -m9or ${TMPDIR}/dq-trash $@'
 alias notabs-dq='sed -ie "s/\t//g" $@'
-alias grepww='grep --include=\*.md --colour=never -rnw ~/0/Light/1/VimWiki -e $@'
+# grep md files recursively from current directory
+alias grepmdr='find -L . -type f -name "*.md" -print0 | xargs -0 grep $@ '
+# grep work wiki recursively
+alias grepwwr='grep --include=\*.md --colour=never -rnw ~/0/Light/1/VimWiki -e $@'
 # alias grep1n='find -L ~/0/Board/1/1-Notes -type f -name "*.md" -exec grep -EH $@ {} ";"'
 # alias dollmd-dq="sed -ie 's/ \$/ \\$/g' $@"
 # alias starmd-dq="sed -ie 's/ \*/ \\*/g' $@"

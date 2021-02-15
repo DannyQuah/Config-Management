@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) linux-baseapps-install
-# Last-edited: Wed 2020.10.21.2042 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2021.01.17.1700 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Fri 2020.08.14.1928 -- Danny Quah (me@DannyQuah.com)
@@ -68,7 +68,10 @@ installBaseApps() {
   sudo snap install -y p3x-onenote
 ################################
 # telegram-desktop 2020.02
-#  sudo snap install -y telegram-desktop
+  sudo snap install -y telegram-desktop
+################################
+# signal-desktop 2021.01
+  sudo snap install -y signal-desktop
 ################################
 # Internet radio
 #  sudo snap install -y odio

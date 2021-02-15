@@ -1,11 +1,13 @@
-#! R
-# @(#) 1/db/R/Rinit-Linux
-# Last edited: Sat Apr 23 11:20:40 2016 - Danny Quah (dquah@XBOOK)
-# $
+#!/usr/bin/env R
+# @(#) 1/db/R/Rinit-Linux 
+# Last-edited: Sun 2021.01.10.1144 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Sat Apr 23 11:20:40 2016 - Danny Quah (dquah@XBOOK)
 # Called by ~/.Rprofile; changes go here as .Rprofile should be just a
 # stub to call this - this way we don't have to keep copying over
 # .Rprofile if on a Windows-like system
-
+# ----------------------------------------------------------------
 # X11Fonts(
 ## Originals:
 # #    sans  = X11Font("-*-helvetica-%s-%s-*-*-%d-*-*-*-*-*-*-*"),
@@ -14,6 +16,7 @@
 #     mono  = X11Font("-*-courier-%s-%s-*-*-%d-*-*-*-*-*-*-*")
 # )
 
+# Use my preferred fonts in graphics
 setHook(packageEvent("grDevices", "onLoad"),
     function(...) {
         grDevices::X11.options(
@@ -28,8 +31,4 @@ setHook(packageEvent("grDevices", "onLoad"),
 # cat("When Console is ready, source(\"~/Scene/1/db/R/R-a-Linux\")")
 
 #
-# ^L
-# Local Variables:
-# mode: sh
-# end:
 # eof 1/db/R/Rinit-Linux

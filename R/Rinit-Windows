@@ -1,11 +1,16 @@
-#! R
+#!/usr/bin/env R
 # @(#) 1/db/R/Rinit-Windows
-# Last edited: Sat Mar  5 06:57:13 2016 -  (dquah@localhost)
-# $
-# Called by ~/.Rprofile; changes go here as .Rprofile should be just a
-# stub to call this - this way we don't have to keep copying over
-# .Rprofile if on a Windows-like system
+# Last-edited: Sun 2021.01.10.1143 -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Sat Mar  5 06:57:13 2016 -  (dquah@localhost)
+#    First draft: Called by ~/.Rprofile; 
+#    Changes go here as .Rprofile should be just a stub to call this.
+#    This way we don't have to keep copying over .Rprofile 
+# 
+# ----------------------------------------------------------------
 
+# Use my preferred fonts in graphics
 setHook(packageEvent("grDevices", "onLoad"),
     function(...) {
         grDevices::windows.options(
@@ -20,12 +25,6 @@ setHook(packageEvent("grDevices", "onLoad"),
         )
     }
 )
-
 # cat("When Console is ready, source(\"~/Scene/1/db/R/R-a-Windows\")")
-
 #
-# ^L
-# Local Variables:
-# mode: sh
-# end:
 # eof 1/db/R/Rinit-Windows

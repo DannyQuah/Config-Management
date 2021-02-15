@@ -1,5 +1,5 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Sat 2020.12.05.0634 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Fri 2021.02.12.1905 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Thu 2020.10.22.2247 -- Danny Quah (me@DannyQuah.com)
@@ -94,8 +94,8 @@ map <Leader><Leader>l <Plug>(easymotion-bd-jk)
 
 "                              "cycle through a, b registers
 nnoremap <Leader>Cr :let @x=@" \| let @"=@a \| let @a=@b \| let @b=@x<CR>
-"                              "copy filename into register
-nnoremap <Leader>Cfn :let @"=@%<CR>  
+"                              "copy filename into register a
+nnoremap <Leader>Cfn :let @a=@%<CR>  
 "                              "visual line mode - discouraged
 "nmap <Leader><Leader> V
 "
@@ -212,7 +212,7 @@ set smartcase                  " ...unless it's uppercase
 " abbr Lniux Linux
 " abbr hte the
 "Ending markdown lines instead of trailing double whitespace
-iabbrev Qde <br />
+" iabbrev Qde <br />
 
 " Time, templates ------------------------------------------------
 
@@ -222,12 +222,12 @@ iabbrev Qde <br />
 iabbrev <expr> idt strftime('%Y.%m.%d.%H%M')
 
 "                              "Insert day-datetime
-"nnoremap <Leader>iddt :put=strftime('%a %Y.%2m.%2d.%H%M')<CR>
-"nnoremap <Leader>iddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
-iabbrev <expr> iddt strftime('%a %Y.%m.%d.%H%M')
+"nnoremap <Leader>ddt :put=strftime('%a %Y.%2m.%2d.%H%M')<CR>
+"nnoremap <Leader>ddt "=strftime('%a %Y.%m.%d.%H%M')<CR>P
+iabbrev <expr> ddt strftime('%a %Y.%m.%d.%H%M')
 
 "                              "Insert diary-date
-iabbrev <expr> qIDD strftime('%a %d %b %Y')
+"iabbrev <expr> qIDD strftime('%a %d %b %Y')
 
 "                              "Timestamp on call
 source ~/0/Scene/1/db/Vim/timestamps.vim
@@ -278,14 +278,16 @@ set splitright
 
 "Buffer control ---------------------------------------------------
 "https://stackoverflow.com/questions/4571494/open-a-buffer-as-a-vertical-split-in-vim
-"                              "Choose buffer to use
+"                              "Choose buffer to replace current
 nnoremap <Leader>bb :ls<cr>:b
 "                              "Choose buffer to vsplit and use
-nnoremap <Leader>bv :ls<cr>:vsplit<space>
+nnoremap <Leader>bv :ls<cr>:vsplit<space>#
 "                              "Choose buffer to h-split and use
-nnoremap <Leader>bs :ls<cr>:split<space>
+nnoremap <Leader>bs :ls<cr>:split<space>#
 "                              "Choose buffer to delete
 nnoremap <Leader>bd :ls<CR>:bd
+"                              "Choose buffer for new tab
+nnoremap <Leader>bt :ls<CR>:tabedit<space>#
 "nnoremap <Leader>bc :buffers<CR>:buffer 
 
 augroup dqFilesFoldersGrp
@@ -310,8 +312,10 @@ augroup dqFilesFoldersGrp
 " current directory.
 " Can also get fancier and not change lcd for certain places:
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
-  autocmd BufEnter *.md  set list
-  autocmd BufEnter *.tex set list
+  autocmd BufNewFile,BufEnter *.md  set list
+  autocmd BufNewFile,BufEnter *.tex set list
+  autocmd BufNewFile,BufEnter *.R setlocal expandtab
+  autocmd BufNewFile,BufEnter *.R setlocal shiftwidth=2
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
@@ -408,6 +412,7 @@ let myWikiWork.path='~/0/Light/1/VimWiki'
 let myWikiWork.name='myWikiWork'
 
 let g:vimwiki_list=[myWikiPrsn, myWikiWork]
+"let g:vimwiki_list=[{'path': '~/0/Floor/1/VimWiki/'}]
 let g:vimwiki_markdown_link_ext=0 
 "0 - Make sure not to append Wiki file extension to Markdown files
 

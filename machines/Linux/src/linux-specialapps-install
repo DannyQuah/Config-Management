@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) linux-specialapps-install
-# Last-edited: Wed 2020.07.15.1512 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2021.01.17.1633 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Tue 2018.09.18.1200 -- Danny Quah (me@DannyQuah.com)
@@ -19,13 +19,13 @@ installSpecialApps() {
 #  sudo dpkg -i atom-amd64.deb
 #  rm -rf atom-amd64.deb
 ################################
-# atom 2020.05
-# Add official repository,so apt updates now possible
-# https://flight-manual.atom.io/getting-started/sections/installing-atom/#platform-linux
-wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
-sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
-sudo apt update
-sudo apt install -y atom
+## atom 2020.05
+## Add official repository,so apt updates now possible
+## https://flight-manual.atom.io/getting-started/sections/installing-atom/##platform-linux
+#wget -qO - https://packagecloud.io/AtomEditor/atom/gpgkey | sudo apt-key add -
+#sudo sh -c 'echo "deb [arch=amd64] https://packagecloud.io/AtomEditor/atom/any/ any main" > /etc/apt/sources.list.d/atom.list'
+#sudo apt update
+#sudo apt install -y atom
 ################################
 # zsg 2020.05
 sudo apt install -y zsh
@@ -43,7 +43,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 #  ln -s ~/0/Scene/1/db/machines/Editors/Typora.base.user.css ./base.user.css
 ################################
 # joplin 2019.10.13 1400h
-  wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
+##  wget -O - https://raw.githubusercontent.com/laurent22/joplin/master/Joplin_install_and_update.sh | bash
 ################################
 # mendeley
   cd ~

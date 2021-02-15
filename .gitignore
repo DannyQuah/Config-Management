@@ -1,5 +1,5 @@
 # @(#) db/.gitignore
-# Last-edited: Sun 2020.10.25.0430 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2021.02.15.1703-- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
@@ -17,6 +17,7 @@ machines/Linux/fonts/
 machines/Linux/lib/
 machines/Ssh/
 machines/Zsh/oh-my-zsh
+Templates/MS-Office/LiveContent/
 texmf/doc/
 texmf/scripts/
 texmf/source/

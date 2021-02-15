@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 # @(#) $HOME/0/Scene/1/db/machines/Common/cleanAssetFolder
-# Last-edited: Thu 2020.12.31.1020 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Wed 2021.01.20.0736 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #    First draft: Sat 2020.12.26.1831 -- Danny Quah (me@DannyQuah.com)
@@ -12,6 +12,11 @@ if test $# -le 0 ; then
   echo $USAGE_MESSAGE
   exit 1
 fi
+
+if [ ! -f ./$1.md ] ; then
+  echo File $1.md doesn\'t exist
+  exit 1
+fi 
 
 if [ -f ./$1.assets/$1.md ] ; then
   echo File $1.assets/$1.md exists

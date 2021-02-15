@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # @(#) gen-vimw-diary-template.py 
-# Last-edited: Wed 2020.12.09.0652 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2021.01.04.0745 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.09.26.0659 -- Danny Quah (me@DannyQuah.com)
@@ -18,7 +18,7 @@ myTemplate = """# {theLocalDate}
 
 ## Log
 
-({theDateTime})
+({theDayDateTime})
 
 ## Daily.Checklist
 - [ ] Lisoril, Gluocasamine, Vitamin C
@@ -29,11 +29,11 @@ myTemplate = """# {theLocalDate}
 - [ ] 
 
 ## Notes
-({theDateTime}) Run WCP.  KV abs, core // top // 56.3  
-{theSsDate}	08:02	10.46	'01:07:58	'00:06:30
-({theDateTime}) Run CW.  KV abs, core // top // 57.3  
+({theDayDateTime}) Run WCP.  KV abs, core // top // 56.7  
+{theSsDate}	08:02	06.12	'00:37:45	'00:06:10
+({theDayDateTime}) Run CW.  KV abs, core // top // 57.3  
 {theSsDate}	07:42	6.03	'00:39:41	'00:06:34
-({theDateTime}) KV abs, core // top // 57.3  
+({theDayDateTime}) KV abs, core // top // 57.3  
 {theSsDate}	06:21		'00:32:30
 """
 
@@ -51,8 +51,9 @@ myNow = datetime.datetime.now()
 
 myDiaryDict = {
         "theLocalDate": myNow.strftime("%a %d %b %Y"),
-        "theDateTime":  myNow.strftime("%Y.%m.%d.%H%M"),
-        "theSsDate":  myNow.strftime("%d/%m/%Y") 
+        "theDateTime": myNow.strftime("%Y.%m.%d.%H%M"),
+        "theDayDateTime": myNow.strftime("%a %Y.%m.%d.%H%M"),
+        "theSsDate": myNow.strftime("%d/%m/%Y") 
  
 }                   
 

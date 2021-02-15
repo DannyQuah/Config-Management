@@ -1,14 +1,16 @@
 # @(#) Scene/1/db/R/Renviron-Windows -> ~/.Renviron ["mklink"]
-# Last edited: Wed 2020.06.24.1301 -- Danny Quah
-# Created:     Thu Apr 28 23:34:06 2016 - Danny Quah (dquah@XBOOK)
+# Last-edited: Mon 2020.12.21.2115  -- Danny Quah (me@DannyQuah.com)
+# ----------------------------------------------------------------
+# Revision History:
+#  % Mon 2014.01.06.0658 -- Danny Quah (me@DannyQuah.com)
+#    First draft: Renviron-Windows
+# ----------------------------------------------------------------
 # $
-# These might also be set through Right Click/Computer/...Environment
+PATH="${RTOOLS40_HOME}\usr\bin;${PATH}"
+# These below might also be set through Right Click/Computer/...Environment
 # See
 #    http://cran.r-project.org/bin/windows/base/rw-FAQ.html
 #    http://stat.ethz.ch/R-manual/R-devel/library/base/html/Startup.html
-# Revision History:
-#  % Mon Jan  6 06:58:21 2014 - Danny Quah (dquah@planet)
-#    First draft.
 # 
 # myOwnRLib="~/0/Scene/1/db/machines/Windows/lib/R/library"
 # defOwnRLib="~/R/win-library/3.0"

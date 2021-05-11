@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # @(#) $HOME/0/Scene/1/db/machines/Common/Shellsrc
-# Last-edited: Mon 2021.02.01.2209 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Sun 2021.04.18.1906 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sun 2020.07.19.1458 -- Danny Quah (me@DannyQuah.com)
@@ -115,6 +115,7 @@ alias lf='/bin/ls -F'
 
 alias trash='zip -m9or ${TMPDIR}/dq-trash $@'
 alias notabs-dq='sed -ie "s/\t//g" $@'
+alias tabscomma='sed "s/\t/,/g" $@'
 # grep md files recursively from current directory
 alias grepmdr='find -L . -type f -name "*.md" -print0 | xargs -0 grep $@ '
 # grep work wiki recursively

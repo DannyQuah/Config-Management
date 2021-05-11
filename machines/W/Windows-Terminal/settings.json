@@ -1,5 +1,5 @@
 // settings.json
-// Last-edited: Mon 2021.01.04.1158 -- Danny Quah (me@DannyQuah.com)
+// Last-edited: Sat 2021.05.01.0702 -- Danny Quah (me@DannyQuah.com)
 // %LOCALAPPDATA%\Packages\Microsoft. WindowsTerminal_8wekyb3d8bbwe\LocalState\ <- Windows-Terminal/
 // ----------------------------------------------------------------
 // Revision History:
@@ -21,7 +21,7 @@
 {
     "$schema": "https://aka.ms/terminal-profiles-schema",
 
-    "defaultProfile": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+    "defaultProfile": "{0592677f-1bf7-4e72-8b5d-83eeb1dc5c45}",
 
     // You can add more global application settings here.
     // To learn more about global settings, visit https://aka.ms/terminal-global-settings
@@ -44,7 +44,7 @@
     {
         "defaults":
         {
-            // Put settings here that you want to apply to all profiles.
+            // Settings here apply to all profiles.
         },
         "list":
         [
@@ -55,7 +55,9 @@
                 "commandline": "C:\\msys64\\usr\\bin\\zsh.exe -i -l",
                 // "commandline": "msys2.cmd",
                 "acrylicOpacity": 0.65,
-                "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/23.jpg",
+                "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/13.jpg",
+                // "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/23.jpg",
+                // "backgroundImage": "%USERPROFILE%/0/Sound/1/db/Uncommons/Wallpapers/Android-Miui/43.jpg",
                 "backgroundImageAlignment": "center",
                 "backgroundImageOpacity": 0.05,
                 "backgroundImageStretchMode": "uniformToFill",
@@ -63,7 +65,7 @@
                 // "colorScheme": "Elementary",
                 "cursorColor": "#FFFFFF",
                 "cursorShape": "bar",
-                "fontFace": "Inconsolata",
+                "fontFace": "Consolas",
                 "fontSize": 10,
                 "hidden": false,
                 "historySize": 100,
@@ -110,7 +112,7 @@
                 "colorScheme": "Elementary",
                 "cursorColor": "#FFFFFF",
                 "cursorShape": "bar",
-                "fontFace": "Inconsolata",
+                "fontFace": "Consolas",
                 "fontSize": 10,
                 "hidden": false,
                 "historySize": 100,

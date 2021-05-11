@@ -22,7 +22,7 @@ fontsize: 12pt
 # sansfont: "Raleway"
 # monofont: "IBM Plex Mono"
 mathfont: ccmath
-# fontfamily: concrete | gentium | libertine
+# fontfamily: lmodern | concrete | gentium | libertine
 # documentclass: article | scrartcl
 fontfamily: concrete
 documentclass: article

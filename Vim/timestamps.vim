@@ -1,5 +1,5 @@
 " @(#) db/Vim/timestamps.vim
-" Last-edited: Fri 2021.02.12.2001 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Tue 2021.02.23.1524 -- Danny Quah (me@DannyQuah.com)
 " Created: Fri 2020.07.17.2000 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
@@ -15,8 +15,8 @@
 " let s:Fri 2020.07.17.2312 _regexp=s:getValue('\v\C%(<%(Last %([cC]hanged?|modified)|Modified)\s*:\s+)@<=\a+ \d{2} \a+ \d{4} \d{2}:\d{2}:\d{2}%(\s+[AP]M)?%(\s+\a+)?|TIMESTAMP', 'g:timestamp_regexp')
 "
 "let g:timestamp_rep='%3a %4Y.%2m.%2d.%2H%2M '
-let g:timestamp_rep='%a %Y.%m.%d.%H%M'
-let g:timestamp_regexp='\v\c%(Last-%([cC]hanged?|[eE]dited):\s+)@<=\a+ \d{4}.\d{2}.\d{2}.\d{4}[h ]?%(\s+\a+)?|TIMESTAMP'
+let g:timestamp_rep='%a %Y.%m.%d.%H%M '
+let g:timestamp_regexp='\v\c%(Last-%([cC]hanged?|[eE]dited):\s+)@<=\a+ \d{4}.\d{2}.\d{2}.\d{4}[h ]?%(\s+\a+)?|TIMESTAMP '
                                " 'Last-edited' so it's a single token
 let g:timestamp_modelines=7   "Default is modelines, typically 5
 

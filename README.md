@@ -1,11 +1,12 @@
 ---
 fileName: README.md
-# Last-edited: Sat 2020.08.15.1629 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2021.02.15.1743-- Danny Quah (me@DannyQuah.com)
 Type: Notes
 Tags: Software
 # Created: Sat 2020.08.15.1518 -- Danny Quah (me@DannyQuah.com)
 
 output: pdf_document
+title: Config Management README
 ---
 
 # Config-Management

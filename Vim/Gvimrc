@@ -1,5 +1,5 @@
 " @(#) Vim/Gvimrc <- ~/.gvimrc
-" Last-edited: Sun 2021.01.03.0640 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Tue 2021.05.11.0700 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Sun 2020.07.19.0745 -- Danny Quah (me@DannyQuah.com)
@@ -26,44 +26,45 @@ if has('gui_running')
   set guioptions-=m "remove menubar
   set guioptions-=T "remove toolbar
   set guioptions-=r "remove right-hand scrollbar
-  set guioptions-=L  "remove left-hand scrollbar
+  set guioptions-=L "remove left-hand scrollbar
                                "Also Thematic base, but keep splashscreen
 
 " Fonts ----------------------------------------------------------
 " Input fontspec with :put =&guifont
    if has('win32') || has('win64')
-    "set guifont=Consolas:h10:cANSI:qDRAFT
-    "set guifont=Roboto_Mono:h9:cANSI:qDRAFT
+    "set guifont=Consolas:h9:cANSI:qDRAFT
+    set guifont=Noto_Mono:h9:cANSI:qDRAFT
     "set guifont=Liberation_Mono:h9:cANSI:qDRAFT
     "set guifont=DejaVu_Sans_Mono:h9:cANSI:qDRAFT
-    set guifont=Source_Code_Pro:h9:cANSI:qDRAFT
+    "set guifont=Source_Code_Pro:h9:cANSI:qDRAFT
   else
     "set guifont=Inconsolata\ 10
     "set guifont=Liberation\ Mono\ 9
-    "set guifont=DejaVu\ Sans\ Mono\ 9
-    set guifont=Source\ Code\ Pro\ 9
+    set guifont=DejaVu\ Sans\ Mono\ 9
+    "set guifont=Source\ Code\ Pro\ 9
   endif
 
 " Favorites
-  colorscheme torte           "came with GVim, but like 
+  "colorscheme torte           "this came with GVim, but I like as well
   "colorscheme koehler
 "
-  "let g:dracula_colorterm=0 
-  "highlight normal guibg=none ctermbg=none
-  "colorscheme dracula 
-
-  "colorscheme ron
+  colorscheme ron
   "colorscheme industry
   "colorscheme monokai         "vim-monokai
   "colorscheme papaya          "vim-theme-papaya
   "let g:papaya_gui_color='blue'
+
+  "let g:dracula_colorterm=0 
+  "highlight normal guibg=none ctermbg=none
+  "colorscheme dracula 
+
 
 " Themes ---------------------------------------------------------
 "Transparency doesn't work on Gvim, at least not on non-Mac systems
   let g:thematic#themes = {
   \ 'plain'       : { 'colorscheme': 'koehler',
   \                  'typeface': 'Consolas',
-  \                  'font-size': 10,
+  \                  'font-size': 9,
   \                  'linespace': 0,
   \                },
   \ 'fira'       : { 'colorscheme': 'torte',
@@ -87,10 +88,10 @@ if has('gui_running')
   \                  'transparency': 20,
   \                  'linespace': 0,
   \                },
-  \ 'bubblegum'  : { 'typeface': 'Menlo',
+  \ 'bubblegum'  : { 'typeface': 'Consolas',
   \                  'font-size': 9,
   \                  'transparency': 30,
-  \                  'linespace': 1,
+  \                  'linespace': 0,
   \                },
   \ 'pencil_dark' :{ 'colorscheme': 'pencil',
   \                  'background': 'dark',

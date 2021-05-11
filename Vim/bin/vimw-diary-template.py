@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # @(#) gen-vimw-diary-template.py 
-# Last-edited: Mon 2021.01.04.0745 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Mon 2021.04.19.1051 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.09.26.0659 -- Danny Quah (me@DannyQuah.com)
@@ -24,6 +24,7 @@ myTemplate = """# {theLocalDate}
 - [ ] Lisoril, Gluocasamine, Vitamin C
 - [ ] Temperature.AM
 - [ ] Temperature.PM
+- [ ] Lisoril 2
 
 ## ToDo
 - [ ] 

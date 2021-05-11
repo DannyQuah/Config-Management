@@ -1,5 +1,5 @@
 # @(#) db/.gitignore
-# Last-edited: Mon 2021.02.15.1703-- Danny Quah (me@DannyQuah.com)
+# Last-edited: Tue 2021.05.11.1412 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # Revision History:
 #  % Sat 2020.08.15.1306 -- Danny Quah (me@DannyQuah.com)
@@ -9,6 +9,7 @@
 *.swp
 .netrwhist
 1Unused.zip
+Config/libreoffice/4/
 Config/Vifm/colors/
 Config/Vifm/vifm-help.txt
 EndNote/
@@ -21,6 +22,8 @@ Templates/MS-Office/LiveContent/
 texmf/doc/
 texmf/scripts/
 texmf/source/
+texmf/tlpkg/
+texmf/web2c/
 Vim/Session.vim 
 Vim/autoload/
 Vim/bundle/

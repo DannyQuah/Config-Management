@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # @(#) gen-yaml-head-md.py
-# Last-edited: Mon 2021.02.01.1208 -- Danny Quah (me@DannyQuah.com)
+# Last-edited: Tue 2021.02.23.1516 -- Danny Quah (me@DannyQuah.com)
 # ----------------------------------------------------------------
 # $
 # Revision History:
@@ -15,10 +15,10 @@ import datetime
 # ----------------------------------------------------------------
 myMdHeader = """---
 fileName: TheTitle
-# Last-edited: TIMESTAMP-- Danny Quah (me@DannyQuah.com)
+# Last-edited: TIMESTAMP -- Danny Quah (me@DannyQuah.com)
 Type: Event | Person | Notes | Publication | Log | Misc | Report
 Tags: China, US, LKYSPP, NUS, Hardware, Software, Talk, Write, Finance, COVID19
-# Created: TIMESTAMP-- Danny Quah (me@DannyQuah.com)
+# Created: TIMESTAMP -- Danny Quah (me@DannyQuah.com)
 
 output: pdf_document
 title: DocTitle

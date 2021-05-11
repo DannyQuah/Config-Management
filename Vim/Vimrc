@@ -1,5 +1,5 @@
 " @(#) db/Vim/Vimrc <- .vimrc
-" Last-edited: Fri 2021.02.12.1905 -- Danny Quah (me@DannyQuah.com)
+" Last-edited: Tue 2021.05.11.0659 -- Danny Quah (me@DannyQuah.com)
 " ----------------------------------------------------------------
 " Revision History:
 "  % Thu 2020.10.22.2247 -- Danny Quah (me@DannyQuah.com)
@@ -61,7 +61,7 @@ set visualbell                 "No sounds
 "set cursorline                 "Highlight current line
 "Adjust color https://codeyarns.com/tech/2011-07-29-vim-chart-of-color-names.html
 "highlight CursorLine term=none cterm=none ctermbg=3 guifg=gray0 guibg=azure
-
+set confirm
 
 " https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
 "                              "space is your <LEADER> (prev ',')
@@ -95,7 +95,7 @@ map <Leader><Leader>l <Plug>(easymotion-bd-jk)
 "                              "cycle through a, b registers
 nnoremap <Leader>Cr :let @x=@" \| let @"=@a \| let @a=@b \| let @b=@x<CR>
 "                              "copy filename into register a
-nnoremap <Leader>Cfn :let @a=@%<CR>  
+nnoremap <Leader>Cfn :let @+=@%<CR>
 "                              "visual line mode - discouraged
 "nmap <Leader><Leader> V
 "
@@ -103,7 +103,9 @@ nnoremap <Leader>Cfn :let @a=@%<CR>
 "  https://medium.com/@Aenon/vim-swap-backup-undo-git-2bf353caa02f
 "
 "                              "Put out of the way so they don't get synced
-set backupdir=~/tmp//
+set backupdir-=.
+set backupdir^=~/tmp,/tmp
+" set backupdir=~/tmp//
 set directory=~/tmp//
 set undodir=~/tmp//
 set noswapfile                "No need for swapfile
@@ -148,7 +150,8 @@ nnoremap <Leader>Qrn :set number relativenumber!<CR>
 set smarttab
 set tabstop=4                  "Width of TAB
 set softtabstop=4              "Number columns for a TAB
-"set expandtab                 |"Tabs to spaces // Makefile ssheet paste fail 
+"set expandtab                 |"Tabs to spaces //
+"                               "Makefile and ssheet paste fail 
 set noexpandtab
 set shiftwidth=4               "Indents have this width
 "
@@ -162,15 +165,15 @@ endif
 set lines=51 columns=160       "lines=48+n, n for mode lines,
                                "directory listing in netrw etc. 
                                "I have also experimented with
-							   "a sidebar (30 cols) for SideCal,
+                               "a sidebar (30 cols) for SideCal,
                                "netrw, and similar
 set termguicolors
 
-"let g:thematic#theme_name='base'
+"let g:thematic#theme_name='plain'
                                " Activate above or keep splashscreen
 
 "Editing ---------------------------------------------------------
-nnoremap A g_a 
+nnoremap A $a
 "                              |"Keep dropping into ex mode
 "https://vi.stackexchange.com/questions/457/does-ex-mode-have-any-practical-use
 nnoremap Q <nop>
@@ -298,6 +301,7 @@ augroup dqFilesFoldersGrp
   autocmd BufNewFile *.R   0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header-Rscript.R
   autocmd BufNewFile *.tex 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.tex
   autocmd BufNewFile *.py  0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.py
+  autocmd BufNewFile *.bat 0r ~/0/Scene/1/db/Templates/Plaintext/DQ-header.bat
   autocmd BufNewFile *.md silent execute "%! ".$HOME."/0/Scene/1/db/Vim/bin/yaml-head-md.py"
 
 "If too many markdown files that I don't need the YAML header each time,
